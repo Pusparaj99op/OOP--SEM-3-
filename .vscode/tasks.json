@@ -1,0 +1,55 @@
+{
+	"version": "2.0.0",
+	"tasks": [
+		{
+			"label": "Build C++ Program",
+			"type": "shell",
+			"command": "g++",
+			"args": [
+				"-g",
+				"${file}",
+				"-o",
+				"${fileDirname}\\${fileBasenameNoExtension}.exe"
+			],
+			"group": {
+				"kind": "build",
+				"isDefault": true
+			},
+			"problemMatcher": [
+				"$gcc"
+			],
+			"isBackground": false,
+			"detail": "Compile C++ files using g++"
+		},
+		{
+			"label": "Build C Program",
+			"type": "shell",
+			"command": "gcc",
+			"args": [
+				"-g",
+				"${file}",
+				"-o",
+				"${fileDirname}\\${fileBasenameNoExtension}.exe"
+			],
+			"group": "build",
+			"problemMatcher": ["$gcc"],
+			"detail": "Compile C files using gcc"
+		},
+		{
+			"label": "Run C++ Program",
+			"type": "shell",
+			"command": "${fileDirname}\\${fileBasenameNoExtension}.exe",
+			"group": "test",
+			"dependsOn": "Build C++ Program",
+			"detail": "Run the compiled C++ program"
+		},
+		{
+			"label": "Run C Program",
+			"type": "shell",
+			"command": "${fileDirname}\\${fileBasenameNoExtension}.exe",
+			"group": "test",
+			"dependsOn": "Build C Program",
+			"detail": "Run the compiled C program"
+		}
+	]
+}
