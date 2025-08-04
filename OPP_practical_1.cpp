@@ -1,6 +1,7 @@
 // Aim: To demonstrate the use of classes and objects in C++
 
 #include <iostream>
+#include <conio.h>
 #include <string>  
 using namespace std;
 
@@ -33,9 +34,7 @@ int main() {
     cout << "\n--- Student Details ---" << endl;
     s1.display(); 
     
-    cout << "\nHello, World!" << endl;
-    cout << "C++ is working correctly!" << endl;
-    cout << "Press Enter to continue..." << endl;
+    cout << "\nPress any key to exit..." << endl;
     
     cin.ignore(); 
     cin.get();    
