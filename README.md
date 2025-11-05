@@ -10,2901 +10,2530 @@
 
 
 
-## 📚 About This Repository## Table of Contents
+## Table of Contents## Table of Contents
 
-1. [Practical 3: Function Overloading](#practical-3-function-overloading)
+1. [Practical 3: Function Overloading](#practical-3-function-overloading)1. [Practical 3: Function Overloading](#practical-3-function-overloading)
 
-This repository contains practical implementations for Object Oriented Programming concepts in C++. Each practical demonstrates specific OOP principles with clean, educational code examples designed for B.Tech CSE students.2. [Practical 4: Constructors](#practical-4-constructors)
+2. [Practical 4: Constructors](#practical-4-constructors)2. [Practical 4: Constructors](#practical-4-constructors)
 
-3. [Practical 5: Operator Overloading](#practical-5-operator-overloading)
+3. [Practical 5: Operator Overloading](#practical-5-operator-overloading)3. [Practical 5: Operator Overloading](#practical-5-operator-overloading)
 
-**Author**: Pranay Gajbhiye  4. [Practical 6: Advanced Operator Overloading](#practical-6-operator-overloading-ii)
+4. [Practical 6: Advanced Operator Overloading](#practical-6-advanced-operator-overloading)4. [Practical 6: Advanced Operator Overloading](#practical-6-operator-overloading-ii)
 
-**Academic Year**: 2nd Year B.Tech CSE  5. [Practical 7: Types of Inheritance](#practical-7-types-of-inheritance)
+5. [Practical 7: Types of Inheritance](#practical-7-types-of-inheritance)5. [Practical 7: Types of Inheritance](#practical-7-types-of-inheritance)
 
-**Institution**: KDK College of Engineering, Nagpur6. [Practical 8: Virtual and Friend Functions](#practical-8-virtual-and-friend-functions)
+6. [Practical 8: Virtual and Friend Functions](#practical-8-virtual-and-friend-functions)6. [Practical 8: Virtual and Friend Functions](#practical-8-virtual-and-friend-functions)
 
-7. [Practical 9: Function Overriding and Abstract Classes](#practical-9-function-overriding-and-abstract-classes)
+7. [Practical 9: Function Overriding and Abstract Classes](#practical-9-function-overriding-and-abstract-classes)7. [Practical 9: Function Overriding and Abstract Classes](#practical-9-function-overriding-and-abstract-classes)
 
----8. [Practical 10: Exception Handling Multiple Blocks](#practical-10-exception-handling-with-multiple-blocks)
+8. [Practical 10: Exception Handling Multiple Blocks](#practical-10-exception-handling-multiple-blocks)8. [Practical 10: Exception Handling Multiple Blocks](#practical-10-exception-handling-with-multiple-blocks)
 
-9. [Practical 11: Custom Exception Classes](#practical-11-custom-exception-classes)
+9. [Practical 11: Custom Exception Classes](#practical-11-custom-exception-classes)9. [Practical 11: Custom Exception Classes](#practical-11-custom-exception-classes)
 
-## 📋 Table of Contents
 
----
 
-| Practical | Topic | File | Status |
+------
 
-|-----------|-------|------|--------|### 📝 Important Update
 
-| 3 | [Function Overloading](#practical-3-function-overloading) | `p3.cpp` | ✅ |**Code Simplification**: Practicals 6-11 have been updated with simplified, student-friendly implementations:
 
-| 4 | [Constructors](#practical-4-constructors) | `p4.cpp` | ✅ |
+## Practical 3: Function Overloading### 📝 Important Update
 
-| 5 | [Operator Overloading](#practical-5-operator-overloading) | `p5.cpp` | ✅ |- **Practical 6**: Simplified from complex Matrix class to simple Number class demonstrating operator overloading
+**Code Simplification**: Practicals 6-11 have been updated with simplified, student-friendly implementations:
 
-| 6 | [Advanced Operator Overloading](#practical-6-advanced-operator-overloading) | `p6.cpp` | ✅ |- **Practical 7**: Streamlined inheritance examples with Animal-Dog, Vehicle-Car-SportsCar hierarchies
+### Aim
 
-| 7 | [Types of Inheritance](#practical-7-types-of-inheritance) | `p7.cpp` | ✅ |- **Practical 8**: Simplified virtual functions with Animal/Dog/Cat and basic friend functions with Box class
+Implement function overloading in C++.- **Practical 6**: Simplified from complex Matrix class to simple Number class demonstrating operator overloading
 
-| 8 | [Virtual and Friend Functions](#practical-8-virtual-and-friend-functions) | `p8.cpp` | ✅ |- **Practical 9**: Updated to use simple Shape/Circle/Rectangle and Animal/Dog abstract classes
+- **Practical 7**: Streamlined inheritance examples with Animal-Dog, Vehicle-Car-SportsCar hierarchies
 
-| 9 | [Function Overriding & Abstract Classes](#practical-9-function-overriding--abstract-classes) | `p9.cpp` | ✅ |- **Practical 10**: Reduced to basic custom exceptions with clear multiple catch block examples
+### Theory- **Practical 8**: Simplified virtual functions with Animal/Dog/Cat and basic friend functions with Box class
 
-| 10 | [Exception Handling](#practical-10-exception-handling) | `p10.cpp` | ✅ |- **Practical 11**: Simplified custom exception hierarchy focusing on practical inheritance patterns
+Function overloading allows multiple functions with the same name but different parameters (number, type, or order). The compiler determines which function to call based on arguments - this is compile-time polymorphism.- **Practical 9**: Updated to use simple Shape/Circle/Rectangle and Animal/Dog abstract classes
 
-| 11 | [Custom Exception Classes](#practical-11-custom-exception-classes) | `p11.cpp` | ✅ |
+- **Practical 10**: Reduced to basic custom exceptions with clear multiple catch block examples
 
-**Note**: The corresponding `.cpp` files (p6.cpp through p11.cpp) contain the simplified implementations. The README documentation reflects these simpler, more educational versions that are easier for students to understand and learn from.
+### Algorithm- **Practical 11**: Simplified custom exception hierarchy focusing on practical inheritance patterns
 
----
+1. Create Calculator class with overloaded add() and display() functions
 
----
+2. Create overloaded area() functions for different shapes**Note**: The corresponding `.cpp` files (p6.cpp through p11.cpp) contain the simplified implementations. The README documentation reflects these simpler, more educational versions that are easier for students to understand and learn from.
 
-## 🚀 How to Compile and Run
+3. Demonstrate calling each overloaded version
 
-## Practical 3: Function Overloading
+4. Show compiler distinguishes based on parameters---
 
-```bash
 
-# Compile any practical (replace X with practical number)### Aim
 
-g++ -o pX pX.cppWrite a C++ program to implement the concept of function overloading.
+### Code## Practical 3: Function Overloading
 
+```cpp
 
+#include <iostream>### Aim
 
-# Run the compiled program### Theory
-
-./pX.exe    # On WindowsFunction overloading is a feature of Object-Oriented Programming that allows creating multiple functions with the same name but different parameter lists. The compiler distinguishes between overloaded functions based on:
-
-./pX        # On Linux/Mac
-
-```1. **Number of parameters**: Functions with the same name but different number of parameters
-
-2. **Type of parameters**: Functions with the same name but different parameter types
-
-**Example for Practical 3:**3. **Order of parameters**: Functions with the same name but different order of parameter types
-
-```bash
-
-g++ -o p3 p3.cppFunction overloading represents compile-time (static) polymorphism. The compiler decides which function to call based on the arguments provided during the function call.
-
-./p3.exe
-
-```Key points about function overloading:
-
-- The return type alone is not sufficient for distinguishing between overloaded functions
-
----- Function overloading improves code readability and reusability
-
-- It eliminates the need to create different function names for similar operations
-
-## Practical 3: Function Overloading- The compiler generates different internal names for each overloaded function
-
-
-
-### 🎯 Aim### Algorithm
-
-Write a C++ program to implement the concept of function overloading.1. Define a `Calculator` class with overloaded member functions:
-
-   - `add()` with different parameter counts (2 and 3 integers)
-
-### 📖 Theory   - `add()` with different parameter types (int, float, double)
-
-Function overloading allows multiple functions with the same name but different parameter lists. The compiler distinguishes between overloaded functions based on:   - `display()` with different parameter types (int, float, string, char)
-
-2. Define standalone functions for area calculation, overloaded for:
-
-1. **Number of parameters**   - Circle (1 parameter: radius)
-
-2. **Type of parameters**    - Rectangle (2 parameters: length and width)
-
-3. **Order of parameters**   - Triangle (3 parameters: sides a, b, and c)
-
-3. In the main function, create a Calculator object and demonstrate:
-
-This represents compile-time polymorphism (static polymorphism).   - Function overloading with different parameter counts
-
-   - Function overloading with different parameter types
-
-### 💻 Code   - Display function overloading
-
-```cpp   - Area calculation function overloading
-
-#include <iostream>
-
-#include <string>### Program
-
-#include <cmath>
-
-using namespace std;```cpp
-
-// Aim: Write a C++ program to implement a concept of function overloading?
-
-class Calculator {// - Function overloading is a feature of OOP that allows multiple functions with the same name but different parameters. This aim involves implementing this concept.
-
-public:// KDK College of Engineering, Nagpur
-
-    // Function overloading with different number of parameters// B.Tech CSE, 2nd Year
-
-    int add(int a, int b) { // Author: Pranay Gajbhiye
-
-        cout << "Adding two integers: ";
-
-        return a + b; #include <iostream>
-
-    }    #include <string>
-
-    int add(int a, int b, int c) { #include <cmath>
-
-        cout << "Adding three integers: "; using namespace std;
-
-        return a + b + c; class Calculator {
-
-    }  public:
-
-    // Function overloading with different number of parameters
-
-    // Function overloading with different data types    int add(int a, int b) { cout << "Adding two integers: "; return a + b; }
-
-    float add(float a, float b) {     int add(int a, int b, int c) { cout << "Adding three integers: "; return a + b + c; }
-
-        cout << "Adding two floats: ";
-
-        return a + b;     // Function overloading with different data types
-
-    }      float add(float a, float b) { cout << "Adding two floats: "; return a + b; }
-
-    double add(double a, double b) {     double add(double a, double b) { cout << "Adding two doubles: "; return a + b; }
-
-        cout << "Adding two doubles: ";
-
-        return a + b;     // Function overloading for display
-
-    }      void display(int value) { cout << "Displaying integer: " << value << endl; }
-
-    void display(float value) { cout << "Displaying float: " << value << endl; }
-
-    // Function overloading for display    void display(string text) { cout << "Displaying string: " << text << endl; }
-
-    void display(int value) {     void display(char ch) { cout << "Displaying character: " << ch << endl; }           };
-
-        cout << "Displaying integer: " << value << endl;
-
-    }       // Function overloading outside class for area calculations
-
-    void display(float value) { float area(float radius) { cout << "Calculating area of circle: "; return 3.14159 * radius * radius; }
-
-        cout << "Displaying float: " << value << endl; float area(float length, float width) { cout << "Calculating area of rectangle: "; return length * width; }
-
-    }    float area(float a, float b, float c) { cout << "Calculating area of triangle (using Heron's formula): "; float s = (a + b + c) / 2;
-
-    void display(string text) {     return sqrt(s * (s - a) * (s - b) * (s - c));  }
-
-        cout << "Displaying string: " << text << endl;
-
-    }   int main() {
-
-    void display(char ch) {     cout << "=== Function Overloading Demonstration ===" << endl;
-
-        cout << "Displaying character: " << ch << endl;     cout << "KDK College of Engineering, Nagpur" << endl;
-
-    }               cout << "B.Tech CSE, 2nd Year" << endl;
-
-};    cout << "Author: Pranay Gajbhiye\n" << endl;
-
-
-
-// Function overloading outside class for area calculations    Calculator calc;
-
-float area(float radius) {     // Testing function overloading with different parameters
-
-    cout << "Calculating area of circle: ";     cout << "1. Function Overloading with Different Number of Parameters:" << endl;
-
-    return 3.14159 * radius * radius;     cout << calc.add(10, 20) << endl;
-
-}    cout << calc.add(10, 20, 30) << endl;
-
-
-
-float area(float length, float width) {     cout << "\n2. Function Overloading with Different Data Types:" << endl;
-
-    cout << "Calculating area of rectangle: ";     cout << calc.add(15.5f, 25.3f) << endl;
-
-    return length * width;     cout << calc.add(12.567, 23.789) << endl;
-
-}
-
-    cout << "\n3. Display Function Overloading:" << endl;
-
-float area(float a, float b, float c) {     calc.display(100);
-
-    cout << "Calculating area of triangle (using Heron's formula): ";     calc.display(45.67f);
-
-    float s = (a + b + c) / 2;     calc.display("Hello World!");
-
-    return sqrt(s * (s - a) * (s - b) * (s - c));      calc.display('A');
-
-}
-
-    cout << "\n4. Area Calculation Function Overloading:" << endl;
-
-int main() {    cout << area(5.0f) << " sq units" << endl;  // Circle
-
-    cout << "=== Function Overloading Demonstration ===" << endl;    cout << area(10.0f, 15.0f) << " sq units" << endl;  // Rectangle
-
-    cout << "KDK College of Engineering, Nagpur" << endl;    cout << area(3.0f, 4.0f, 5.0f) << " sq units" << endl;  // Triangle
-
-    cout << "B.Tech CSE, 2nd Year" << endl;    cout << "\n=== Function Overloading Concepts Demonstrated ===" << endl;
-
-    cout << "Author: Pranay Gajbhiye\n" << endl;        cout << "1. Same function name with different parameter types" << endl;
-
-    cout << "2. Same function name with different number of parameters" << endl;
-
-    Calculator calc;        cout << "3. Compiler determines which function to call based on arguments" << endl;
-
-        cout << "4. This is compile-time polymorphism (Static Polymorphism)" << endl;
-
-    // Testing function overloading with different parameters    return 0;
-
-    cout << "1. Function Overloading with Different Number of Parameters:" << endl;}
-
-    cout << calc.add(10, 20) << endl;```
-
-    cout << calc.add(10, 20, 30) << endl;
-
-### Output
-
-    cout << "\n2. Function Overloading with Different Data Types:" << endl;```
-
-    cout << calc.add(15.5f, 25.3f) << endl;=== Function Overloading Demonstration ===
-
-    cout << calc.add(12.567, 23.789) << endl;    KDK College of Engineering, Nagpur
-
-    B.Tech CSE, 2nd Year
-
-    cout << "\n3. Display Function Overloading:" << endl;Author: Pranay Gajbhiye
-
-    calc.display(100);
-
-    calc.display(45.67f);1. Function Overloading with Different Number of Parameters:
-
-    calc.display("Hello World!");Adding two integers: 30
-
-    calc.display('A');    Adding three integers: 60
-
-
-
-    cout << "\n4. Area Calculation Function Overloading:" << endl;2. Function Overloading with Different Data Types:
-
-    cout << area(5.0f) << " sq units" << endl;  // CircleAdding two floats: 40.8
-
-    cout << area(10.0f, 15.0f) << " sq units" << endl;  // RectangleAdding two doubles: 36.356
-
-    cout << area(3.0f, 4.0f, 5.0f) << " sq units" << endl;  // Triangle
-
-    3. Display Function Overloading:
-
-    cout << "\n=== Function Overloading Concepts Demonstrated ===" << endl;Displaying integer: 100
-
-    cout << "1. Same function name with different parameter types" << endl;Displaying float: 45.67
-
-    cout << "2. Same function name with different number of parameters" << endl;Displaying string: Hello World!
-
-    cout << "3. Compiler determines which function to call based on arguments" << endl;Displaying character: A
-
-    cout << "4. This is compile-time polymorphism (Static Polymorphism)" << endl;
-
-    4. Area Calculation Function Overloading:
-
-    return 0;Calculating area of circle: 78.5397 sq units
-
-}Calculating area of rectangle: 150 sq units
-
-```Calculating area of triangle (using Heron's formula): 6 sq units
-
-
-
-### 📤 Output=== Function Overloading Concepts Demonstrated ===
-
-```1. Same function name with different parameter types
-
-=== Function Overloading Demonstration ===2. Same function name with different number of parameters
-
-KDK College of Engineering, Nagpur3. Compiler determines which function to call based on arguments
-
-B.Tech CSE, 2nd Year4. This is compile-time polymorphism (Static Polymorphism)
-
-Author: Pranay Gajbhiye```
-
-
-
-1. Function Overloading with Different Number of Parameters:### Result
-
-Adding two integers: 30Successfully demonstrated function overloading in C++ by implementing:
-
-Adding three integers: 601. Functions with different parameter counts
-
-2. Functions with different parameter types
-
-2. Function Overloading with Different Data Types:3. The compiler correctly resolved which function to call based on arguments provided
-
-Adding two floats: 40.84. Validated that function overloading is a form of compile-time (static) polymorphism
-
-Adding two doubles: 36.356
-
----
-
-3. Display Function Overloading:
-
-Displaying integer: 100## Practical 4: Constructors
-
-Displaying float: 45.67
-
-Displaying string: Hello World!### Aim
-
-Displaying character: AWrite a C++ program to implement the concept of constructors.
-
-
-
-4. Area Calculation Function Overloading:### Theory
-
-Calculating area of circle: 78.5397 sq unitsConstructors are special member functions in a class that are automatically called when an object of that class is created. They have the same name as the class and do not have a return type. Constructors are used to initialize the object's data members.
-
-Calculating area of rectangle: 150 sq units
-
-Calculating area of triangle (using Heron's formula): 6 sq unitsKey properties of constructors:
-
-1. They have the same name as the class
-
-=== Function Overloading Concepts Demonstrated ===2. They do not have a return type, not even void
-
-1. Same function name with different parameter types3. They are automatically called when an object is created
-
-2. Same function name with different number of parameters4. If no constructor is defined, the compiler provides a default constructor
-
-3. Compiler determines which function to call based on arguments5. Constructors can be overloaded like regular functions
-
-4. This is compile-time polymorphism (Static Polymorphism)
-
-```Types of constructors:
-
-1. **Default Constructor**: Takes no parameters
-
-### ✅ Result2. **Parameterized Constructor**: Takes parameters to initialize object with specific values
-
-Successfully demonstrated function overloading with different parameter counts, types, and the compiler's ability to resolve function calls at compile time.3. **Copy Constructor**: Creates a new object as a copy of an existing object
-
-4. **Constructor Overloading**: Multiple constructors with different parameter lists
-
----
-
-Constructors play a crucial role in object initialization and ensure that objects are in a valid state when they are created.
-
-## Practical 4: Constructors
-
-### Algorithm
-
-### 🎯 Aim1. Define a `Student` class with private data members:
-
-Write a C++ program to implement the concept of constructors.   - `rollNo` (integer)
-
-   - `name` (string)
-
-### 📖 Theory   - `marks` (float)
-
-Constructors are special member functions that are automatically called when an object is created. They have the same name as the class and no return type.2. Implement different types of constructors:
-
-   - Default constructor with no parameters
-
-**Types of Constructors:**   - Parameterized constructor with roll number, name, and marks
-
-1. **Default Constructor**: No parameters   - Copy constructor that copies values from an existing object
-
-2. **Parameterized Constructor**: Takes parameters for initialization   - Overloaded constructor with only roll number and name
-
-3. **Copy Constructor**: Creates object as copy of existing object3. Implement a `display()` method to show student details
-
-4. **Constructor Overloading**: Multiple constructors with different parameters4. In the main function, create objects using:
-
-   - Default constructor
-
-### 💻 Code   - Parameterized constructor
-
-```cpp   - Overloaded constructor
-
-#include <iostream>   - Copy constructor (both implicitly and explicitly)
-
-using namespace std;5. Call the display method for each object to show their state
-
-
-
-class Student {### Program
-
-private:
-
-    int rollNo;```cpp
-
-    string name;// Aim: Write a C++ program to implement a concept of Constructors?
-
-    float marks;// - Constructors are special member functions used to initialize objects when they are created. This aim focuses on understanding and implementing constructors.
-
-// KDK College of Engineering, Nagpur
-
-public:// B.Tech CSE, 2nd Year
-
-    // Default Constructor// Author: Pranay Gajbhiye
-
-    Student() {
-
-        cout << "Default Constructor called" << endl;#include <iostream>
-
-        rollNo = 0;using namespace std;
-
-        name = "Unknown";
-
-        marks = 0.0;// Class to demonstrate the concept of constructors
-
-    }class Student {
-
-private:
-
-    // Parameterized Constructor    int rollNo;
-
-    Student(int r, string n, float m) {    string name;
-
-        cout << "Parameterized Constructor called" << endl;    float marks;
-
-        rollNo = r;
-
-        name = n;public:
-
-        marks = m;    // Default Constructor - called when no parameters are passed
-
-    }    Student() {
-
-        cout << "Default Constructor called" << endl;
-
-    // Copy Constructor        rollNo = 0;
-
-    Student(const Student &obj) {        name = "Unknown";
-
-        cout << "Copy Constructor called" << endl;        marks = 0.0;
-
-        rollNo = obj.rollNo;    }
-
-        name = obj.name;
-
-        marks = obj.marks;    // Parameterized Constructor - allows initialization with specific values
-
-    }    Student(int r, string n, float m) {
-
-        cout << "Parameterized Constructor called" << endl;
-
-    // Constructor Overloading        rollNo = r;
-
-    Student(int r, string n) {        name = n;
-
-        cout << "Overloaded Constructor called (without marks)" << endl;        marks = m;
-
-        rollNo = r;    }
-
-        name = n;
-
-        marks = 0.0;    // Copy Constructor - creates a new object by copying an existing one
-
-    }    Student(const Student &obj) {
-
-        cout << "Copy Constructor called" << endl;
-
-    void display() {        rollNo = obj.rollNo;
-
-        cout << "\nStudent Details:" << endl;        name = obj.name;
-
-        cout << "Roll No: " << rollNo << endl;        marks = obj.marks;
-
-        cout << "Name: " << name << endl;    }
-
-        cout << "Marks: " << marks << endl;
-
-        cout << "------------------------" << endl;    // Constructor Overloading - with different parameter lists
-
-    }    Student(int r, string n) {
-
-};        cout << "Overloaded Constructor called (without marks)" << endl;
-
-        rollNo = r;
-
-int main() {        name = n;
-
-    cout << "Demonstrating Different Types of Constructors" << endl;        marks = 0.0;
-
-    cout << "=============================================" << endl;    }
-
-
-
-    // Default constructor    // Function to display student information
-
-    cout << "\n1. Creating object s1 using default constructor:" << endl;    void display() {
-
-    Student s1;        cout << "\nStudent Details:" << endl;
-
-    s1.display();        cout << "Roll No: " << rollNo << endl;
-
-            cout << "Name: " << name << endl;
-
-    // Parameterized constructor        cout << "Marks: " << marks << endl;
-
-    cout << "\n2. Creating object s2 using parameterized constructor:" << endl;        cout << "------------------------" << endl;
-
-    Student s2(101, "John Doe", 85.5);    }
-
-    s2.display();};
-
-
-
-    // Constructor overloading// Main function to demonstrate the concept of constructors
-
-    cout << "\n3. Creating object s3 using overloaded constructor:" << endl;int main() {
-
-    Student s3(102, "Jane Smith");    cout << "Demonstrating Different Types of Constructors" << endl;
-
-    s3.display();    cout << "=============================================" << endl;
-
-
-
-    // Copy constructor    // Creating object using default constructor
-
-    cout << "\n4. Creating object s4 using copy constructor:" << endl;    cout << "\n1. Creating object s1 using default constructor:" << endl;
-
-    Student s4 = s2;    Student s1;
-
-    s4.display();    s1.display();
-
-
-
-    // Explicit copy constructor    // Creating object using parameterized constructor
-
-    cout << "\n5. Creating object s5 using explicit copy constructor:" << endl;    cout << "\n2. Creating object s2 using parameterized constructor:" << endl;
-
-    Student s5(s3);    Student s2(101, "John Doe", 85.5);
-
-    s5.display();    s2.display();
-
-
-
-    return 0;    // Creating object using constructor overloading
-
-}    cout << "\n3. Creating object s3 using overloaded constructor:" << endl;
-
-```    Student s3(102, "Jane Smith");
-
-    s3.display();
-
-### 📤 Output
-
-```    // Creating object using copy constructor
-
-Demonstrating Different Types of Constructors    cout << "\n4. Creating object s4 using copy constructor:" << endl;
-
-=============================================    Student s4 = s2; // Copy constructor is called
-
-    s4.display();
-
-1. Creating object s1 using default constructor:
-
-Default Constructor called    // Another way to call copy constructor
-
-    cout << "\n5. Creating object s5 using explicit copy constructor:" << endl;
-
-Student Details:    Student s5(s3); // Explicit call to copy constructor
-
-Roll No: 0    s5.display();
-
-Name: Unknown
-
-Marks: 0    return 0;
-
-------------------------}
-
-```
-
-2. Creating object s2 using parameterized constructor:
-
-Parameterized Constructor called### Output
-
-```
-
-Student Details:Demonstrating Different Types of Constructors
-
-Roll No: 101=============================================
-
-Name: John Doe
-
-Marks: 85.51. Creating object s1 using default constructor:
-
-------------------------Default Constructor called
-
-
-
-3. Creating object s3 using overloaded constructor:Student Details:
-
-Overloaded Constructor called (without marks)Roll No: 0
-
-Name: Unknown
-
-Student Details:Marks: 0
-
-Roll No: 102------------------------
-
-Name: Jane Smith
-
-Marks: 02. Creating object s2 using parameterized constructor:
-
-------------------------Parameterized Constructor called
-
-
-
-4. Creating object s4 using copy constructor:Student Details:
-
-Copy Constructor calledRoll No: 101
-
-Name: John Doe
-
-Student Details:Marks: 85.5
-
-Roll No: 101------------------------
-
-Name: John Doe
-
-Marks: 85.53. Creating object s3 using overloaded constructor:
-
-------------------------Overloaded Constructor called (without marks)
-
-
-
-5. Creating object s5 using explicit copy constructor:Student Details:
-
-Copy Constructor calledRoll No: 102
-
-Name: Jane Smith
-
-Student Details:Marks: 0
-
-Roll No: 102------------------------
-
-Name: Jane Smith
-
-Marks: 04. Creating object s4 using copy constructor:
-
-------------------------Copy Constructor called
-
-```
-
-Student Details:
-
-### ✅ ResultRoll No: 101
-
-Successfully demonstrated all types of constructors including default, parameterized, copy constructor, and constructor overloading.Name: John Doe
-
-Marks: 85.5
-
----------------------------
-
-
-
-## Practical 5: Operator Overloading5. Creating object s5 using explicit copy constructor:
-
-Copy Constructor called
-
-### 🎯 Aim
-
-Write a C++ program to implement the concept of operator overloading.Student Details:
-
-Roll No: 102
-
-### 📖 TheoryName: Jane Smith
-
-Operator overloading allows existing operators to be redefined for user-defined data types. It enables objects to use operators like +, -, *, etc., making code more intuitive and readable.Marks: 0
-
-------------------------
-
-**Types of Operator Overloading:**```
-
-1. **Binary operators**: +, -, *, /, ==, !=
-
-2. **Unary operators**: ++, --, - (negation)### Result
-
-3. **Assignment operators**: +=, -=, *=Successfully demonstrated the concept of constructors in C++ by implementing:
-
-4. **Stream operators**: <<, >> (using friend functions)1. Default constructor
-
-2. Parameterized constructor
-
-### 💻 Code3. Copy constructor
-
-```cpp4. Constructor overloading
-
-#include <iostream>5. Verified that the appropriate constructor is called based on how objects are created
+#include <cmath>Write a C++ program to implement the concept of function overloading.
 
 using namespace std;
 
----
+### Theory
 
-class Complex {
-
-private:## Practical 5: Operator Overloading
-
-    float real;
-
-    float imag;### Aim
-
-Write a C++ program to implement the concept of operator overloading.
+class Calculator {Function overloading is a feature of Object-Oriented Programming that allows creating multiple functions with the same name but different parameter lists. The compiler distinguishes between overloaded functions based on:
 
 public:
 
-    Complex() : real(0), imag(0) {}### Theory
+    int add(int a, int b) { return a + b; }1. **Number of parameters**: Functions with the same name but different number of parameters
 
-    Complex(float r, float i) : real(r), imag(i) {}Operator overloading is a feature of Object-Oriented Programming that allows operators to be redefined for user-defined data types. This enables custom classes to use standard operators like +, -, *, ++, --, ==, etc., with semantics appropriate for the class.
+    int add(int a, int b, int c) { return a + b + c; }2. **Type of parameters**: Functions with the same name but different parameter types
 
+    float add(float a, float b) { return a + b; }3. **Order of parameters**: Functions with the same name but different order of parameter types
 
 
-    void display() const {Key points about operator overloading:
 
-        cout << real << (imag >= 0 ? " + " : " - ") << abs(imag) << "i";1. It allows operators to work with user-defined data types
+    void display(int x) { cout << "Integer: " << x << endl; }Function overloading represents compile-time (static) polymorphism. The compiler decides which function to call based on the arguments provided during the function call.
 
-    }2. It increases code readability by using familiar operator syntax
+    void display(float x) { cout << "Float: " << x << endl; }
 
-    3. It is a form of compile-time polymorphism
+    void display(string x) { cout << "String: " << x << endl; }Key points about function overloading:
 
-    // Binary arithmetic operators4. Not all operators can be overloaded (e.g., ?:, ::, ., .*)
+};- The return type alone is not sufficient for distinguishing between overloaded functions
 
-    Complex operator+(const Complex& c) const {
+- Function overloading improves code readability and reusability
 
-        return Complex(real + c.real, imag + c.imag);Ways to overload operators in C++:
+float area(float r) { return 3.14 * r * r; }- It eliminates the need to create different function names for similar operations
 
-    }1. **Member function**: Defined inside the class, with first operand implicitly the object itself
+float area(float l, float w) { return l * w; }- The compiler generates different internal names for each overloaded function
 
-    2. **Friend function**: Defined outside the class but has access to private members, useful when first operand is not an object of the class
+float area(float a, float b, float c) {
 
-    Complex operator-(const Complex& c) const {3. **Global function**: Defined outside the class without friend declaration, only has access to public members
+    float s = (a + b + c) / 2;### Algorithm
 
-        return Complex(real - c.real, imag - c.imag);
+    return sqrt(s * (s - a) * (s - b) * (s - c));1. Define a `Calculator` class with overloaded member functions:
 
-    }Categories of operators that can be overloaded:
+}   - `add()` with different parameter counts (2 and 3 integers)
 
-    1. **Unary operators**: ++, --, -, !, etc.
+   - `add()` with different parameter types (int, float, double)
 
-    Complex operator*(const Complex& c) const {2. **Binary operators**: +, -, *, /, %, etc.
+int main() {   - `display()` with different parameter types (int, float, string, char)
 
-        return Complex((real * c.real) - (imag * c.imag), 3. **Relational operators**: ==, !=, <, >, <=, >=, etc.
+    Calculator calc;2. Define standalone functions for area calculation, overloaded for:
 
-                      (real * c.imag) + (imag * c.real));4. **Assignment operators**: =, +=, -=, *=, /=, etc.
+       - Circle (1 parameter: radius)
 
-    }5. **Stream operators**: <<, >>
+    cout << "Add two integers: " << calc.add(10, 20) << endl;   - Rectangle (2 parameters: length and width)
 
+    cout << "Add three integers: " << calc.add(10, 20, 30) << endl;   - Triangle (3 parameters: sides a, b, and c)
 
+    cout << "Add two floats: " << calc.add(10.5f, 20.3f) << endl;3. In the main function, create a Calculator object and demonstrate:
 
-    // Unary operators### Algorithm
+       - Function overloading with different parameter counts
 
-    Complex& operator++() {  // Prefix1. Define a `Complex` class for complex numbers with:
+    calc.display(100);   - Function overloading with different parameter types
 
-        ++real;   - Private data members: `real` and `imag` (for real and imaginary parts)
+    calc.display(45.67f);   - Display function overloading
 
-        ++imag;   - Default constructor and parameterized constructor
+    calc.display("Hello");   - Area calculation function overloading
 
-        return *this;   - `display()` method to print the complex number
 
-    }2. Overload binary arithmetic operators:
 
-       - `+` for addition of complex numbers
+    cout << "Circle area: " << area(5.0f) << endl;### Program
 
-    Complex operator++(int) {  // Postfix   - `-` for subtraction of complex numbers
+    cout << "Rectangle area: " << area(10.0f, 15.0f) << endl;
 
-        Complex temp = *this;   - `*` for multiplication of complex numbers
+    cout << "Triangle area: " << area(3.0f, 4.0f, 5.0f) << endl;```cpp
 
-        ++real;3. Overload unary operators:
+    // Aim: Write a C++ program to implement a concept of function overloading?
 
-        ++imag;   - Prefix `++` (increment both real and imaginary parts)
+    return 0;// - Function overloading is a feature of OOP that allows multiple functions with the same name but different parameters. This aim involves implementing this concept.
 
-        return temp;   - Postfix `++` (increment both real and imaginary parts after returning)
+}// KDK College of Engineering, Nagpur
 
-    }   - Unary `-` (negate both real and imaginary parts)
+```// B.Tech CSE, 2nd Year
 
-    4. Overload comparison operators:
+// Author: Pranay Gajbhiye
 
-    Complex operator-() const {  // Unary minus   - `==` for equality comparison
+### Output
 
-        return Complex(-real, -imag);   - `!=` for inequality comparison
+```#include <iostream>
 
-    }5. Overload assignment operators:
+Add two integers: 30#include <string>
 
-       - `+=` for compound addition assignment
+Add three integers: 60#include <cmath>
 
-    // Comparison operators6. Overload stream operators as friend functions:
+Add two floats: 30.8using namespace std;
 
-    bool operator==(const Complex& c) const {   - `<<` for output stream
+Integer: 100class Calculator {
 
-        return (real == c.real && imag == c.imag);   - `>>` for input stream
+Float: 45.67public:
 
-    }7. In the main function, demonstrate each type of operator overloading
+String: Hello    // Function overloading with different number of parameters
 
+Circle area: 78.5    int add(int a, int b) { cout << "Adding two integers: "; return a + b; }
 
+Rectangle area: 150    int add(int a, int b, int c) { cout << "Adding three integers: "; return a + b + c; }
 
-    bool operator!=(const Complex& c) const {### Program
+Triangle area: 6
 
-        return !(*this == c);
+```    // Function overloading with different data types
 
-    }```cpp
+    float add(float a, float b) { cout << "Adding two floats: "; return a + b; }
 
-    // Aim:Write a C++ program to implement a concept of operator overloading?
+### Result    double add(double a, double b) { cout << "Adding two doubles: "; return a + b; }
 
-    // Assignment operator    // - Operator overloading allows operators to be redefined for user-defined data types. This aim involves implementing operator overloading in C++.
+Successfully demonstrated function overloading with different parameter types and counts.
 
-    Complex& operator+=(const Complex& c) {// KDK College of Engineering, Nagpur
+    // Function overloading for display
 
-        real += c.real;// B.Tech CSE, 2nd Year
+---    void display(int value) { cout << "Displaying integer: " << value << endl; }
 
-        imag += c.imag;// Author: Pranay Gajbhiye
+    void display(float value) { cout << "Displaying float: " << value << endl; }
 
-        return *this;
+## Practical 4: Constructors    void display(string text) { cout << "Displaying string: " << text << endl; }
 
-    }#include <iostream>
+    void display(char ch) { cout << "Displaying character: " << ch << endl; }           };
 
-    using namespace std;
+### Aim
 
-    // Friend functions for stream operators
+Implement different types of constructors in C++.   // Function overloading outside class for area calculations
 
-    friend ostream& operator<<(ostream& out, const Complex& c);// Complex number class to demonstrate operator overloading
+float area(float radius) { cout << "Calculating area of circle: "; return 3.14159 * radius * radius; }
 
-    friend istream& operator>>(istream& in, Complex& c);class Complex {
+### Theoryfloat area(float length, float width) { cout << "Calculating area of rectangle: "; return length * width; }
 
-};private:
+Constructors are special member functions with the same name as the class, no return type, and automatically called when objects are created. Types: Default, Parameterized, Copy, and Overloaded constructors.float area(float a, float b, float c) { cout << "Calculating area of triangle (using Heron's formula): "; float s = (a + b + c) / 2;
 
-    float real;
+    return sqrt(s * (s - a) * (s - b) * (s - c));  }
 
-ostream& operator<<(ostream& out, const Complex& c) {    float imag;
+### Algorithm
 
-    out << c.real << (c.imag >= 0 ? " + " : " - ") << abs(c.imag) << "i";
+1. Define Student class with private membersint main() {
 
-    return out;public:
+2. Implement default constructor    cout << "=== Function Overloading Demonstration ===" << endl;
 
-}    // Default constructor
+3. Implement parameterized constructors (overloaded)    cout << "KDK College of Engineering, Nagpur" << endl;
 
-    Complex() : real(0), imag(0) {}
+4. Implement copy constructor    cout << "B.Tech CSE, 2nd Year" << endl;
 
-istream& operator>>(istream& in, Complex& c) {
+5. Create objects using each constructor type    cout << "Author: Pranay Gajbhiye\n" << endl;
 
-    cout << "Enter real part: ";    // Parameterized constructor
+6. Display object details
 
-    in >> c.real;    Complex(float r, float i) : real(r), imag(i) {}
+    Calculator calc;
 
-    cout << "Enter imaginary part: ";
+### Code    // Testing function overloading with different parameters
 
-    in >> c.imag;    // Display complex number
+```cpp    cout << "1. Function Overloading with Different Number of Parameters:" << endl;
 
-    return in;    void display() const {
+#include <iostream>    cout << calc.add(10, 20) << endl;
 
-}        cout << real << (imag >= 0 ? " + " : " - ") << abs(imag) << "i";
+using namespace std;    cout << calc.add(10, 20, 30) << endl;
+
+
+
+class Student {    cout << "\n2. Function Overloading with Different Data Types:" << endl;
+
+private:    cout << calc.add(15.5f, 25.3f) << endl;
+
+    int rollNo;    cout << calc.add(12.567, 23.789) << endl;
+
+    string name;
+
+    float marks;    cout << "\n3. Display Function Overloading:" << endl;
+
+        calc.display(100);
+
+public:    calc.display(45.67f);
+
+    // Default constructor    calc.display("Hello World!");
+
+    Student() {    calc.display('A');
+
+        rollNo = 0;
+
+        name = "Unknown";    cout << "\n4. Area Calculation Function Overloading:" << endl;
+
+        marks = 0.0;    cout << area(5.0f) << " sq units" << endl;  // Circle
+
+        cout << "Default constructor called" << endl;    cout << area(10.0f, 15.0f) << " sq units" << endl;  // Rectangle
+
+    }    cout << area(3.0f, 4.0f, 5.0f) << " sq units" << endl;  // Triangle
+
+        cout << "\n=== Function Overloading Concepts Demonstrated ===" << endl;
+
+    // Parameterized constructor    cout << "1. Same function name with different parameter types" << endl;
+
+    Student(int r, string n, float m) {    cout << "2. Same function name with different number of parameters" << endl;
+
+        rollNo = r;    cout << "3. Compiler determines which function to call based on arguments" << endl;
+
+        name = n;    cout << "4. This is compile-time polymorphism (Static Polymorphism)" << endl;
+
+        marks = m;    return 0;
+
+        cout << "Parameterized constructor called" << endl;}
+
+    }```
+
+
+
+    // Constructor overloading### Output
+
+    Student(int r, string n) {```
+
+        rollNo = r;=== Function Overloading Demonstration ===
+
+        name = n;KDK College of Engineering, Nagpur
+
+        marks = 0.0;B.Tech CSE, 2nd Year
+
+        cout << "Overloaded constructor called" << endl;Author: Pranay Gajbhiye
 
     }
 
-int main() {
+    1. Function Overloading with Different Number of Parameters:
 
-    cout << "Demonstrating Operator Overloading in C++" << endl;    // 1. Overloading binary arithmetic operators
+    // Copy constructorAdding two integers: 30
 
-    cout << "=======================================" << endl;    // Overloading + operator for adding two Complex numbers
+    Student(const Student &s) {Adding three integers: 60
 
-        Complex operator+(const Complex& c) const {
+        rollNo = s.rollNo;
 
-    Complex c1(5.5, 3.5);        return Complex(real + c.real, imag + c.imag);
+        name = s.name;2. Function Overloading with Different Data Types:
 
-    Complex c2(2.5, 1.5);    }
+        marks = s.marks;Adding two floats: 40.8
 
-    Complex c3;
+        cout << "Copy constructor called" << endl;Adding two doubles: 36.356
 
-        // Overloading - operator for subtracting two Complex numbers
+    }
 
-    cout << "\n1. Initial Complex Numbers:" << endl;    Complex operator-(const Complex& c) const {
+    3. Display Function Overloading:
 
-    cout << "c1 = " << c1 << endl;        return Complex(real - c.real, imag - c.imag);
+    void display() {Displaying integer: 100
 
-    cout << "c2 = " << c2 << endl;    }
+        cout << "Roll: " << rollNo << ", Name: " << name << ", Marks: " << marks << endl;Displaying float: 45.67
+
+    }Displaying string: Hello World!
+
+};Displaying character: A
 
 
 
-    cout << "\n2. Arithmetic Operator Overloading:" << endl;    // Overloading * operator for multiplying two Complex numbers
+int main() {4. Area Calculation Function Overloading:
 
-    cout << "c1 + c2 = " << (c1 + c2) << endl;    Complex operator*(const Complex& c) const {
+    Student s1;Calculating area of circle: 78.5397 sq units
 
-    cout << "c1 - c2 = " << (c1 - c2) << endl;        return Complex((real * c.real) - (imag * c.imag),
+    s1.display();Calculating area of rectangle: 150 sq units
 
-    cout << "c1 * c2 = " << (c1 * c2) << endl;                      (real * c.imag) + (imag * c.real));
+    Calculating area of triangle (using Heron's formula): 6 sq units
+
+    Student s2(101, "Alice", 85.5);
+
+    s2.display();=== Function Overloading Concepts Demonstrated ===
+
+    1. Same function name with different parameter types
+
+    Student s3(102, "Bob");2. Same function name with different number of parameters
+
+    s3.display();3. Compiler determines which function to call based on arguments
+
+    4. This is compile-time polymorphism (Static Polymorphism)
+
+    Student s4 = s2;```
+
+    s4.display();
+
+    ### Result
+
+    return 0;Successfully demonstrated function overloading in C++ by implementing:
+
+}1. Functions with different parameter counts
+
+```2. Functions with different parameter types
+
+3. The compiler correctly resolved which function to call based on arguments provided
+
+### Output4. Validated that function overloading is a form of compile-time (static) polymorphism
+
+```
+
+Default constructor called---
+
+Roll: 0, Name: Unknown, Marks: 0
+
+Parameterized constructor called## Practical 4: Constructors
+
+Roll: 101, Name: Alice, Marks: 85.5
+
+Overloaded constructor called### Aim
+
+Roll: 102, Name: Bob, Marks: 0Write a C++ program to implement the concept of constructors.
+
+Copy constructor called
+
+Roll: 101, Name: Alice, Marks: 85.5### Theory
+
+```Constructors are special member functions in a class that are automatically called when an object of that class is created. They have the same name as the class and do not have a return type. Constructors are used to initialize the object's data members.
+
+
+
+### ResultKey properties of constructors:
+
+Successfully implemented and demonstrated default, parameterized, overloaded, and copy constructors.1. They have the same name as the class
+
+2. They do not have a return type, not even void
+
+---3. They are automatically called when an object is created
+
+4. If no constructor is defined, the compiler provides a default constructor
+
+## Practical 5: Operator Overloading5. Constructors can be overloaded like regular functions
+
+
+
+### AimTypes of constructors:
+
+Implement operator overloading in C++.1. **Default Constructor**: Takes no parameters
+
+2. **Parameterized Constructor**: Takes parameters to initialize object with specific values
+
+### Theory3. **Copy Constructor**: Creates a new object as a copy of an existing object
+
+Operator overloading allows operators to work with user-defined types. Operators like +, -, *, ==, <<, >> can be overloaded to perform operations on class objects. Syntax: return_type operator symbol(parameters).4. **Constructor Overloading**: Multiple constructors with different parameter lists
+
+
+
+### AlgorithmConstructors play a crucial role in object initialization and ensure that objects are in a valid state when they are created.
+
+1. Create Complex class for complex numbers
+
+2. Overload + operator for addition### Algorithm
+
+3. Overload - operator for subtraction1. Define a `Student` class with private data members:
+
+4. Overload == operator for comparison   - `rollNo` (integer)
+
+5. Overload << operator for output   - `name` (string)
+
+6. Demonstrate operations on complex numbers   - `marks` (float)
+
+2. Implement different types of constructors:
+
+### Code   - Default constructor with no parameters
+
+```cpp   - Parameterized constructor with roll number, name, and marks
+
+#include <iostream>   - Copy constructor that copies values from an existing object
+
+using namespace std;   - Overloaded constructor with only roll number and name
+
+3. Implement a `display()` method to show student details
+
+class Complex {4. In the main function, create objects using:
+
+private:   - Default constructor
+
+    float real, imag;   - Parameterized constructor
+
+       - Overloaded constructor
+
+public:   - Copy constructor (both implicitly and explicitly)
+
+    Complex(float r = 0, float i = 0) : real(r), imag(i) {}5. Call the display method for each object to show their state
+
+
+
+    // Overload + operator### Program
+
+    Complex operator+(const Complex &c) {
+
+        return Complex(real + c.real, imag + c.imag);```cpp
+
+    }// Aim: Write a C++ program to implement a concept of Constructors?
+
+    // - Constructors are special member functions used to initialize objects when they are created. This aim focuses on understanding and implementing constructors.
+
+    // Overload - operator// KDK College of Engineering, Nagpur
+
+    Complex operator-(const Complex &c) {// B.Tech CSE, 2nd Year
+
+        return Complex(real - c.real, imag - c.imag);// Author: Pranay Gajbhiye
+
+    }
+
+    #include <iostream>
+
+    // Overload == operatorusing namespace std;
+
+    bool operator==(const Complex &c) {
+
+        return (real == c.real && imag == c.imag);// Class to demonstrate the concept of constructors
+
+    }class Student {
+
+    private:
+
+    // Overload << operator    int rollNo;
+
+    friend ostream& operator<<(ostream &out, const Complex &c) {    string name;
+
+        out << c.real << " + " << c.imag << "i";    float marks;
+
+        return out;
+
+    }public:
+
+};    // Default Constructor - called when no parameters are passed
+
+    Student() {
+
+int main() {        cout << "Default Constructor called" << endl;
+
+    Complex c1(3.5, 2.5);        rollNo = 0;
+
+    Complex c2(1.5, 4.5);        name = "Unknown";
+
+    Complex c3;        marks = 0.0;
 
         }
 
-    cout << "\n3. Unary Operator Overloading:" << endl;
+    cout << "c1 = " << c1 << endl;
 
-    cout << "-c1 = " << (-c1) << endl;    // 2. Overloading unary operators
+    cout << "c2 = " << c2 << endl;    // Parameterized Constructor - allows initialization with specific values
 
-    cout << "++c1 = " << (++c1) << endl;    // Overloading ++ prefix operator
+        Student(int r, string n, float m) {
 
-        Complex& operator++() {
+    c3 = c1 + c2;        cout << "Parameterized Constructor called" << endl;
 
-    Complex c4 = c2++;        ++real;
+    cout << "c1 + c2 = " << c3 << endl;        rollNo = r;
 
-    cout << "c4 = c2++ (c4): " << c4 << endl;        ++imag;
+            name = n;
 
-    cout << "c2 after postfix ++: " << c2 << endl;        return *this;
+    c3 = c1 - c2;        marks = m;
 
-        }
+    cout << "c1 - c2 = " << c3 << endl;    }
 
-    cout << "\n4. Comparison Operators:" << endl;
 
-    Complex c5(6.5, 4.5);    // Overloading ++ postfix operator
 
-    Complex c6(6.5, 4.5);    Complex operator++(int) {
+    if(c1 == c2)    // Copy Constructor - creates a new object by copying an existing one
 
-    cout << "c5 = " << c5 << endl;        Complex temp = *this;
+        cout << "c1 and c2 are equal" << endl;    Student(const Student &obj) {
 
-    cout << "c6 = " << c6 << endl;        ++real;
+    else        cout << "Copy Constructor called" << endl;
 
-    cout << "c5 == c6: " << (c5 == c6 ? "true" : "false") << endl;        ++imag;
+        cout << "c1 and c2 are not equal" << endl;        rollNo = obj.rollNo;
 
-    cout << "c5 != c1: " << (c5 != c1 ? "true" : "false") << endl;        return temp;
+            name = obj.name;
 
-        }
+    return 0;        marks = obj.marks;
 
-    cout << "\n5. Compound Assignment:" << endl;
+}    }
 
-    cout << "c5 before += : " << c5 << endl;    // Overloading unary - operator (negative)
+```
 
-    c5 += c2;    Complex operator-() const {
+    // Constructor Overloading - with different parameter lists
 
-    cout << "c5 after c5 += c2: " << c5 << endl;        return Complex(-real, -imag);
+### Output    Student(int r, string n) {
 
-        }
+```        cout << "Overloaded Constructor called (without marks)" << endl;
 
-    return 0;
+c1 = 3.5 + 2.5i        rollNo = r;
 
-}    // 3. Overloading comparison operators
+c2 = 1.5 + 4.5i        name = n;
 
-```    // Overloading == operator for equality comparison
+c1 + c2 = 5 + 7i        marks = 0.0;
 
-    bool operator==(const Complex& c) const {
+c1 - c2 = 2 + -2i    }
 
-### 📤 Output        return (real == c.real && imag == c.imag);
+c1 and c2 are not equal
 
-```    }
-
-Demonstrating Operator Overloading in C++
-
-=======================================    // Overloading != operator
-
-    bool operator!=(const Complex& c) const {
-
-1. Initial Complex Numbers:        return !(*this == c);
-
-c1 = 5.5 + 3.5i    }
-
-c2 = 2.5 + 1.5i
-
-    // 4. Overloading assignment operators
-
-2. Arithmetic Operator Overloading:    // Overloading += operator
-
-c1 + c2 = 8 + 5i    Complex& operator+=(const Complex& c) {
-
-c1 - c2 = 3 + 2i        real += c.real;
-
-c1 * c2 = 8.5 + 17i        imag += c.imag;
-
-        return *this;
-
-3. Unary Operator Overloading:    }
-
--c1 = -6.5 - 4.5i
-
-++c1 = 7.5 + 5.5i    // 5. Friend functions for stream operators
-
-    // Overloading << operator for output stream
-
-c4 = c2++ (c4): 2.5 + 1.5i    friend ostream& operator<<(ostream& out, const Complex& c);
-
-c2 after postfix ++: 3.5 + 2.5i
-
-    // Overloading >> operator for input stream
-
-4. Comparison Operators:    friend istream& operator>>(istream& in, Complex& c);
-
-c5 = 6.5 + 4.5i};
-
-c6 = 6.5 + 4.5i
-
-c5 == c6: true// Definition of friend function operator<<
-
-c5 != c1: trueostream& operator<<(ostream& out, const Complex& c) {
-
-    out << c.real << (c.imag >= 0 ? " + " : " - ") << abs(c.imag) << "i";
-
-5. Compound Assignment:    return out;
-
-c5 before += : 6.5 + 4.5i}
-
-c5 after c5 += c2: 10 + 7i
-
-```// Definition of friend function operator>>
-
-istream& operator>>(istream& in, Complex& c) {
-
-### ✅ Result    cout << "Enter real part: ";
-
-Successfully demonstrated comprehensive operator overloading including arithmetic, unary, comparison, assignment, and stream operators.    in >> c.real;
-
-    cout << "Enter imaginary part: ";
-
----    in >> c.imag;
-
-    return in;
-
-## Practical 6: Advanced Operator Overloading}
-
-
-
-### 🎯 Aimint main() {
-
-Write a C++ program to implement advanced operator overloading concepts.    cout << "Demonstrating Operator Overloading in C++" << endl;
-
-    cout << "=======================================" << endl;
-
-### 📖 Theory
-
-Advanced operator overloading includes assignment operators, subscript operators, function call operators, and type conversion operators. These provide more sophisticated object manipulation capabilities.    // Create Complex numbers
-
-    Complex c1(5.5, 3.5);
-
-### 💻 Code    Complex c2(2.5, 1.5);
-
-```cpp    Complex c3;
-
-#include <iostream>
-
-using namespace std;    // Display the complex numbers
-
-    cout << "\n1. Initial Complex Numbers:" << endl;
-
-class Number {    cout << "c1 = ";
-
-private:    c1.display();
-
-    int value;    cout << endl;
-
-
-
-public:    cout << "c2 = ";
-
-    Number(int v = 0) : value(v) {}    c2.display();
-
-    cout << endl;
-
-    // Assignment operator
-
-    Number& operator=(const Number& n) {    // Demonstrate arithmetic operator overloading
-
-        cout << "Assignment operator called" << endl;    cout << "\n2. Arithmetic Operator Overloading:" << endl;
-
-        value = n.value;
-
-        return *this;    // Addition using overloaded + operator
-
-    }    cout << "c1 + c2 = ";
-
-    c3 = c1 + c2;
-
-    // Subscript operator (returns digit at position)    c3.display();
-
-    int operator[](int pos) {    cout << endl;
-
-        int temp = value;
-
-        for(int i = 0; i < pos; i++) {    // Subtraction using overloaded - operator
-
-            temp /= 10;    cout << "c1 - c2 = ";
-
-        }    c3 = c1 - c2;
-
-        return temp % 10;    c3.display();
-
-    }    cout << endl;
-
-
-
-    // Function call operator (power function)    // Multiplication using overloaded * operator
-
-    int operator()(int exp) {    cout << "c1 * c2 = ";
-
-        int result = 1;    c3 = c1 * c2;
-
-        for(int i = 0; i < exp; i++) {    c3.display();
-
-            result *= value;    cout << endl;
-
-        }
-
-        return result;    // Demonstrate unary operator overloading
-
-    }    cout << "\n3. Unary Operator Overloading:" << endl;
-
-
-
-    // Type conversion to int    // Unary minus using overloaded - operator
-
-    operator int() {    cout << "-c1 = ";
-
-        return value;    c3 = -c1;
-
-    }    c3.display();
-
-    cout << endl;
+```    // Function to display student information
 
     void display() {
 
-        cout << "Value: " << value << endl;    // Prefix increment using overloaded ++ operator
+### Result        cout << "\nStudent Details:" << endl;
 
-    }    cout << "++c1 = ";
+Successfully implemented operator overloading for +, -, ==, and << operators.        cout << "Roll No: " << rollNo << endl;
 
-};    ++c1;
+        cout << "Name: " << name << endl;
 
-    c1.display();
+---        cout << "Marks: " << marks << endl;
 
-int main() {    cout << endl;
+        cout << "------------------------" << endl;
 
-    cout << "=== Advanced Operator Overloading ===" << endl;
-
-    // Postfix increment using overloaded ++ operator
-
-    Number n1(23);    Complex c4 = c2++;
-
-    Number n2;    cout << "c4 = c2++ (c4 now): ";
-
-    c4.display();
-
-    cout << "\n1. Original number:" << endl;    cout << endl;
-
-    n1.display();    cout << "c2 after postfix ++: ";
-
-    c2.display();
-
-    cout << "\n2. Assignment operator:" << endl;    cout << endl;
-
-    n2 = n1;
-
-    n2.display();    // Demonstrate comparison operator overloading
-
-    cout << "\n4. Comparison Operator Overloading:" << endl;
-
-    cout << "\n3. Subscript operator (digits):" << endl;    Complex c5(6.5, 4.5);  // Same as c1 after increment
-
-    cout << "n1[0] (units digit) = " << n1[0] << endl;    Complex c6(6.5, 4.5);  // Same as c5
-
-    cout << "n1[1] (tens digit) = " << n1[1] << endl;
-
-    cout << "c5 = ";
-
-    cout << "\n4. Function call operator (power):" << endl;    c5.display();
-
-    cout << "n1(2) = " << n1(2) << endl;    cout << endl;
-
-    cout << "c6 = ";
-
-    cout << "\n5. Type conversion:" << endl;    c6.display();
-
-    int x = n1;    cout << endl;
-
-    cout << "Converted to int: " << x << endl;
-
-    cout << "c5 == c6: " << (c5 == c6 ? "true" : "false") << endl;
-
-    return 0;    cout << "c5 != c1: " << (c5 != c1 ? "true" : "false") << endl;
-
-}
-
-```    // Demonstrate compound assignment operator
-
-    cout << "\n5. Compound Assignment Operator:" << endl;
-
-### 📤 Output    cout << "c5 before += operation: ";
-
-```    c5.display();
-
-=== Advanced Operator Overloading ===    cout << endl;
-
-
-
-1. Original number:    c5 += c2;
-
-Value: 23    cout << "c5 after c5 += c2: ";
-
-    c5.display();
-
-2. Assignment operator:    cout << endl;
-
-Assignment operator called
-
-Value: 23    // Demonstrate stream operator overloading
-
-    cout << "\n6. Stream Operator Overloading:" << endl;
-
-3. Subscript operator (digits):    cout << "Using << operator: c1 = " << c1 << endl;
-
-n1[0] (units digit) = 3
-
-n1[1] (tens digit) = 2    cout << "\nEnter a new complex number:" << endl;
-
-    Complex userComplex;
-
-4. Function call operator (power):    cin >> userComplex;
-
-n1(2) = 529    cout << "You entered: " << userComplex << endl;
-
-
-
-5. Type conversion:    return 0;
-
-Converted to int: 23}
-
-``````
-
-
-
-### ✅ Result### Output
-
-Successfully demonstrated advanced operator overloading including assignment, subscript, function call, and type conversion operators.```
-
-Demonstrating Operator Overloading in C++
-
----=======================================
-
-
-
-## Practical 7: Types of Inheritance1. Initial Complex Numbers:
-
-c1 = 5.5 + 3.5i
-
-### 🎯 Aimc2 = 2.5 + 1.5i
-
-Write a C++ program to implement different types of inheritance.
-
-2. Arithmetic Operator Overloading:
-
-### 📖 Theoryc1 + c2 = 8 + 5i
-
-Inheritance is a fundamental OOP concept where a class inherits properties and methods from another class.c1 - c2 = 3 + 2i
-
-c1 * c2 = 8.25 + 15.5i
-
-**Types of Inheritance:**
-
-1. **Single Inheritance**: One base class, one derived class3. Unary Operator Overloading:
-
-2. **Multilevel Inheritance**: Chain of inheritance (A→B→C)-c1 = -5.5 - 3.5i
-
-3. **Multiple Inheritance**: Multiple base classes for one derived class++c1 = 6.5 + 4.5i
-
-4. **Hierarchical Inheritance**: Multiple derived classes from one base classc4 = c2++ (c4 now): 2.5 + 1.5i
-
-c2 after postfix ++: 3.5 + 2.5i
-
-### 💻 Code
-
-```cpp4. Comparison Operator Overloading:
-
-#include <iostream>c5 = 6.5 + 4.5i
-
-using namespace std;c6 = 6.5 + 4.5i
-
-c5 == c6: true
-
-// 1. SINGLE INHERITANCEc5 != c1: false
-
-class Animal {
-
-protected:5. Compound Assignment Operator:
-
-    string name;c5 before += operation: 6.5 + 4.5i
-
-public:c5 after c5 += c2: 10 + 7i
-
-    Animal(string n) : name(n) {}
-
-    void eat() { cout << name << " is eating" << endl; }6. Stream Operator Overloading:
-
-};Using << operator: c1 = 6.5 + 4.5i
-
-
-
-class Dog : public Animal {Enter a new complex number:
-
-public:Enter real part: 7.5
-
-    Dog(string n) : Animal(n) {}Enter imaginary part: 9.2
-
-    void bark() { cout << name << " is barking" << endl; }You entered: 7.5 + 9.2i
-
-};```
-
-
-
-// 2. MULTILEVEL INHERITANCE### Result
-
-class Vehicle {Successfully demonstrated operator overloading in C++ by implementing:
-
-protected:1. Binary arithmetic operators (+, -, *)
-
-    string brand;2. Unary operators (prefix ++, postfix ++, unary -)
-
-public:3. Comparison operators (==, !=)
-
-    Vehicle(string b) : brand(b) {}4. Compound assignment operator (+=)
-
-    void start() { cout << brand << " started" << endl; }5. Stream operators (<< for output, >> for input)
-
-};6. Verified that operators work correctly with user-defined Complex number class
-
-
-
-class Car : public Vehicle {---
-
-public:
-
-    Car(string b) : Vehicle(b) {}## Practical 6: Operator Overloading II
-
-    void drive() { cout << "Car is driving" << endl; }
-
-};### Aim
-
-Write a C++ program to implement advanced concepts of operator overloading.
-
-class SportsCar : public Car {
-
-public:### Theory
-
-    SportsCar(string b) : Car(b) {}Advanced operator overloading involves overloading special operators like assignment (=), subscript ([]), function call (()), and type conversion operators. These operators provide more sophisticated functionality and enable classes to behave like built-in types.
-
-    void turbo() { cout << "Turbo activated!" << endl; }
-
-};Key advanced operators:
-
-1. **Assignment operator (=)**: Handles object assignment and prevents shallow copying issues
-
-// 3. MULTIPLE INHERITANCE2. **Subscript operator ([])**: Allows array-like access to class members
-
-class Father {3. **Function call operator (())**: Makes objects callable like functions
-
-protected:4. **Type conversion operators**: Enable implicit/explicit type conversions
-
-    string fname;
-
-public:### Algorithm
-
-    Father(string f) : fname(f) {}1. Define a `Matrix` class with dynamic memory allocation
-
-    void showFather() { cout << "Father: " << fname << endl; }2. Implement assignment operator for deep copying
-
-};3. Overload subscript operator for element access
-
-4. Implement function call operator for matrix operations
-
-class Mother {5. Add type conversion operators
-
-protected:6. Demonstrate all overloaded operators in main function
-
-    string mname;
-
-public:### Program
-
-    Mother(string m) : mname(m) {}
-
-    void showMother() { cout << "Mother: " << mname << endl; }```cpp
-
-};// Aim: Write a C++ program to implement advanced operator overloading concepts
-
-// KDK College of Engineering, Nagpur
-
-class Child : public Father, public Mother {// B.Tech CSE, 2nd Year
-
-    string cname;// Author: Pranay Gajbhiye
-
-public:
-
-    Child(string c, string f, string m) : Father(f), Mother(m), cname(c) {}#include <iostream>
-
-    void showFamily() {using namespace std;
-
-        cout << "Child: " << cname << endl;
-
-        showFather();class Number {
-
-        showMother();private:
-
-    }    int value;
+## Practical 6: Advanced Operator Overloading    }
 
 };
 
+### Aim
+
+Implement advanced operator overloading (assignment, subscript, function call, type conversion).// Main function to demonstrate the concept of constructors
+
+int main() {
+
+### Theory    cout << "Demonstrating Different Types of Constructors" << endl;
+
+Advanced operators: Assignment (=) for object copying, Subscript ([]) for array-like access, Function call (()) for functor behavior, and Type conversion operators for implicit/explicit type conversions.    cout << "=============================================" << endl;
+
+
+
+### Algorithm    // Creating object using default constructor
+
+1. Create Number class with private value    cout << "\n1. Creating object s1 using default constructor:" << endl;
+
+2. Overload = operator for assignment    Student s1;
+
+3. Overload [] operator for digit access    s1.display();
+
+4. Overload () operator for power calculation
+
+5. Overload type conversion to int    // Creating object using parameterized constructor
+
+6. Demonstrate each operator    cout << "\n2. Creating object s2 using parameterized constructor:" << endl;
+
+    Student s2(101, "John Doe", 85.5);
+
+### Code    s2.display();
+
+```cpp
+
+#include <iostream>    // Creating object using constructor overloading
+
+using namespace std;    cout << "\n3. Creating object s3 using overloaded constructor:" << endl;
+
+    Student s3(102, "Jane Smith");
+
+class Number {    s3.display();
+
+private:
+
+    int value;    // Creating object using copy constructor
+
+        cout << "\n4. Creating object s4 using copy constructor:" << endl;
+
+public:    Student s4 = s2; // Copy constructor is called
+
+    Number(int v = 0) : value(v) {}    s4.display();
+
+
+
+    // Assignment operator    // Another way to call copy constructor
+
+    Number& operator=(const Number& n) {    cout << "\n5. Creating object s5 using explicit copy constructor:" << endl;
+
+        cout << "Assignment operator called" << endl;    Student s5(s3); // Explicit call to copy constructor
+
+        value = n.value;    s5.display();
+
+        return *this;
+
+    }    return 0;
+
+    }
+
+    // Subscript operator (returns digit at position)```
+
+    int operator[](int pos) {
+
+        int temp = value;### Output
+
+        for(int i = 0; i < pos; i++) {```
+
+            temp /= 10;Demonstrating Different Types of Constructors
+
+        }=============================================
+
+        return temp % 10;
+
+    }1. Creating object s1 using default constructor:
+
+    Default Constructor called
+
+    // Function call operator (power function)
+
+    int operator()(int exp) {Student Details:
+
+        int result = 1;Roll No: 0
+
+        for(int i = 0; i < exp; i++) {Name: Unknown
+
+            result *= value;Marks: 0
+
+        }------------------------
+
+        return result;
+
+    }2. Creating object s2 using parameterized constructor:
+
+    Parameterized Constructor called
+
+    // Type conversion to int
+
+    operator int() {Student Details:
+
+        return value;Roll No: 101
+
+    }Name: John Doe
+
+    Marks: 85.5
+
+    void display() {------------------------
+
+        cout << "Value: " << value << endl;
+
+    }3. Creating object s3 using overloaded constructor:
+
+};Overloaded Constructor called (without marks)
+
+
+
+int main() {Student Details:
+
+    Number n1(23);Roll No: 102
+
+    Number n2;Name: Jane Smith
+
+    Marks: 0
+
+    cout << "Original number:" << endl;------------------------
+
+    n1.display();
+
+    4. Creating object s4 using copy constructor:
+
+    cout << "\nAssignment operator:" << endl;Copy Constructor called
+
+    n2 = n1;
+
+    n2.display();Student Details:
+
+    Roll No: 101
+
+    cout << "\nSubscript operator (digits):" << endl;Name: John Doe
+
+    cout << "n1[0] (units digit) = " << n1[0] << endl;Marks: 85.5
+
+    cout << "n1[1] (tens digit) = " << n1[1] << endl;------------------------
+
+
+
+    cout << "\nFunction call operator (power):" << endl;5. Creating object s5 using explicit copy constructor:
+
+    cout << "n1(2) = " << n1(2) << endl;Copy Constructor called
+
+
+
+    cout << "\nType conversion:" << endl;Student Details:
+
+    int x = n1;Roll No: 102
+
+    cout << "Converted to int: " << x << endl;Name: Jane Smith
+
+    Marks: 0
+
+    return 0;------------------------
+
+}```
+
+```
+
+### Result
+
+### OutputSuccessfully demonstrated the concept of constructors in C++ by implementing:
+
+```1. Default constructor
+
+Original number:2. Parameterized constructor
+
+Value: 233. Copy constructor
+
+4. Constructor overloading
+
+Assignment operator:5. Verified that the appropriate constructor is called based on how objects are created
+
+Assignment operator called
+
+Value: 23---
+
+
+
+Subscript operator (digits):## Practical 5: Operator Overloading
+
+n1[0] (units digit) = 3
+
+n1[1] (tens digit) = 2### Aim
+
+Write a C++ program to implement the concept of operator overloading.
+
+Function call operator (power):
+
+n1(2) = 529### Theory
+
+Operator overloading is a feature of Object-Oriented Programming that allows operators to be redefined for user-defined data types. This enables custom classes to use standard operators like +, -, *, ++, --, ==, etc., with semantics appropriate for the class.
+
+Type conversion:
+
+Converted to int: 23Key points about operator overloading:
+
+```1. It allows operators to work with user-defined data types
+
+2. It increases code readability by using familiar operator syntax
+
+### Result3. It is a form of compile-time polymorphism
+
+Successfully implemented assignment, subscript, function call operators and type conversion.4. Not all operators can be overloaded (e.g., ?:, ::, ., .*)
+
+
+
+---Ways to overload operators in C++:
+
+1. **Member function**: Defined inside the class, with first operand implicitly the object itself
+
+## Practical 7: Types of Inheritance2. **Friend function**: Defined outside the class but has access to private members, useful when first operand is not an object of the class
+
+3. **Global function**: Defined outside the class without friend declaration, only has access to public members
+
+### Aim
+
+Implement different types of inheritance in C++.Categories of operators that can be overloaded:
+
+1. **Unary operators**: ++, --, -, !, etc.
+
+### Theory2. **Binary operators**: +, -, *, /, %, etc.
+
+Inheritance types: Single (one base, one derived), Multilevel (chain of inheritance), Multiple (multiple base classes), Hierarchical (one base, multiple derived), and Hybrid (combination). Promotes code reusability.3. **Relational operators**: ==, !=, <, >, <=, >=, etc.
+
+4. **Assignment operators**: =, +=, -=, *=, /=, etc.
+
+### Algorithm5. **Stream operators**: <<, >>
+
+1. Implement Single Inheritance (Animal → Dog)
+
+2. Implement Multilevel Inheritance (Vehicle → Car → SportsCar)### Algorithm
+
+3. Implement Multiple Inheritance (Father, Mother → Child)1. Define a `Complex` class for complex numbers with:
+
+4. Implement Hierarchical Inheritance (Shape → Circle, Square)   - Private data members: `real` and `imag` (for real and imaginary parts)
+
+5. Demonstrate each type   - Default constructor and parameterized constructor
+
+   - `display()` method to print the complex number
+
+### Code2. Overload binary arithmetic operators:
+
+```cpp   - `+` for addition of complex numbers
+
+#include <iostream>   - `-` for subtraction of complex numbers
+
+using namespace std;   - `*` for multiplication of complex numbers
+
+3. Overload unary operators:
+
+// SINGLE INHERITANCE   - Prefix `++` (increment both real and imaginary parts)
+
+class Animal {   - Postfix `++` (increment both real and imaginary parts after returning)
+
+protected:   - Unary `-` (negate both real and imaginary parts)
+
+    string name;4. Overload comparison operators:
+
+public:   - `==` for equality comparison
+
+    Animal(string n) : name(n) {}   - `!=` for inequality comparison
+
+    void eat() { cout << name << " is eating" << endl; }5. Overload assignment operators:
+
+};   - `+=` for compound addition assignment
+
+6. Overload stream operators as friend functions:
+
+class Dog : public Animal {   - `<<` for output stream
+
+public:   - `>>` for input stream
+
+    Dog(string n) : Animal(n) {}7. In the main function, demonstrate each type of operator overloading
+
+    void bark() { cout << name << " is barking" << endl; }
+
+};### Program
+
+
+
+// MULTILEVEL INHERITANCE```cpp
+
+class Vehicle {// Aim:Write a C++ program to implement a concept of operator overloading?
+
+protected:    // - Operator overloading allows operators to be redefined for user-defined data types. This aim involves implementing operator overloading in C++.
+
+    string brand;// KDK College of Engineering, Nagpur
+
+public:// B.Tech CSE, 2nd Year
+
+    Vehicle(string b) : brand(b) {}// Author: Pranay Gajbhiye
+
+    void start() { cout << brand << " started" << endl; }
+
+};#include <iostream>
+
+using namespace std;
+
+class Car : public Vehicle {
+
+public:// Complex number class to demonstrate operator overloading
+
+    Car(string b) : Vehicle(b) {}class Complex {
+
+    void drive() { cout << "Car is driving" << endl; }private:
+
+};    float real;
+
+    float imag;
+
+class SportsCar : public Car {
+
+public:public:
+
+    SportsCar(string b) : Car(b) {}    // Default constructor
+
+    void turbo() { cout << "Turbo activated!" << endl; }    Complex() : real(0), imag(0) {}
+
+};
+
+    // Parameterized constructor
+
+// MULTIPLE INHERITANCE    Complex(float r, float i) : real(r), imag(i) {}
+
+class Father {
+
+protected:    // Display complex number
+
+    string fname;    void display() const {
+
+public:        cout << real << (imag >= 0 ? " + " : " - ") << abs(imag) << "i";
+
+    Father(string f) : fname(f) {}    }
+
+    void showFather() { cout << "Father: " << fname << endl; }
+
+};    // 1. Overloading binary arithmetic operators
+
+    // Overloading + operator for adding two Complex numbers
+
+class Mother {    Complex operator+(const Complex& c) const {
+
+protected:        return Complex(real + c.real, imag + c.imag);
+
+    string mname;    }
+
 public:
 
-// 4. HIERARCHICAL INHERITANCE    Number(int v = 0) : value(v) {}
+    Mother(string m) : mname(m) {}    // Overloading - operator for subtracting two Complex numbers
 
-class Shape {
+    void showMother() { cout << "Mother: " << mname << endl; }    Complex operator-(const Complex& c) const {
 
-protected:    // Assignment operator
+};        return Complex(real - c.real, imag - c.imag);
 
-    int size;    Number& operator=(const Number& n) {
+    }
 
-public:        cout << "Assignment operator called" << endl;
+class Child : public Father, public Mother {
 
-    Shape(int s) : size(s) {}        value = n.value;
+    string cname;    // Overloading * operator for multiplying two Complex numbers
 
-    void display() { cout << "Size: " << size << endl; }        return *this;
+public:    Complex operator*(const Complex& c) const {
 
-};    }
+    Child(string c, string f, string m) : Father(f), Mother(m), cname(c) {}        return Complex((real * c.real) - (imag * c.imag),
 
+    void showFamily() {                      (real * c.imag) + (imag * c.real));
 
+        cout << "Child: " << cname << endl;    }
 
-class Circle : public Shape {    // Subscript operator (returns digit at position)
+        showFather();
 
-public:    int operator[](int pos) {
+        showMother();    // 2. Overloading unary operators
 
-    Circle(int r) : Shape(r) {}        int temp = value;
+    }    // Overloading ++ prefix operator
 
-    void area() { cout << "Circle Area: " << 3.14 * size * size << endl; }        for(int i = 0; i < pos; i++) {
+};    Complex& operator++() {
 
-};            temp /= 10;
+        ++real;
 
-        }
+// HIERARCHICAL INHERITANCE        ++imag;
 
-class Square : public Shape {        return temp % 10;
+class Shape {        return *this;
+
+protected:    }
+
+    int size;
+
+public:    // Overloading ++ postfix operator
+
+    Shape(int s) : size(s) {}    Complex operator++(int) {
+
+};        Complex temp = *this;
+
+        ++real;
+
+class Circle : public Shape {        ++imag;
+
+public:        return temp;
+
+    Circle(int r) : Shape(r) {}    }
+
+    void area() { cout << "Circle Area: " << 3.14 * size * size << endl; }
+
+};    // Overloading unary - operator (negative)
+
+    Complex operator-() const {
+
+class Square : public Shape {        return Complex(-real, -imag);
 
 public:    }
 
     Square(int s) : Shape(s) {}
 
-    void area() { cout << "Square Area: " << size * size << endl; }    // Function call operator (power function)
+    void area() { cout << "Square Area: " << size * size << endl; }    // 3. Overloading comparison operators
 
-};    int operator()(int exp) {
+};    // Overloading == operator for equality comparison
 
-        int result = 1;
+    bool operator==(const Complex& c) const {
 
-int main() {        for(int i = 0; i < exp; i++) {
+int main() {        return (real == c.real && imag == c.imag);
 
-    cout << "=== Types of Inheritance ===" << endl;            result *= value;
+    cout << "1. Single Inheritance:" << endl;    }
 
-        }
+    Dog d("Buddy");
 
-    cout << "\n1. Single Inheritance:" << endl;        return result;
+    d.eat();    // Overloading != operator
 
-    Dog d("Buddy");    }
+    d.bark();    bool operator!=(const Complex& c) const {
 
-    d.eat();
+            return !(*this == c);
 
-    d.bark();    // Type conversion to int
+    cout << "\n2. Multilevel Inheritance:" << endl;    }
 
-    operator int() {
+    SportsCar sc("Ferrari");
 
-    cout << "\n2. Multilevel Inheritance:" << endl;        return value;
+    sc.start();    // 4. Overloading assignment operators
 
-    SportsCar sc("Ferrari");    }
+    sc.drive();    // Overloading += operator
 
-    sc.start();
+    sc.turbo();    Complex& operator+=(const Complex& c) {
 
-    sc.drive();    void display() {
+            real += c.real;
 
-    sc.turbo();        cout << "Value: " << value << endl;
+    cout << "\n3. Multiple Inheritance:" << endl;        imag += c.imag;
 
-    }
+    Child c("Alice", "John", "Mary");        return *this;
 
-    cout << "\n3. Multiple Inheritance:" << endl;};
+    c.showFamily();    }
 
-    Child c("Alice", "John", "Mary");
 
-    c.showFamily();int main() {
 
-    cout << "=== Simple Operator Overloading ===" << endl;
+    cout << "\n4. Hierarchical Inheritance:" << endl;    // 5. Friend functions for stream operators
 
-    cout << "\n4. Hierarchical Inheritance:" << endl;
+    Circle circle(5);    // Overloading << operator for output stream
 
-    Circle circle(5);    Number n1(23);
+    circle.area();    friend ostream& operator<<(ostream& out, const Complex& c);
 
-    circle.display();    Number n2;
+    Square square(4);
 
-    circle.area();
+    square.area();    // Overloading >> operator for input stream
 
-    cout << "\n1. Original number:" << endl;
-
-    Square square(4);    n1.display();
-
-    square.display();
-
-    square.area();    cout << "\n2. Assignment operator:" << endl;
-
-    n2 = n1;
-
-    return 0;    n2.display();
-
-}
-
-```    cout << "\n3. Subscript operator (digits):" << endl;
-
-    cout << "n1[0] (units digit) = " << n1[0] << endl;
-
-### 📤 Output    cout << "n1[1] (tens digit) = " << n1[1] << endl;
-
-```
-
-=== Types of Inheritance ===    cout << "\n4. Function call operator (power):" << endl;
-
-    cout << "n1(2) = " << n1(2) << endl;
-
-1. Single Inheritance:
-
-Buddy is eating    cout << "\n5. Type conversion:" << endl;
-
-Buddy is barking    int x = n1;
-
-    cout << "Converted to int: " << x << endl;
-
-2. Multilevel Inheritance:
-
-Ferrari started    return 0;
-
-Car is driving}
-
-Turbo activated!```
-
-
-
-3. Multiple Inheritance:### Output
-
-Child: Alice```
-
-Father: John=== Simple Operator Overloading ===
-
-Mother: Mary
-
-1. Original number:
-
-4. Hierarchical Inheritance:Value: 23
-
-Size: 5
-
-Circle Area: 78.52. Assignment operator:
-
-Size: 4Assignment operator called
-
-Square Area: 16Value: 23
-
-```
-
-3. Subscript operator (digits):
-
-### ✅ Resultn1[0] (units digit) = 3
-
-Successfully demonstrated all four types of inheritance: single, multilevel, multiple, and hierarchical inheritance.n1[1] (tens digit) = 2
-
-
-
----4. Function call operator (power):
-
-n1(2) = 529
-
-## Practical 8: Virtual and Friend Functions
-
-5. Type conversion:
-
-### 🎯 AimConverted to int: 23
-
-Write a C++ program to implement Virtual and Friend Functions.```
-
-
-
-### 📖 Theory### Result
-
-- **Virtual Functions**: Enable runtime polymorphism by allowing derived classes to override base class methodsSuccessfully demonstrated advanced operator overloading concepts with a simplified Number class, including assignment operator, subscript operator for digit access, function call operator for power calculation, and type conversion operator.
-
-- **Friend Functions**: Allow external functions to access private members of a class
-
----
-
-### 💻 Code
-
-```cpp## Practical 7: Types of Inheritance
-
-#include <iostream>
-
-using namespace std;### Aim
-
-Write a C++ program to implement different types of inheritance.
-
-// VIRTUAL FUNCTIONS
-
-class Animal {### Theory
-
-public:Inheritance is a fundamental concept in OOP that allows a class to inherit properties and methods from another class. C++ supports five types of inheritance:
-
-    virtual void sound() {
-
-        cout << "Animal makes sound" << endl;1. **Single Inheritance**: One derived class inherits from one base class
-
-    }2. **Multilevel Inheritance**: A class inherits from another derived class (chain of inheritance)
-
-    virtual ~Animal() {}3. **Multiple Inheritance**: One class inherits from multiple base classes
-
-};4. **Hierarchical Inheritance**: Multiple classes inherit from a single base class
-
-5. **Hybrid Inheritance**: Combination of two or more types of inheritance
-
-class Dog : public Animal {
-
-public:### Algorithm
-
-    void sound() override {1. Implement Single Inheritance with Vehicle and Car classes
-
-        cout << "Dog barks" << endl;2. Implement Multilevel Inheritance with Animal, Mammal, and Dog classes
-
-    }3. Implement Multiple Inheritance with Father, Mother, and Child classes
-
-};4. Implement Hierarchical Inheritance with Shape, Circle, and Rectangle classes
-
-5. Implement Hybrid Inheritance combining multiple inheritance types
-
-class Cat : public Animal {
-
-public:### Program
-
-    void sound() override {
-
-        cout << "Cat meows" << endl;```cpp
-
-    }// Aim: Write a C++ program to implement different types of inheritance
-
-};// KDK College of Engineering, Nagpur
-
-// B.Tech CSE, 2nd Year
-
-// FRIEND FUNCTIONS// Author: Pranay Gajbhiye
-
-class Box {
-
-private:#include <iostream>
-
-    int length, width, height;using namespace std;
-
-
-
-public:// 1. SINGLE INHERITANCE
-
-    Box(int l, int w, int h) : length(l), width(w), height(h) {}class Animal {
-
-protected:
-
-    // Friend function can access private members    string name;
-
-    friend int calculateVolume(Box b);public:
-
-    friend void displayBox(Box b);    Animal(string n) : name(n) {}
-
-};    void eat() { cout << name << " is eating" << endl; }
-
-};
-
-// Friend function definition
-
-int calculateVolume(Box b) {class Dog : public Animal {
-
-    return b.length * b.width * b.height;  // Accessing private memberspublic:
-
-}    Dog(string n) : Animal(n) {}
-
-    void bark() { cout << name << " is barking" << endl; }
-
-void displayBox(Box b) {};
-
-    cout << "Box: " << b.length << "x" << b.width << "x" << b.height << endl;
-
-}// 2. MULTILEVEL INHERITANCE
-
-class Vehicle {
-
-int main() {protected:
-
-    cout << "=== Virtual and Friend Functions ===" << endl;    string brand;
-
-public:
-
-    // Virtual Functions Demo    Vehicle(string b) : brand(b) {}
-
-    cout << "\n1. Virtual Functions:" << endl;    void start() { cout << brand << " started" << endl; }
-
-    Animal* animals[3];};
-
-    animals[0] = new Dog();
-
-    animals[1] = new Cat();class Car : public Vehicle {
-
-    animals[2] = new Dog();public:
-
-    Car(string b) : Vehicle(b) {}
-
-    for(int i = 0; i < 3; i++) {    void drive() { cout << "Car is driving" << endl; }
-
-        animals[i]->sound();  // Runtime polymorphism};
-
-    }
-
-class SportsCar : public Car {
-
-    // Clean uppublic:
-
-    for(int i = 0; i < 3; i++) {    SportsCar(string b) : Car(b) {}
-
-        delete animals[i];    void turbo() { cout << "Turbo activated!" << endl; }
-
-    }};
-
-
-
-    // Friend Functions Demo// 3. MULTIPLE INHERITANCE
-
-    cout << "\n2. Friend Functions:" << endl;class Father {
-
-    Box myBox(5, 3, 4);protected:
-
-    string fname;
-
-    displayBox(myBox);public:
-
-    cout << "Volume: " << calculateVolume(myBox) << endl;    Father(string f) : fname(f) {}
-
-    void showFather() { cout << "Father: " << fname << endl; }
+        friend istream& operator>>(istream& in, Complex& c);
 
     return 0;};
 
 }
 
-```class Mother {
+```// Definition of friend function operator<<
 
-protected:
+ostream& operator<<(ostream& out, const Complex& c) {
 
-### 📤 Output    string mname;
+### Output    out << c.real << (c.imag >= 0 ? " + " : " - ") << abs(c.imag) << "i";
 
-```public:
+```    return out;
 
-=== Virtual and Friend Functions ===    Mother(string m) : mname(m) {}
+1. Single Inheritance:}
 
-    void showMother() { cout << "Mother: " << mname << endl; }
+Buddy is eating
 
-1. Virtual Functions:};
+Buddy is barking// Definition of friend function operator>>
 
-Dog barks
+istream& operator>>(istream& in, Complex& c) {
 
-Cat meowsclass Child : public Father, public Mother {
+2. Multilevel Inheritance:    cout << "Enter real part: ";
 
-Dog barks    string cname;
+Ferrari started    in >> c.real;
 
-public:
+Car is driving    cout << "Enter imaginary part: ";
 
-2. Friend Functions:    Child(string c, string f, string m) : Father(f), Mother(m), cname(c) {}
+Turbo activated!    in >> c.imag;
 
-Box: 5x3x4    void showFamily() {
+    return in;
 
-Volume: 60        cout << "Child: " << cname << endl;
+3. Multiple Inheritance:}
 
-```        showFather();
+Child: Alice
 
-        showMother();
+Father: Johnint main() {
 
-### ✅ Result    }
+Mother: Mary    cout << "Demonstrating Operator Overloading in C++" << endl;
 
-Successfully demonstrated virtual functions for runtime polymorphism and friend functions for accessing private members.};
+    cout << "=======================================" << endl;
 
+4. Hierarchical Inheritance:
 
+Circle Area: 78.5    // Create Complex numbers
 
----// 4. HIERARCHICAL INHERITANCE
+Square Area: 16    Complex c1(5.5, 3.5);
 
-class Shape {
+```    Complex c2(2.5, 1.5);
 
-## Practical 9: Function Overriding & Abstract Classesprotected:
+    Complex c3;
 
-    int size;
+### Result
 
-### 🎯 Aimpublic:
+Successfully demonstrated single, multilevel, multiple, and hierarchical inheritance.    // Display the complex numbers
 
-Write a C++ program to implement function overriding and abstract classes.    Shape(int s) : size(s) {}
+    cout << "\n1. Initial Complex Numbers:" << endl;
 
-    void display() { cout << "Size: " << size << endl; }
+---    cout << "c1 = ";
 
-### 📖 Theory};
+    c1.display();
 
-- **Abstract Classes**: Classes with at least one pure virtual function; cannot be instantiated
+## Practical 8: Virtual and Friend Functions    cout << endl;
 
-- **Function Overriding**: Redefining a virtual function in a derived classclass Circle : public Shape {
 
-- **Pure Virtual Functions**: Functions declared with `= 0`, making the class abstractpublic:
 
-    Circle(int r) : Shape(r) {}
+### Aim    cout << "c2 = ";
 
-### 💻 Code    void area() { cout << "Circle Area: " << 3.14 * size * size << endl; }
+Implement virtual functions and friend functions in C++.    c2.display();
 
-```cpp};
-
-#include <iostream>
-
-using namespace std;class Square : public Shape {
-
-public:
-
-// Abstract class (has pure virtual function)    Square(int s) : Shape(s) {}
-
-class Shape {    void area() { cout << "Square Area: " << size * size << endl; }
-
-protected:};
-
-    string name;
-
-public:int main() {
-
-    Shape(string n) : name(n) {}    cout << "=== Types of Inheritance ===" << endl;
-
-
-
-    // Pure virtual function makes this abstract    cout << "\n1. Single Inheritance:" << endl;
-
-    virtual double area() = 0;    Dog d("Buddy");
-
-    d.eat();
-
-    // Virtual function that can be overridden    d.bark();
-
-    virtual void display() {
-
-        cout << "This is a " << name << endl;    cout << "\n2. Multilevel Inheritance:" << endl;
-
-    }    SportsCar sc("Ferrari");
-
-};    sc.start();
-
-    sc.drive();
-
-// Concrete classes inherit from abstract class    sc.turbo();
-
-class Circle : public Shape {
-
-    double radius;    cout << "\n3. Multiple Inheritance:" << endl;
-
-public:    Child c("Alice", "John", "Mary");
-
-    Circle(double r) : Shape("Circle"), radius(r) {}    c.showFamily();
-
-
-
-    // Must override pure virtual function    cout << "\n4. Hierarchical Inheritance:" << endl;
-
-    double area() override {    Circle circle(5);
-
-        return 3.14 * radius * radius;    circle.display();
-
-    }    circle.area();
-
-
-
-    // Override virtual function    Square square(4);
-
-    void display() override {    square.display();
-
-        cout << "Circle with radius " << radius << endl;    square.area();
-
-    }
-
-};    return 0;
-
-}
-
-class Rectangle : public Shape {```
-
-    double length, width;
-
-public:### Output
-
-    Rectangle(double l, double w) : Shape("Rectangle"), length(l), width(w) {}```
-
-=== Types of Inheritance ===
-
-    double area() override {
-
-        return length * width;1. Single Inheritance:
-
-    }Buddy is eating
-
-Buddy is barking
-
-    void display() override {
-
-        cout << "Rectangle " << length << "x" << width << endl;2. Multilevel Inheritance:
-
-    }Ferrari started
-
-};Car is driving
-
-Turbo activated!
-
-// Example of function overriding
-
-class Animal {3. Multiple Inheritance:
-
-public:Child: Alice
-
-    virtual void sound() {Father: John
-
-        cout << "Animal makes sound" << endl;Mother: Mary
-
-    }
-
-};4. Hierarchical Inheritance:
-
-Size: 5
-
-class Dog : public Animal {Circle Area: 78.5
-
-public:Size: 4
-
-    void sound() override {  // Function overridingSquare Area: 16
-
-        cout << "Dog barks: Woof!" << endl;```
-
-    }
-
-};### Result
-
-Successfully demonstrated four types of inheritance with simplified examples: Single (Animal-Dog), Multilevel (Vehicle-Car-SportsCar), Multiple (Father-Mother-Child), and Hierarchical (Shape-Circle/Square) inheritance.
-
-int main() {
-
-    cout << "=== Function Overriding and Abstract Classes ===" << endl;---
-
-
-
-    // Cannot create object of abstract class## Practical 8: Virtual and Friend Functions
-
-    // Shape s;  // Error!
-
-### Aim
-
-    cout << "\n1. Abstract Classes:" << endl;Write a C++ program to implement concepts of Virtual and Friend Functions.
-
-    Shape* shapes[2];
-
-    shapes[0] = new Circle(5);### Theory
-
-    shapes[1] = new Rectangle(4, 6);**Virtual Functions**: Enable runtime polymorphism by allowing derived classes to override base class methods. The correct function is called based on the object type, not pointer type.
-
-
-
-    for(int i = 0; i < 2; i++) {**Friend Functions**: Special functions that can access private and protected members of a class without being members themselves. They break encapsulation for specific needs.
-
-        shapes[i]->display();  // Function overriding
-
-        cout << "Area: " << shapes[i]->area() << endl;Key concepts:
-
-        cout << endl;1. Virtual functions use late binding (runtime resolution)
-
-    }2. Pure virtual functions create abstract classes
-
-3. Friend functions are declared with `friend` keyword
-
-    cout << "\n2. Function Overriding:" << endl;4. Friend functions are not inherited
-
-    Animal* animals[2];
-
-    animals[0] = new Animal();### Algorithm
-
-    animals[1] = new Dog();1. Implement virtual functions with base Shape class and derived classes
-
-2. Demonstrate runtime polymorphism using virtual functions
-
-    for(int i = 0; i < 2; i++) {3. Create friend functions to access private data
-
-        animals[i]->sound();  // Calls overridden version4. Show friend function usage for operator overloading
-
-    }5. Implement pure virtual functions for abstract classes
-
-
-
-    // Clean up### Program
-
-    delete shapes[0];
-
-    delete shapes[1];```cpp
-
-    delete animals[0];// Aim: Write a C++ program to implement Virtual and Friend Functions
-
-    delete animals[1];// KDK College of Engineering, Nagpur
-
-// B.Tech CSE, 2nd Year
-
-    return 0;// Author: Pranay Gajbhiye
-
-}
-
-```#include <iostream>
-
-using namespace std;
-
-### 📤 Output
-
-```// VIRTUAL FUNCTIONS
-
-=== Function Overriding and Abstract Classes ===class Animal {
-
-public:
-
-1. Abstract Classes:    virtual void sound() {
-
-Circle with radius 5        cout << "Animal makes sound" << endl;
-
-Area: 78.5    }
-
-    virtual ~Animal() {}
-
-Rectangle 4x6};
-
-Area: 24
-
-class Dog : public Animal {
-
-2. Function Overriding:public:
-
-Animal makes sound    void sound() override {
-
-Dog barks: Woof!        cout << "Dog barks" << endl;
-
-```    }
-
-};
-
-### ✅ Result
-
-Successfully demonstrated abstract classes with pure virtual functions and function overriding for runtime polymorphism.class Cat : public Animal {
-
-public:
-
----    void sound() override {
-
-        cout << "Cat meows" << endl;
-
-## Practical 10: Exception Handling    }
-
-};
-
-### 🎯 Aim
-
-Write a C++ program to implement exception handling through multiple blocks.// FRIEND FUNCTIONS
-
-class Box {
-
-### 📖 Theoryprivate:
-
-Exception handling allows programs to handle runtime errors gracefully using try-catch blocks. Multiple catch blocks can handle different types of exceptions.    int length, width, height;
-
-
-
-**Key Concepts:**public:
-
-- **try block**: Contains code that might throw an exception    Box(int l, int w, int h) : length(l), width(w), height(h) {}
-
-- **catch blocks**: Handle specific types of exceptions
-
-- **throw statement**: Explicitly throws an exception    // Friend function can access private members
-
-- **Custom exceptions**: User-defined exception classes    friend int calculateVolume(Box b);
-
-    friend void displayBox(Box b);
-
-### 💻 Code};
-
-```cpp
-
-#include <iostream>// Friend function definition
-
-using namespace std;int calculateVolume(Box b) {
-
-    return b.length * b.width * b.height;  // Accessing private members
-
-// Simple custom exception classes}
-
-class DivideByZero {
-
-public:void displayBox(Box b) {
-
-    string message;    cout << "Box: " << b.length << "x" << b.width << "x" << b.height << endl;
-
-    DivideByZero(string msg) : message(msg) {}}
-
-};
-
-int main() {
-
-class NegativeNumber {    cout << "=== Virtual and Friend Functions ===" << endl;
-
-public:
-
-    string message;    // Virtual Functions Demo
-
-    NegativeNumber(string msg) : message(msg) {}    cout << "\n1. Virtual Functions:" << endl;
-
-};    Animal* animals[3];
-
-    animals[0] = new Dog();
-
-// Simple calculator class    animals[1] = new Cat();
-
-class Calculator {    animals[2] = new Dog();
-
-public:
-
-    static double divide(double a, double b) {    for(int i = 0; i < 3; i++) {
-
-        if(b == 0) {        animals[i]->sound();  // Runtime polymorphism
-
-            throw DivideByZero("Cannot divide by zero!");    }
-
-        }
-
-        return a / b;    // Clean up
-
-    }    for(int i = 0; i < 3; i++) {
-
-        delete animals[i];
-
-    static double squareRoot(double num) {    }
-
-        if(num < 0) {
-
-            throw NegativeNumber("Cannot find square root of negative number!");    // Friend Functions Demo
-
-        }    cout << "\n2. Friend Functions:" << endl;
-
-        return sqrt(num);    Box myBox(5, 3, 4);
-
-    }
-
-    displayBox(myBox);
-
-    static int getElement(int arr[], int size, int index) {    cout << "Volume: " << calculateVolume(myBox) << endl;
-
-        if(index >= size || index < 0) {
-
-            throw "Array index out of bounds!";    return 0;
-
-        }}
-
-        return arr[index];```
-
-    }
-
-};### Output
-
-```
-
-int main() {=== Virtual and Friend Functions ===
-
-    cout << "=== Exception Handling with Multiple Blocks ===" << endl;
-
-1. Virtual Functions:
-
-    // Test 1: Division by zeroDog barks
-
-    cout << "\n1. Division by Zero:" << endl;Cat meows
-
-    try {Dog barks
-
-        double result = Calculator::divide(10, 0);
-
-        cout << "Result: " << result << endl;2. Friend Functions:
-
-    }Box: 5x3x4
-
-    catch(DivideByZero& e) {Volume: 60
-
-        cout << "Caught DivideByZero: " << e.message << endl;
-
-    }Combining accounts using friend operator+:
-
-    catch(...) {Account Details:
-
-        cout << "Caught unknown exception" << endl;Account Number: ACC001_ACC002
-
-    }Balance: $2500
-
-
-
-    // Test 2: Negative square root3. FRIEND CLASS:
-
-    cout << "\n2. Negative Square Root:" << endl;Distance: 5 feet 8 inches
-
-    try {In meters: 1.7272
-
-        double result = Calculator::squareRoot(-16);152.4 cm converted to: 5 feet 0 inches
-
-        cout << "Result: " << result << endl;```
-
-    }
-
-    catch(NegativeNumber& e) {### Result
-
-        cout << "Caught NegativeNumber: " << e.message << endl;Successfully demonstrated virtual functions for runtime polymorphism with Animal/Dog/Cat classes and friend functions for accessing private members with Box class.
-
-    }
-
-    catch(...) {---
-
-        cout << "Caught unknown exception" << endl;
-
-    }## Practical 9: Function Overriding and Abstract Classes
-
-
-
-    // Test 3: Array bounds### Aim
-
-    cout << "\n3. Array Out of Bounds:" << endl;Write a C++ program to implement concepts of function overriding and abstract classes.
-
-    try {
-
-        int arr[] = {1, 2, 3, 4, 5};### Theory
-
-        int value = Calculator::getElement(arr, 5, 10);**Function Overriding**: A feature where a derived class provides a specific implementation of a method already defined in its base class. Requires virtual functions for proper polymorphic behavior.
-
-        cout << "Value: " << value << endl;
-
-    }**Abstract Classes**: Classes containing one or more pure virtual functions. They cannot be instantiated and serve as base classes for other classes.
-
-    catch(const char* e) {
-
-        cout << "Caught string exception: " << e << endl;Key concepts:
-
-    }1. Override keyword ensures proper function overriding
-
-    catch(...) {2. Pure virtual functions make classes abstract
-
-        cout << "Caught unknown exception" << endl;3. Abstract classes define interfaces for derived classes
-
-    }4. Virtual destructors prevent memory leaks
-
-
-
-    // Test 4: Multiple operations### Algorithm
-
-    cout << "\n4. Multiple Operations:" << endl;1. Create abstract base class with pure virtual functions
-
-    try {2. Implement derived classes overriding virtual functions
-
-        Calculator::divide(5, 0);  // This will throw3. Demonstrate function overriding with virtual functions
-
-        Calculator::squareRoot(-9);  // This won't execute4. Show abstract class usage patterns
-
-    }5. Implement interface-like abstract classes
-
-    catch(DivideByZero& e) {
-
-        cout << "Division error: " << e.message << endl;### Program
-
-    }
-
-    catch(NegativeNumber& e) {```cpp
-
-        cout << "Math error: " << e.message << endl;// Aim: Write a C++ program to implement function overriding and abstract classes
-
-    }// KDK College of Engineering, Nagpur
-
-    catch(...) {// B.Tech CSE, 2nd Year
-
-        cout << "Unknown error occurred" << endl;// Author: Pranay Gajbhiye
-
-    }
-
-#include <iostream>
-
-    // Test 5: Successful operationsusing namespace std;
-
-    cout << "\n5. Successful Operations:" << endl;
-
-    try {// Abstract class (has pure virtual function)
-
-        cout << "10 / 2 = " << Calculator::divide(10, 2) << endl;class Shape {
-
-        cout << "sqrt(16) = " << Calculator::squareRoot(16) << endl;protected:
-
-    string name;
-
-        int arr[] = {10, 20, 30};public:
-
-        cout << "arr[1] = " << Calculator::getElement(arr, 3, 1) << endl;    Shape(string n) : name(n) {}
-
-    }
-
-    catch(...) {    // Pure virtual function makes this abstract
-
-        cout << "Unexpected error" << endl;    virtual double area() = 0;
-
-    }
-
-    // Virtual function that can be overridden
-
-    return 0;    virtual void display() {
-
-}        cout << "This is a " << name << endl;
-
-```    }
-
-};
-
-### 📤 Output
-
-```// Concrete classes inherit from abstract class
-
-=== Exception Handling with Multiple Blocks ===class Circle : public Shape {
-
-    double radius;
-
-1. Division by Zero:public:
-
-Caught DivideByZero: Cannot divide by zero!    Circle(double r) : Shape("Circle"), radius(r) {}
-
-
-
-2. Negative Square Root:    // Must override pure virtual function
-
-Caught NegativeNumber: Cannot find square root of negative number!    double area() override {
-
-        return 3.14 * radius * radius;
-
-3. Array Out of Bounds:    }
-
-Caught string exception: Array index out of bounds!
-
-    // Override virtual function
-
-4. Multiple Operations:    void display() override {
-
-Division error: Cannot divide by zero!        cout << "Circle with radius " << radius << endl;
-
-    }
-
-5. Successful Operations:};
-
-10 / 2 = 5
-
-sqrt(16) = 4class Rectangle : public Shape {
-
-arr[1] = 20    double length, width;
-
-```public:
-
-    Rectangle(double l, double w) : Shape("Rectangle"), length(l), width(w) {}
-
-### ✅ Result
-
-Successfully demonstrated exception handling with multiple catch blocks for different exception types and graceful error handling.    double area() override {
-
-        return length * width;
-
----    }
-
-
-
-## Practical 11: Custom Exception Classes    void display() override {
-
-        cout << "Rectangle " << length << "x" << width << endl;
-
-### 🎯 Aim    }
-
-Write a C++ program to implement custom exception classes.};
-
-
-
-### 📖 Theory// Example of function overriding
-
-Custom exception classes provide better error handling by creating specific exception types for different error conditions. They can inherit from the standard `exception` class and provide additional context.class Animal {
-
-public:
-
-**Benefits:**    virtual void sound() {
-
-- Type-safe error handling        cout << "Animal makes sound" << endl;
-
-- Better error categorization    }
-
-- Additional error context};
-
-- Inheritance hierarchy for exceptions
-
-class Dog : public Animal {
-
-### 💻 Codepublic:
-
-```cpp    void sound() override {  // Function overriding
-
-#include <iostream>        cout << "Dog barks: Woof!" << endl;
-
-#include <exception>    }
-
-using namespace std;};
-
-
-
-// Base custom exception classint main() {
-
-class MyException : public exception {    cout << "=== Function Overriding and Abstract Classes ===" << endl;
-
-protected:
-
-    string message;    // Cannot create object of abstract class
-
-public:    // Shape s;  // Error!
-
-    MyException(string msg) : message(msg) {}
-
-    const char* what() const throw() {    cout << "\n1. Abstract Classes:" << endl;
-
-        return message.c_str();    Shape* shapes[2];
-
-    }    shapes[0] = new Circle(5);
-
-};    shapes[1] = new Rectangle(4, 6);
-
-
-
-// Specific custom exception classes    for(int i = 0; i < 2; i++) {
-
-class DivideByZeroError : public MyException {        shapes[i]->display();  // Function overriding
-
-public:        cout << "Area: " << shapes[i]->area() << endl;
-
-    DivideByZeroError() : MyException("Division by zero not allowed!") {}        cout << endl;
-
-};    }
-
-
-
-class NegativeNumberError : public MyException {    cout << "\n2. Function Overriding:" << endl;
-
-public:    Animal* animals[2];
-
-    NegativeNumberError() : MyException("Negative number not allowed!") {}    animals[0] = new Animal();
-
-};    animals[1] = new Dog();
-
-
-
-class InvalidAgeError : public MyException {    for(int i = 0; i < 2; i++) {
-
-    int age;        animals[i]->sound();  // Calls overridden version
-
-public:    }
-
-    InvalidAgeError(int a) : MyException("Invalid age provided!"), age(a) {}
-
-    int getAge() { return age; }    // Clean up
-
-};    delete shapes[0];
-
-    delete shapes[1];
-
-// Classes using custom exceptions    delete animals[0];
-
-class Calculator {    delete animals[1];
-
-public:
-
-    static double divide(double a, double b) {    return 0;
-
-        if(b == 0) {}
-
-            throw DivideByZeroError();```
-
-        }
-
-        return a / b;### Output
-
-    }```
-
-=== Function Overriding and Abstract Classes ===
-
-    static double squareRoot(double num) {
-
-        if(num < 0) {1. Abstract Classes:
-
-            throw NegativeNumberError();Circle with radius 5
-
-        }Area: 78.5
-
-        return sqrt(num);
-
-    }Rectangle 4x6
-
-};Area: 24
-
-
-
-class Person {2. Function Overriding:
-
-    string name;Animal makes sound
-
-    int age;Dog barks: Woof!
-
-public:```
-
-    Person(string n, int a) : name(n) {
-
-        if(a < 0 || a > 150) {### Result
-
-            throw InvalidAgeError(a);Successfully demonstrated function overriding and abstract classes with simplified examples, showing how pure virtual functions create abstract classes and how derived classes override virtual functions for polymorphic behavior using Shape/Circle/Rectangle and Animal/Dog classes.
-
-        }
-
-        age = a;---
-
-    }
-
-## Practical 10: Exception Handling with Multiple Blocks
-
-    void display() {
-
-        cout << "Name: " << name << ", Age: " << age << endl;### Aim
-
-    }Write a C++ program to implement exception handling through multiple catch blocks.
-
-};
+    cout << endl;
 
 ### Theory
 
-int main() {Exception handling is a mechanism to handle runtime errors gracefully. C++ provides try-catch blocks to handle exceptions. Multiple catch blocks allow handling different types of exceptions separately.
+Virtual functions enable runtime polymorphism - base class pointer can call derived class functions. Friend functions are non-member functions that can access private/protected members of a class.    // Demonstrate arithmetic operator overloading
 
-    cout << "=== Custom Exception Classes ===" << endl;
+    cout << "\n2. Arithmetic Operator Overloading:" << endl;
 
-Key concepts:
+### Algorithm
 
-    // Test 1: Division by zero1. **try block**: Contains code that might throw exceptions
+1. Create Animal base class with virtual sound()    // Addition using overloaded + operator
 
-    cout << "\n1. Division Exception:" << endl;2. **catch blocks**: Handle specific types of exceptions
+2. Create Dog and Cat derived classes overriding sound()    cout << "c1 + c2 = ";
 
-    try {3. **throw statement**: Used to throw exceptions
+3. Demonstrate runtime polymorphism using base pointers    c3 = c1 + c2;
 
-        double result = Calculator::divide(10, 0);4. **Exception hierarchy**: Allows catching base class exceptions
+4. Create Box class with private members    c3.display();
 
-        cout << "Result: " << result << endl;5. **catch-all handler**: catch(...) handles any exception
+5. Implement friend functions to access private data    cout << endl;
+
+6. Demonstrate friend function access
+
+    // Subtraction using overloaded - operator
+
+### Code    cout << "c1 - c2 = ";
+
+```cpp    c3 = c1 - c2;
+
+#include <iostream>    c3.display();
+
+using namespace std;    cout << endl;
+
+
+
+// VIRTUAL FUNCTIONS    // Multiplication using overloaded * operator
+
+class Animal {    cout << "c1 * c2 = ";
+
+public:    c3 = c1 * c2;
+
+    virtual void sound() {    c3.display();
+
+        cout << "Animal makes sound" << endl;    cout << endl;
 
     }
 
-    catch(DivideByZeroError& e) {### Algorithm
+    virtual ~Animal() {}    // Demonstrate unary operator overloading
 
-        cout << "Error: " << e.what() << endl;1. Create functions that throw different types of exceptions
+};    cout << "\n3. Unary Operator Overloading:" << endl;
 
-    }2. Implement multiple catch blocks for different exception types
 
-3. Demonstrate exception hierarchy handling
 
-    // Test 2: Negative square root4. Show catch-all exception handling
+class Dog : public Animal {    // Unary minus using overloaded - operator
 
-    cout << "\n2. Negative Number Exception:" << endl;5. Implement nested try-catch blocks
+public:    cout << "-c1 = ";
+
+    void sound() override {    c3 = -c1;
+
+        cout << "Dog barks" << endl;    c3.display();
+
+    }    cout << endl;
+
+};
+
+    // Prefix increment using overloaded ++ operator
+
+class Cat : public Animal {    cout << "++c1 = ";
+
+public:    ++c1;
+
+    void sound() override {    c1.display();
+
+        cout << "Cat meows" << endl;    cout << endl;
+
+    }
+
+};    // Postfix increment using overloaded ++ operator
+
+    Complex c4 = c2++;
+
+// FRIEND FUNCTIONS    cout << "c4 = c2++ (c4 now): ";
+
+class Box {    c4.display();
+
+private:    cout << endl;
+
+    int length, width, height;    cout << "c2 after postfix ++: ";
+
+        c2.display();
+
+public:    cout << endl;
+
+    Box(int l, int w, int h) : length(l), width(w), height(h) {}
+
+        // Demonstrate comparison operator overloading
+
+    friend int calculateVolume(Box b);    cout << "\n4. Comparison Operator Overloading:" << endl;
+
+    friend void displayBox(Box b);    Complex c5(6.5, 4.5);  // Same as c1 after increment
+
+};    Complex c6(6.5, 4.5);  // Same as c5
+
+
+
+int calculateVolume(Box b) {    cout << "c5 = ";
+
+    return b.length * b.width * b.height;    c5.display();
+
+}    cout << endl;
+
+    cout << "c6 = ";
+
+void displayBox(Box b) {    c6.display();
+
+    cout << "Box: " << b.length << "x" << b.width << "x" << b.height << endl;    cout << endl;
+
+}
+
+    cout << "c5 == c6: " << (c5 == c6 ? "true" : "false") << endl;
+
+int main() {    cout << "c5 != c1: " << (c5 != c1 ? "true" : "false") << endl;
+
+    cout << "1. Virtual Functions:" << endl;
+
+    Animal* animals[3];    // Demonstrate compound assignment operator
+
+    animals[0] = new Dog();    cout << "\n5. Compound Assignment Operator:" << endl;
+
+    animals[1] = new Cat();    cout << "c5 before += operation: ";
+
+    animals[2] = new Dog();    c5.display();
+
+        cout << endl;
+
+    for(int i = 0; i < 3; i++) {
+
+        animals[i]->sound();    c5 += c2;
+
+    }    cout << "c5 after c5 += c2: ";
+
+        c5.display();
+
+    for(int i = 0; i < 3; i++) {    cout << endl;
+
+        delete animals[i];
+
+    }    // Demonstrate stream operator overloading
+
+        cout << "\n6. Stream Operator Overloading:" << endl;
+
+    cout << "\n2. Friend Functions:" << endl;    cout << "Using << operator: c1 = " << c1 << endl;
+
+    Box myBox(5, 3, 4);
+
+    displayBox(myBox);    cout << "\nEnter a new complex number:" << endl;
+
+    cout << "Volume: " << calculateVolume(myBox) << endl;    Complex userComplex;
+
+        cin >> userComplex;
+
+    return 0;    cout << "You entered: " << userComplex << endl;
+
+}
+
+```    return 0;
+
+}
+
+### Output```
+
+```
+
+1. Virtual Functions:### Output
+
+Dog barks```
+
+Cat meowsDemonstrating Operator Overloading in C++
+
+Dog barks=======================================
+
+
+
+2. Friend Functions:1. Initial Complex Numbers:
+
+Box: 5x3x4c1 = 5.5 + 3.5i
+
+Volume: 60c2 = 2.5 + 1.5i
+
+```
+
+2. Arithmetic Operator Overloading:
+
+### Resultc1 + c2 = 8 + 5i
+
+Successfully implemented virtual functions for runtime polymorphism and friend functions for accessing private members.c1 - c2 = 3 + 2i
+
+c1 * c2 = 8.25 + 15.5i
+
+---
+
+3. Unary Operator Overloading:
+
+## Practical 9: Function Overriding and Abstract Classes-c1 = -5.5 - 3.5i
+
+++c1 = 6.5 + 4.5i
+
+### Aimc4 = c2++ (c4 now): 2.5 + 1.5i
+
+Implement function overriding and abstract classes in C++.c2 after postfix ++: 3.5 + 2.5i
+
+
+
+### Theory4. Comparison Operator Overloading:
+
+Abstract classes contain at least one pure virtual function (virtual func() = 0) and cannot be instantiated. Derived classes must implement pure virtual functions. Function overriding allows derived classes to provide specific implementations.c5 = 6.5 + 4.5i
+
+c6 = 6.5 + 4.5i
+
+### Algorithmc5 == c6: true
+
+1. Create abstract Shape class with pure virtual area()c5 != c1: false
+
+2. Create Circle and Rectangle classes implementing area()
+
+3. Override display() function in derived classes5. Compound Assignment Operator:
+
+4. Create Animal base class with virtual sound()c5 before += operation: 6.5 + 4.5i
+
+5. Override sound() in Dog classc5 after c5 += c2: 10 + 7i
+
+6. Demonstrate polymorphic behavior
+
+6. Stream Operator Overloading:
+
+### CodeUsing << operator: c1 = 6.5 + 4.5i
+
+```cpp
+
+#include <iostream>Enter a new complex number:
+
+using namespace std;Enter real part: 7.5
+
+Enter imaginary part: 9.2
+
+// Abstract classYou entered: 7.5 + 9.2i
+
+class Shape {```
+
+protected:
+
+    string name;### Result
+
+public:Successfully demonstrated operator overloading in C++ by implementing:
+
+    Shape(string n) : name(n) {}1. Binary arithmetic operators (+, -, *)
+
+    2. Unary operators (prefix ++, postfix ++, unary -)
+
+    virtual double area() = 0;  // Pure virtual function3. Comparison operators (==, !=)
+
+    4. Compound assignment operator (+=)
+
+    virtual void display() {5. Stream operators (<< for output, >> for input)
+
+        cout << "This is a " << name << endl;6. Verified that operators work correctly with user-defined Complex number class
+
+    }
+
+};---
+
+
+
+class Circle : public Shape {## Practical 6: Operator Overloading II
+
+    double radius;
+
+public:### Aim
+
+    Circle(double r) : Shape("Circle"), radius(r) {}Write a C++ program to implement advanced concepts of operator overloading.
+
+
+
+    double area() override {### Theory
+
+        return 3.14 * radius * radius;Advanced operator overloading involves overloading special operators like assignment (=), subscript ([]), function call (()), and type conversion operators. These operators provide more sophisticated functionality and enable classes to behave like built-in types.
+
+    }
+
+    Key advanced operators:
+
+    void display() override {1. **Assignment operator (=)**: Handles object assignment and prevents shallow copying issues
+
+        cout << "Circle with radius " << radius << endl;2. **Subscript operator ([])**: Allows array-like access to class members
+
+    }3. **Function call operator (())**: Makes objects callable like functions
+
+};4. **Type conversion operators**: Enable implicit/explicit type conversions
+
+
+
+class Rectangle : public Shape {### Algorithm
+
+    double length, width;1. Define a `Matrix` class with dynamic memory allocation
+
+public:2. Implement assignment operator for deep copying
+
+    Rectangle(double l, double w) : Shape("Rectangle"), length(l), width(w) {}3. Overload subscript operator for element access
+
+    4. Implement function call operator for matrix operations
+
+    double area() override {5. Add type conversion operators
+
+        return length * width;6. Demonstrate all overloaded operators in main function
+
+    }
+
+    ### Program
+
+    void display() override {
+
+        cout << "Rectangle " << length << "x" << width << endl;```cpp
+
+    }// Aim: Write a C++ program to implement advanced operator overloading concepts
+
+};// KDK College of Engineering, Nagpur
+
+// B.Tech CSE, 2nd Year
+
+// Function overriding example// Author: Pranay Gajbhiye
+
+class Animal {
+
+public:#include <iostream>
+
+    virtual void sound() {using namespace std;
+
+        cout << "Animal makes sound" << endl;
+
+    }class Number {
+
+};private:
+
+    int value;
+
+class Dog : public Animal {
+
+public:public:
+
+    void sound() override {    Number(int v = 0) : value(v) {}
+
+        cout << "Dog barks: Woof!" << endl;
+
+    }    // Assignment operator
+
+};    Number& operator=(const Number& n) {
+
+        cout << "Assignment operator called" << endl;
+
+int main() {        value = n.value;
+
+    cout << "1. Abstract Classes:" << endl;        return *this;
+
+    Shape* shapes[2];    }
+
+    shapes[0] = new Circle(5);
+
+    shapes[1] = new Rectangle(4, 6);    // Subscript operator (returns digit at position)
+
+        int operator[](int pos) {
+
+    for(int i = 0; i < 2; i++) {        int temp = value;
+
+        shapes[i]->display();        for(int i = 0; i < pos; i++) {
+
+        cout << "Area: " << shapes[i]->area() << endl << endl;            temp /= 10;
+
+    }        }
+
+            return temp % 10;
+
+    cout << "2. Function Overriding:" << endl;    }
+
+    Animal* animals[2];
+
+    animals[0] = new Animal();    // Function call operator (power function)
+
+    animals[1] = new Dog();    int operator()(int exp) {
+
+            int result = 1;
+
+    for(int i = 0; i < 2; i++) {        for(int i = 0; i < exp; i++) {
+
+        animals[i]->sound();            result *= value;
+
+    }        }
+
+            return result;
+
+    delete shapes[0];    }
+
+    delete shapes[1];
+
+    delete animals[0];    // Type conversion to int
+
+    delete animals[1];    operator int() {
+
+            return value;
+
+    return 0;    }
+
+}
+
+```    void display() {
+
+        cout << "Value: " << value << endl;
+
+### Output    }
+
+```};
+
+1. Abstract Classes:
+
+Circle with radius 5int main() {
+
+Area: 78.5    cout << "=== Simple Operator Overloading ===" << endl;
+
+
+
+Rectangle 4x6    Number n1(23);
+
+Area: 24    Number n2;
+
+
+
+2. Function Overriding:    cout << "\n1. Original number:" << endl;
+
+Animal makes sound    n1.display();
+
+Dog barks: Woof!
+
+```    cout << "\n2. Assignment operator:" << endl;
+
+    n2 = n1;
+
+### Result    n2.display();
+
+Successfully implemented abstract classes with pure virtual functions and demonstrated function overriding.
+
+    cout << "\n3. Subscript operator (digits):" << endl;
+
+---    cout << "n1[0] (units digit) = " << n1[0] << endl;
+
+    cout << "n1[1] (tens digit) = " << n1[1] << endl;
+
+## Practical 10: Exception Handling Multiple Blocks
+
+    cout << "\n4. Function call operator (power):" << endl;
+
+### Aim    cout << "n1(2) = " << n1(2) << endl;
+
+Implement exception handling using multiple catch blocks in C++.
+
+    cout << "\n5. Type conversion:" << endl;
+
+### Theory    int x = n1;
+
+Exception handling uses try-catch blocks to handle runtime errors. Multiple catch blocks can handle different exception types. Custom exception classes can be created. catch(...) catches all exceptions.    cout << "Converted to int: " << x << endl;
+
+
+
+### Algorithm    return 0;
+
+1. Create custom exception classes (DivideByZero, NegativeNumber)}
+
+2. Create Calculator class with functions that throw exceptions```
+
+3. Use try-catch blocks with multiple catch handlers
+
+4. Demonstrate catching specific exception types### Output
+
+5. Demonstrate catch-all handler```
+
+6. Show successful operations without exceptions=== Simple Operator Overloading ===
+
+
+
+### Code1. Original number:
+
+```cppValue: 23
+
+#include <iostream>
+
+using namespace std;2. Assignment operator:
+
+Assignment operator called
+
+class DivideByZero {Value: 23
+
+public:
+
+    string message;3. Subscript operator (digits):
+
+    DivideByZero(string msg) : message(msg) {}n1[0] (units digit) = 3
+
+};n1[1] (tens digit) = 2
+
+
+
+class NegativeNumber {4. Function call operator (power):
+
+public:n1(2) = 529
+
+    string message;
+
+    NegativeNumber(string msg) : message(msg) {}5. Type conversion:
+
+};Converted to int: 23
+
+```
+
+class Calculator {
+
+public:### Result
+
+    static double divide(double a, double b) {Successfully demonstrated advanced operator overloading concepts with a simplified Number class, including assignment operator, subscript operator for digit access, function call operator for power calculation, and type conversion operator.
+
+        if(b == 0) {
+
+            throw DivideByZero("Cannot divide by zero!");---
+
+        }
+
+        return a / b;## Practical 7: Types of Inheritance
+
+    }
+
+    ### Aim
+
+    static double squareRoot(double num) {Write a C++ program to implement different types of inheritance.
+
+        if(num < 0) {
+
+            throw NegativeNumber("Cannot find square root of negative number!");### Theory
+
+        }Inheritance is a fundamental concept in OOP that allows a class to inherit properties and methods from another class. C++ supports five types of inheritance:
+
+        return sqrt(num);
+
+    }1. **Single Inheritance**: One derived class inherits from one base class
+
+    2. **Multilevel Inheritance**: A class inherits from another derived class (chain of inheritance)
+
+    static int getElement(int arr[], int size, int index) {3. **Multiple Inheritance**: One class inherits from multiple base classes
+
+        if(index >= size || index < 0) {4. **Hierarchical Inheritance**: Multiple classes inherit from a single base class
+
+            throw "Array index out of bounds!";5. **Hybrid Inheritance**: Combination of two or more types of inheritance
+
+        }
+
+        return arr[index];### Algorithm
+
+    }1. Implement Single Inheritance with Vehicle and Car classes
+
+};2. Implement Multilevel Inheritance with Animal, Mammal, and Dog classes
+
+3. Implement Multiple Inheritance with Father, Mother, and Child classes
+
+int main() {4. Implement Hierarchical Inheritance with Shape, Circle, and Rectangle classes
+
+    cout << "1. Division by Zero:" << endl;5. Implement Hybrid Inheritance combining multiple inheritance types
 
     try {
 
-        double result = Calculator::squareRoot(-16);### Program
+        double result = Calculator::divide(10, 0);### Program
 
         cout << "Result: " << result << endl;
 
     }```cpp
 
-    catch(NegativeNumberError& e) {// Aim: Write a C++ program to implement exception handling through multiple blocks
+    catch(DivideByZero& e) {// Aim: Write a C++ program to implement different types of inheritance
 
-        cout << "Error: " << e.what() << endl;// KDK College of Engineering, Nagpur
+        cout << "Caught DivideByZero: " << e.message << endl;// KDK College of Engineering, Nagpur
 
     }// B.Tech CSE, 2nd Year
 
-// Author: Pranay Gajbhiye
-
-    // Test 3: Invalid age
-
-    cout << "\n3. Invalid Age Exception:" << endl;#include <iostream>
-
-    try {using namespace std;
-
-        Person p1("John", 25);
-
-        p1.display();// Simple custom exception
-
-class DivideByZero {
-
-        Person p2("Invalid", -5);  // This will throw exceptionpublic:
-
-        p2.display();    string message;
-
-    }    DivideByZero(string msg) : message(msg) {}
-
-    catch(InvalidAgeError& e) {};
-
-        cout << "Error: " << e.what() << endl;
-
-        cout << "Invalid age was: " << e.getAge() << endl;class NegativeNumber {
-
-    }public:
-
-    string message;
-
-    // Test 4: Catching base exception    NegativeNumber(string msg) : message(msg) {}
-
-    cout << "\n4. Base Exception Handling:" << endl;};
-
-    try {
-
-        Calculator::divide(5, 0);// Calculator class with exception handling
-
-    }class Calculator {
-
-    catch(MyException& e) {  // Catches any derived exceptionpublic:
-
-        cout << "Caught MyException: " << e.what() << endl;    // Division function that throws exception for division by zero
-
-    }    static double divide(double a, double b) {
-
-        if(b == 0) {
-
-    cout << "\n5. Successful Operations:" << endl;            throw DivideByZero("Cannot divide by zero!");
-
-    try {        }
-
-        cout << "10 / 2 = " << Calculator::divide(10, 2) << endl;        return a / b;
-
-        cout << "sqrt(16) = " << Calculator::squareRoot(16) << endl;    }
-
-
-
-        Person p("Alice", 30);    static double squareRoot(double num) {
-
-        p.display();        if(num < 0) {
-
-    }            throw NegativeNumber("Cannot find square root of negative number!");
-
-    catch(MyException& e) {        }
-
-        cout << "Error: " << e.what() << endl;        return sqrt(num);
-
-    }    }
-
-
-
-    return 0;    static int getElement(int arr[], int size, int index) {
-
-}        if(index >= size || index < 0) {
-
-```            throw "Array index out of bounds!";
-
-        }
-
-### 📤 Output        return arr[index];
-
-```    }
-
-=== Custom Exception Classes ===
-
-};
-
-1. Division Exception:
-
-Error: Division by zero not allowed!int main() {
-
-    cout << "=== Exception Handling with Multiple Blocks ===" << endl;
-
-2. Negative Number Exception:
-
-Error: Negative number not allowed!    // Test 1: Division by zero
-
-    cout << "\n1. Division by Zero:" << endl;
-
-3. Invalid Age Exception:    try {
-
-Name: John, Age: 25        double result = Calculator::divide(10, 0);
-
-Error: Invalid age provided!        cout << "Result: " << result << endl;
-
-Invalid age was: -5    }
-
-    catch(DivideByZero& e) {
-
-4. Base Exception Handling:        cout << "Caught DivideByZero: " << e.message << endl;
-
-Caught MyException: Division by zero not allowed!    }
-
-    catch(...) {
-
-5. Successful Operations:        cout << "Caught unknown exception" << endl;
-
-10 / 2 = 5    }
-
-sqrt(16) = 4
-
-Name: Alice, Age: 30    // Test 2: Negative square root
-
-```    cout << "\n2. Negative Square Root:" << endl;
-
-    try {
-
-### ✅ Result        double result = Calculator::squareRoot(-16);
-
-Successfully implemented custom exception classes with inheritance hierarchy, demonstrating proper exception handling using base and derived exception classes.        cout << "Result: " << result << endl;
-
-    }
-
----    catch(NegativeNumber& e) {
-
-        cout << "Caught NegativeNumber: " << e.message << endl;
-
-## 📝 Learning Outcomes    }
-
-    catch(...) {
-
-After completing these practicals, students will understand:        cout << "Caught unknown exception" << endl;
-
-    }
-
-✅ **Function Overloading** - Compile-time polymorphism
-
-✅ **Constructors** - Object initialization techniques      // Test 3: Array bounds
-
-✅ **Operator Overloading** - Making operators work with custom classes      cout << "\n3. Array Out of Bounds:" << endl;
-
-✅ **Advanced Operators** - Assignment, subscript, and type conversion      try {
-
-✅ **Inheritance Types** - Single, multilevel, multiple, and hierarchical          int arr[] = {1, 2, 3, 4, 5};
-
-✅ **Virtual Functions** - Runtime polymorphism          int value = Calculator::getElement(arr, 5, 10);
-
-✅ **Friend Functions** - Accessing private members externally          cout << "Value: " << value << endl;
-
-✅ **Abstract Classes** - Pure virtual functions and inheritance      }
-
-✅ **Exception Handling** - Error handling with try-catch blocks      catch(const char* e) {
-
-✅ **Custom Exceptions** - Creating application-specific exception types          cout << "Caught string exception: " << e << endl;
-
-    }
-
----    catch(...) {
+    catch(...) {// Author: Pranay Gajbhiye
 
         cout << "Caught unknown exception" << endl;
 
-## 🔧 Compilation Notes    }
+    }#include <iostream>
+
+    using namespace std;
+
+    cout << "\n2. Negative Square Root:" << endl;
+
+    try {// 1. SINGLE INHERITANCE
+
+        double result = Calculator::squareRoot(-16);class Animal {
+
+        cout << "Result: " << result << endl;protected:
+
+    }    string name;
+
+    catch(NegativeNumber& e) {public:
+
+        cout << "Caught NegativeNumber: " << e.message << endl;    Animal(string n) : name(n) {}
+
+    }    void eat() { cout << name << " is eating" << endl; }
+
+    catch(...) {};
+
+        cout << "Caught unknown exception" << endl;
+
+    }class Dog : public Animal {
+
+    public:
+
+    cout << "\n3. Array Out of Bounds:" << endl;    Dog(string n) : Animal(n) {}
+
+    try {    void bark() { cout << name << " is barking" << endl; }
+
+        int arr[] = {1, 2, 3, 4, 5};};
+
+        int value = Calculator::getElement(arr, 5, 10);
+
+        cout << "Value: " << value << endl;// 2. MULTILEVEL INHERITANCE
+
+    }class Vehicle {
+
+    catch(const char* e) {protected:
+
+        cout << "Caught string exception: " << e << endl;    string brand;
+
+    }public:
+
+    catch(...) {    Vehicle(string b) : brand(b) {}
+
+        cout << "Caught unknown exception" << endl;    void start() { cout << brand << " started" << endl; }
+
+    }};
 
 
 
-**Compiler Used**: g++ (GCC)      // Test 4: Multiple catch blocks in one try
+    cout << "\n4. Successful Operations:" << endl;class Car : public Vehicle {
 
-**C++ Standard**: C++11 or later      cout << "\n4. Multiple Operations:" << endl;
+    try {public:
 
-**Platform**: Windows/Linux/Mac    try {
+        cout << "10 / 2 = " << Calculator::divide(10, 2) << endl;    Car(string b) : Vehicle(b) {}
 
-        Calculator::divide(5, 0);  // This will throw
+        cout << "sqrt(16) = " << Calculator::squareRoot(16) << endl;    void drive() { cout << "Car is driving" << endl; }
 
-**Common Compilation Commands:**        Calculator::squareRoot(-9);  // This won't execute
+        };
 
-```bash    }
+        int arr[] = {10, 20, 30};
 
-# Basic compilation    catch(DivideByZero& e) {
+        cout << "arr[1] = " << Calculator::getElement(arr, 3, 1) << endl;class SportsCar : public Car {
 
-g++ -o program program.cpp        cout << "Division error: " << e.message << endl;
+    }public:
+
+    catch(...) {    SportsCar(string b) : Car(b) {}
+
+        cout << "Unexpected error" << endl;    void turbo() { cout << "Turbo activated!" << endl; }
+
+    }};
+
+
+
+    return 0;// 3. MULTIPLE INHERITANCE
+
+}class Father {
+
+```protected:
+
+    string fname;
+
+### Outputpublic:
+
+```    Father(string f) : fname(f) {}
+
+1. Division by Zero:    void showFather() { cout << "Father: " << fname << endl; }
+
+Caught DivideByZero: Cannot divide by zero!};
+
+
+
+2. Negative Square Root:class Mother {
+
+Caught NegativeNumber: Cannot find square root of negative number!protected:
+
+    string mname;
+
+3. Array Out of Bounds:public:
+
+Caught string exception: Array index out of bounds!    Mother(string m) : mname(m) {}
+
+    void showMother() { cout << "Mother: " << mname << endl; }
+
+4. Successful Operations:};
+
+10 / 2 = 5
+
+sqrt(16) = 4class Child : public Father, public Mother {
+
+arr[1] = 20    string cname;
+
+```public:
+
+    Child(string c, string f, string m) : Father(f), Mother(m), cname(c) {}
+
+### Result    void showFamily() {
+
+Successfully demonstrated exception handling with multiple catch blocks for different exception types.        cout << "Child: " << cname << endl;
+
+        showFather();
+
+---        showMother();
 
     }
 
-# With debugging symbols    catch(NegativeNumber& e) {
+## Practical 11: Custom Exception Classes};
 
-g++ -g -o program program.cpp        cout << "Math error: " << e.message << endl;
+
+
+### Aim// 4. HIERARCHICAL INHERITANCE
+
+Implement custom exception classes with inheritance hierarchy in C++.class Shape {
+
+protected:
+
+### Theory    int size;
+
+Custom exception classes inherit from standard exception class. They can store additional error information and override what() method. Exception inheritance allows catching derived exceptions using base class handlers.public:
+
+    Shape(int s) : size(s) {}
+
+### Algorithm    void display() { cout << "Size: " << size << endl; }
+
+1. Create base MyException class inheriting from std::exception};
+
+2. Create derived exception classes (DivideByZeroError, NegativeNumberError, InvalidAgeError)
+
+3. Implement what() method to return error messagesclass Circle : public Shape {
+
+4. Create classes that throw custom exceptionspublic:
+
+5. Demonstrate catching specific derived exceptions    Circle(int r) : Shape(r) {}
+
+6. Demonstrate catching base exception class    void area() { cout << "Circle Area: " << 3.14 * size * size << endl; }
+
+};
+
+### Code
+
+```cppclass Square : public Shape {
+
+#include <iostream>public:
+
+#include <exception>    Square(int s) : Shape(s) {}
+
+using namespace std;    void area() { cout << "Square Area: " << size * size << endl; }
+
+};
+
+// Base custom exception class
+
+class MyException : public exception {int main() {
+
+protected:    cout << "=== Types of Inheritance ===" << endl;
+
+    string message;
+
+public:    cout << "\n1. Single Inheritance:" << endl;
+
+    MyException(string msg) : message(msg) {}    Dog d("Buddy");
+
+    const char* what() const throw() {    d.eat();
+
+        return message.c_str();    d.bark();
 
     }
 
-# With warnings enabled    catch(...) {
+};    cout << "\n2. Multilevel Inheritance:" << endl;
 
-g++ -Wall -o program program.cpp        cout << "Unknown error occurred" << endl;
+    SportsCar sc("Ferrari");
+
+// Derived exception classes    sc.start();
+
+class DivideByZeroError : public MyException {    sc.drive();
+
+public:    sc.turbo();
+
+    DivideByZeroError() : MyException("Division by zero not allowed!") {}
+
+};    cout << "\n3. Multiple Inheritance:" << endl;
+
+    Child c("Alice", "John", "Mary");
+
+class NegativeNumberError : public MyException {    c.showFamily();
+
+public:
+
+    NegativeNumberError() : MyException("Negative number not allowed!") {}    cout << "\n4. Hierarchical Inheritance:" << endl;
+
+};    Circle circle(5);
+
+    circle.display();
+
+class InvalidAgeError : public MyException {    circle.area();
+
+    int age;
+
+public:    Square square(4);
+
+    InvalidAgeError(int a) : MyException("Invalid age provided!"), age(a) {}    square.display();
+
+    int getAge() { return age; }    square.area();
+
+};
+
+    return 0;
+
+class Calculator {}
+
+public:```
+
+    static double divide(double a, double b) {
+
+        if(b == 0) {### Output
+
+            throw DivideByZeroError();```
+
+        }=== Types of Inheritance ===
+
+        return a / b;
+
+    }1. Single Inheritance:
+
+    Buddy is eating
+
+    static double squareRoot(double num) {Buddy is barking
+
+        if(num < 0) {
+
+            throw NegativeNumberError();2. Multilevel Inheritance:
+
+        }Ferrari started
+
+        return sqrt(num);Car is driving
+
+    }Turbo activated!
+
+};
+
+3. Multiple Inheritance:
+
+class Person {Child: Alice
+
+    string name;Father: John
+
+    int age;Mother: Mary
+
+public:
+
+    Person(string n, int a) : name(n) {4. Hierarchical Inheritance:
+
+        if(a < 0 || a > 150) {Size: 5
+
+            throw InvalidAgeError(a);Circle Area: 78.5
+
+        }Size: 4
+
+        age = a;Square Area: 16
+
+    }```
+
+
+
+    void display() {### Result
+
+        cout << "Name: " << name << ", Age: " << age << endl;Successfully demonstrated four types of inheritance with simplified examples: Single (Animal-Dog), Multilevel (Vehicle-Car-SportsCar), Multiple (Father-Mother-Child), and Hierarchical (Shape-Circle/Square) inheritance.
 
     }
 
-# With C++11 standard
+};---
 
-g++ -std=c++11 -o program program.cpp    cout << "\n5. Successful Operations:" << endl;
 
-```    try {
+
+int main() {## Practical 8: Virtual and Friend Functions
+
+    cout << "1. Division Exception:" << endl;
+
+    try {### Aim
+
+        double result = Calculator::divide(10, 0);Write a C++ program to implement concepts of Virtual and Friend Functions.
+
+        cout << "Result: " << result << endl;
+
+    }### Theory
+
+    catch(DivideByZeroError& e) {**Virtual Functions**: Enable runtime polymorphism by allowing derived classes to override base class methods. The correct function is called based on the object type, not pointer type.
+
+        cout << "Error: " << e.what() << endl;
+
+    }**Friend Functions**: Special functions that can access private and protected members of a class without being members themselves. They break encapsulation for specific needs.
+
+
+
+    cout << "\n2. Negative Number Exception:" << endl;Key concepts:
+
+    try {1. Virtual functions use late binding (runtime resolution)
+
+        double result = Calculator::squareRoot(-16);2. Pure virtual functions create abstract classes
+
+        cout << "Result: " << result << endl;3. Friend functions are declared with `friend` keyword
+
+    }4. Friend functions are not inherited
+
+    catch(NegativeNumberError& e) {
+
+        cout << "Error: " << e.what() << endl;### Algorithm
+
+    }1. Implement virtual functions with base Shape class and derived classes
+
+    2. Demonstrate runtime polymorphism using virtual functions
+
+    cout << "\n3. Invalid Age Exception:" << endl;3. Create friend functions to access private data
+
+    try {4. Show friend function usage for operator overloading
+
+        Person p1("John", 25);5. Implement pure virtual functions for abstract classes
+
+        p1.display();
+
+        ### Program
+
+        Person p2("Invalid", -5);
+
+        p2.display();```cpp
+
+    }// Aim: Write a C++ program to implement Virtual and Friend Functions
+
+    catch(InvalidAgeError& e) {// KDK College of Engineering, Nagpur
+
+        cout << "Error: " << e.what() << endl;// B.Tech CSE, 2nd Year
+
+        cout << "Invalid age was: " << e.getAge() << endl;// Author: Pranay Gajbhiye
+
+    }
+
+    #include <iostream>
+
+    cout << "\n4. Base Exception Handling:" << endl;using namespace std;
+
+    try {
+
+        Calculator::divide(5, 0);// VIRTUAL FUNCTIONS
+
+    }class Animal {
+
+    catch(MyException& e) {public:
+
+        cout << "Caught MyException: " << e.what() << endl;    virtual void sound() {
+
+    }        cout << "Animal makes sound" << endl;
+
+        }
+
+    cout << "\n5. Successful Operations:" << endl;    virtual ~Animal() {}
+
+    try {};
 
         cout << "10 / 2 = " << Calculator::divide(10, 2) << endl;
 
----        cout << "sqrt(16) = " << Calculator::squareRoot(16) << endl;
+        cout << "sqrt(16) = " << Calculator::squareRoot(16) << endl;class Dog : public Animal {
 
+        public:
 
+        Person p("Alice", 30);    void sound() override {
 
-## 📚 References        int arr[] = {10, 20, 30};
+        p.display();        cout << "Dog barks" << endl;
 
-        cout << "arr[1] = " << Calculator::getElement(arr, 3, 1) << endl;
+    }    }
 
-1. Object Oriented Programming with C++ - E. Balagurusamy    }
+    catch(MyException& e) {};
 
-2. C++: The Complete Reference - Herbert Schildt      catch(...) {
+        cout << "Error: " << e.what() << endl;
 
-3. Effective C++ - Scott Meyers        cout << "Unexpected error" << endl;
+    }class Cat : public Animal {
 
-4. C++ Programming Language - Bjarne Stroustrup    }
+    public:
 
+    return 0;    void sound() override {
 
+}        cout << "Cat meows" << endl;
 
----    return 0;
+```    }
+
+};
+
+### Output
+
+```// FRIEND FUNCTIONS
+
+1. Division Exception:class Box {
+
+Error: Division by zero not allowed!private:
+
+    int length, width, height;
+
+2. Negative Number Exception:
+
+Error: Negative number not allowed!public:
+
+    Box(int l, int w, int h) : length(l), width(w), height(h) {}
+
+3. Invalid Age Exception:
+
+Name: John, Age: 25    // Friend function can access private members
+
+Error: Invalid age provided!    friend int calculateVolume(Box b);
+
+Invalid age was: -5    friend void displayBox(Box b);
+
+};
+
+4. Base Exception Handling:
+
+Caught MyException: Division by zero not allowed!// Friend function definition
+
+int calculateVolume(Box b) {
+
+5. Successful Operations:    return b.length * b.width * b.height;  // Accessing private members
+
+10 / 2 = 5}
+
+sqrt(16) = 4
+
+Name: Alice, Age: 30void displayBox(Box b) {
+
+```    cout << "Box: " << b.length << "x" << b.width << "x" << b.height << endl;
 
 }
 
-## 👤 Author Information```
+### Result
 
+Successfully implemented custom exception classes with inheritance hierarchy and demonstrated exception handling using base and derived classes.int main() {
 
-
-**Name**: Pranay Gajbhiye  ### Output
-
-**Course**: B.Tech Computer Science Engineering  ```
-
-**Year**: 2nd Year  === Exception Handling with Multiple Blocks ===
-
-**Institution**: KDK College of Engineering, Nagpur
-
-**Subject**: Object Oriented Programming (OOP)1. Division by Zero:
-
-Caught DivideByZero: Cannot divide by zero!
+    cout << "=== Virtual and Friend Functions ===" << endl;
 
 ---
 
+    // Virtual Functions Demo
+
+**End of Documentation**    cout << "\n1. Virtual Functions:" << endl;
+
+    Animal* animals[3];
+    animals[0] = new Dog();
+    animals[1] = new Cat();
+    animals[2] = new Dog();
+
+    for(int i = 0; i < 3; i++) {
+        animals[i]->sound();  // Runtime polymorphism
+    }
+
+    // Clean up
+    for(int i = 0; i < 3; i++) {
+        delete animals[i];
+    }
+
+    // Friend Functions Demo
+    cout << "\n2. Friend Functions:" << endl;
+    Box myBox(5, 3, 4);
+
+    displayBox(myBox);
+    cout << "Volume: " << calculateVolume(myBox) << endl;
+
+    return 0;
+}
+```
+
+### Output
+```
+=== Virtual and Friend Functions ===
+
+1. Virtual Functions:
+Dog barks
+Cat meows
+Dog barks
+
+2. Friend Functions:
+Box: 5x3x4
+Volume: 60
+
+Combining accounts using friend operator+:
+Account Details:
+Account Number: ACC001_ACC002
+Balance: $2500
+
+3. FRIEND CLASS:
+Distance: 5 feet 8 inches
+In meters: 1.7272
+152.4 cm converted to: 5 feet 0 inches
+```
+
+### Result
+Successfully demonstrated virtual functions for runtime polymorphism with Animal/Dog/Cat classes and friend functions for accessing private members with Box class.
+
+---
+
+## Practical 9: Function Overriding and Abstract Classes
+
+### Aim
+Write a C++ program to implement concepts of function overriding and abstract classes.
+
+### Theory
+**Function Overriding**: A feature where a derived class provides a specific implementation of a method already defined in its base class. Requires virtual functions for proper polymorphic behavior.
+
+**Abstract Classes**: Classes containing one or more pure virtual functions. They cannot be instantiated and serve as base classes for other classes.
+
+Key concepts:
+1. Override keyword ensures proper function overriding
+2. Pure virtual functions make classes abstract
+3. Abstract classes define interfaces for derived classes
+4. Virtual destructors prevent memory leaks
+
+### Algorithm
+1. Create abstract base class with pure virtual functions
+2. Implement derived classes overriding virtual functions
+3. Demonstrate function overriding with virtual functions
+4. Show abstract class usage patterns
+5. Implement interface-like abstract classes
+
+### Program
+
+```cpp
+// Aim: Write a C++ program to implement function overriding and abstract classes
+// KDK College of Engineering, Nagpur
+// B.Tech CSE, 2nd Year
+// Author: Pranay Gajbhiye
+
+#include <iostream>
+using namespace std;
+
+// Abstract class (has pure virtual function)
+class Shape {
+protected:
+    string name;
+public:
+    Shape(string n) : name(n) {}
+
+    // Pure virtual function makes this abstract
+    virtual double area() = 0;
+
+    // Virtual function that can be overridden
+    virtual void display() {
+        cout << "This is a " << name << endl;
+    }
+};
+
+// Concrete classes inherit from abstract class
+class Circle : public Shape {
+    double radius;
+public:
+    Circle(double r) : Shape("Circle"), radius(r) {}
+
+    // Must override pure virtual function
+    double area() override {
+        return 3.14 * radius * radius;
+    }
+
+    // Override virtual function
+    void display() override {
+        cout << "Circle with radius " << radius << endl;
+    }
+};
+
+class Rectangle : public Shape {
+    double length, width;
+public:
+    Rectangle(double l, double w) : Shape("Rectangle"), length(l), width(w) {}
+
+    double area() override {
+        return length * width;
+    }
+
+    void display() override {
+        cout << "Rectangle " << length << "x" << width << endl;
+    }
+};
+
+// Example of function overriding
+class Animal {
+public:
+    virtual void sound() {
+        cout << "Animal makes sound" << endl;
+    }
+};
+
+class Dog : public Animal {
+public:
+    void sound() override {  // Function overriding
+        cout << "Dog barks: Woof!" << endl;
+    }
+};
+
+int main() {
+    cout << "=== Function Overriding and Abstract Classes ===" << endl;
+
+    // Cannot create object of abstract class
+    // Shape s;  // Error!
+
+    cout << "\n1. Abstract Classes:" << endl;
+    Shape* shapes[2];
+    shapes[0] = new Circle(5);
+    shapes[1] = new Rectangle(4, 6);
+
+    for(int i = 0; i < 2; i++) {
+        shapes[i]->display();  // Function overriding
+        cout << "Area: " << shapes[i]->area() << endl;
+        cout << endl;
+    }
+
+    cout << "\n2. Function Overriding:" << endl;
+    Animal* animals[2];
+    animals[0] = new Animal();
+    animals[1] = new Dog();
+
+    for(int i = 0; i < 2; i++) {
+        animals[i]->sound();  // Calls overridden version
+    }
+
+    // Clean up
+    delete shapes[0];
+    delete shapes[1];
+    delete animals[0];
+    delete animals[1];
+
+    return 0;
+}
+```
+
+### Output
+```
+=== Function Overriding and Abstract Classes ===
+
+1. Abstract Classes:
+Circle with radius 5
+Area: 78.5
+
+Rectangle 4x6
+Area: 24
+
+2. Function Overriding:
+Animal makes sound
+Dog barks: Woof!
+```
+
+### Result
+Successfully demonstrated function overriding and abstract classes with simplified examples, showing how pure virtual functions create abstract classes and how derived classes override virtual functions for polymorphic behavior using Shape/Circle/Rectangle and Animal/Dog classes.
+
+---
+
+## Practical 10: Exception Handling with Multiple Blocks
+
+### Aim
+Write a C++ program to implement exception handling through multiple catch blocks.
+
+### Theory
+Exception handling is a mechanism to handle runtime errors gracefully. C++ provides try-catch blocks to handle exceptions. Multiple catch blocks allow handling different types of exceptions separately.
+
+Key concepts:
+1. **try block**: Contains code that might throw exceptions
+2. **catch blocks**: Handle specific types of exceptions
+3. **throw statement**: Used to throw exceptions
+4. **Exception hierarchy**: Allows catching base class exceptions
+5. **catch-all handler**: catch(...) handles any exception
+
+### Algorithm
+1. Create functions that throw different types of exceptions
+2. Implement multiple catch blocks for different exception types
+3. Demonstrate exception hierarchy handling
+4. Show catch-all exception handling
+5. Implement nested try-catch blocks
+
+### Program
+
+```cpp
+// Aim: Write a C++ program to implement exception handling through multiple blocks
+// KDK College of Engineering, Nagpur
+// B.Tech CSE, 2nd Year
+// Author: Pranay Gajbhiye
+
+#include <iostream>
+using namespace std;
+
+// Simple custom exception
+class DivideByZero {
+public:
+    string message;
+    DivideByZero(string msg) : message(msg) {}
+};
+
+class NegativeNumber {
+public:
+    string message;
+    NegativeNumber(string msg) : message(msg) {}
+};
+
+// Calculator class with exception handling
+class Calculator {
+public:
+    // Division function that throws exception for division by zero
+    static double divide(double a, double b) {
+        if(b == 0) {
+            throw DivideByZero("Cannot divide by zero!");
+        }
+        return a / b;
+    }
+
+    static double squareRoot(double num) {
+        if(num < 0) {
+            throw NegativeNumber("Cannot find square root of negative number!");
+        }
+        return sqrt(num);
+    }
+
+    static int getElement(int arr[], int size, int index) {
+        if(index >= size || index < 0) {
+            throw "Array index out of bounds!";
+        }
+        return arr[index];
+    }
+
+};
+
+int main() {
+    cout << "=== Exception Handling with Multiple Blocks ===" << endl;
+
+    // Test 1: Division by zero
+    cout << "\n1. Division by Zero:" << endl;
+    try {
+        double result = Calculator::divide(10, 0);
+        cout << "Result: " << result << endl;
+    }
+    catch(DivideByZero& e) {
+        cout << "Caught DivideByZero: " << e.message << endl;
+    }
+    catch(...) {
+        cout << "Caught unknown exception" << endl;
+    }
+
+    // Test 2: Negative square root
+    cout << "\n2. Negative Square Root:" << endl;
+    try {
+        double result = Calculator::squareRoot(-16);
+        cout << "Result: " << result << endl;
+    }
+    catch(NegativeNumber& e) {
+        cout << "Caught NegativeNumber: " << e.message << endl;
+    }
+    catch(...) {
+        cout << "Caught unknown exception" << endl;
+    }
+
+    // Test 3: Array bounds
+    cout << "\n3. Array Out of Bounds:" << endl;
+    try {
+        int arr[] = {1, 2, 3, 4, 5};
+        int value = Calculator::getElement(arr, 5, 10);
+        cout << "Value: " << value << endl;
+    }
+    catch(const char* e) {
+        cout << "Caught string exception: " << e << endl;
+    }
+    catch(...) {
+        cout << "Caught unknown exception" << endl;
+    }
+
+    // Test 4: Multiple catch blocks in one try
+    cout << "\n4. Multiple Operations:" << endl;
+    try {
+        Calculator::divide(5, 0);  // This will throw
+        Calculator::squareRoot(-9);  // This won't execute
+    }
+    catch(DivideByZero& e) {
+        cout << "Division error: " << e.message << endl;
+    }
+    catch(NegativeNumber& e) {
+        cout << "Math error: " << e.message << endl;
+    }
+    catch(...) {
+        cout << "Unknown error occurred" << endl;
+    }
+
+    cout << "\n5. Successful Operations:" << endl;
+    try {
+        cout << "10 / 2 = " << Calculator::divide(10, 2) << endl;
+        cout << "sqrt(16) = " << Calculator::squareRoot(16) << endl;
+
+        int arr[] = {10, 20, 30};
+        cout << "arr[1] = " << Calculator::getElement(arr, 3, 1) << endl;
+    }
+    catch(...) {
+        cout << "Unexpected error" << endl;
+    }
+
+    return 0;
+}
+```
+
+### Output
+```
+=== Exception Handling with Multiple Blocks ===
+
+1. Division by Zero:
+Caught DivideByZero: Cannot divide by zero!
+
 2. Negative Square Root:
+Caught NegativeNumber: Cannot find square root of negative number!
 
-## 📞 Contact & SupportCaught NegativeNumber: Cannot find square root of negative number!
-
-
-
-For questions or clarifications about these practicals, please contact the course instructor or refer to the official course materials.3. Array Out of Bounds:
-
+3. Array Out of Bounds:
 Caught string exception: Array index out of bounds!
 
-**Happy Coding! 🚀**
-
 4. Multiple Operations:
+Division error: Cannot divide by zero!
 
----Division error: Cannot divide by zero!
-
-
-
-*Last Updated: November 2025*5. Successful Operations:
+5. Successful Operations:
 10 / 2 = 5
 sqrt(16) = 4
 arr[1] = 20
