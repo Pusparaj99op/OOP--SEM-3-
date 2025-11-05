@@ -8,6 +8,26 @@
 1. [Practical 3: Function Overloading](#practical-3-function-overloading)
 2. [Practical 4: Constructors](#practical-4-constructors)
 3. [Practical 5: Operator Overloading](#practical-5-operator-overloading)
+4. [Practical 6: Advanced Operator Overloading](#practical-6-operator-overloading-ii)
+5. [Practical 7: Types of Inheritance](#practical-7-types-of-inheritance)
+6. [Practical 8: Virtual and Friend Functions](#practical-8-virtual-and-friend-functions)
+7. [Practical 9: Function Overriding and Abstract Classes](#practical-9-function-overriding-and-abstract-classes)
+8. [Practical 10: Exception Handling Multiple Blocks](#practical-10-exception-handling-with-multiple-blocks)
+9. [Practical 11: Custom Exception Classes](#practical-11-custom-exception-classes)
+
+---
+
+### 📝 Important Update
+**Code Simplification**: Practicals 6-11 have been updated with simplified, student-friendly implementations:
+
+- **Practical 6**: Simplified from complex Matrix class to simple Number class demonstrating operator overloading
+- **Practical 7**: Streamlined inheritance examples with Animal-Dog, Vehicle-Car-SportsCar hierarchies
+- **Practical 8**: Simplified virtual functions with Animal/Dog/Cat and basic friend functions with Box class
+- **Practical 9**: Updated to use simple Shape/Circle/Rectangle and Animal/Dog abstract classes
+- **Practical 10**: Reduced to basic custom exceptions with clear multiple catch block examples
+- **Practical 11**: Simplified custom exception hierarchy focusing on practical inheritance patterns
+
+**Note**: The corresponding `.cpp` files (p6.cpp through p11.cpp) contain the simplified implementations. The README documentation reflects these simpler, more educational versions that are easier for students to understand and learn from.
 
 ---
 
@@ -701,148 +721,71 @@ Key advanced operators:
 #include <iostream>
 using namespace std;
 
-class Matrix {
+class Number {
 private:
-    int** data;
-    int rows, cols;
+    int value;
 
 public:
-    // Constructor
-    Matrix(int r, int c) : rows(r), cols(c) {
-        data = new int*[rows];
-        for(int i = 0; i < rows; i++) {
-            data[i] = new int[cols];
-            for(int j = 0; j < cols; j++) {
-                data[i][j] = 0;
-            }
-        }
-    }
+    Number(int v = 0) : value(v) {}
 
-    // Copy constructor
-    Matrix(const Matrix& m) : rows(m.rows), cols(m.cols) {
-        data = new int*[rows];
-        for(int i = 0; i < rows; i++) {
-            data[i] = new int[cols];
-            for(int j = 0; j < cols; j++) {
-                data[i][j] = m.data[i][j];
-            }
-        }
-    }
-
-    // Destructor
-    ~Matrix() {
-        for(int i = 0; i < rows; i++) {
-            delete[] data[i];
-        }
-        delete[] data;
-    }
-
-    // Assignment operator overloading
-    Matrix& operator=(const Matrix& m) {
+    // Assignment operator
+    Number& operator=(const Number& n) {
         cout << "Assignment operator called" << endl;
-        if(this != &m) {
-            // Delete old data
-            for(int i = 0; i < rows; i++) {
-                delete[] data[i];
-            }
-            delete[] data;
-
-            // Copy new data
-            rows = m.rows;
-            cols = m.cols;
-            data = new int*[rows];
-            for(int i = 0; i < rows; i++) {
-                data[i] = new int[cols];
-                for(int j = 0; j < cols; j++) {
-                    data[i][j] = m.data[i][j];
-                }
-            }
-        }
+        value = n.value;
         return *this;
     }
 
-    // Subscript operator overloading
-    int* operator[](int index) {
-        if(index < 0 || index >= rows) {
-            cout << "Index out of bounds!" << endl;
-            return nullptr;
+    // Subscript operator (returns digit at position)
+    int operator[](int pos) {
+        int temp = value;
+        for(int i = 0; i < pos; i++) {
+            temp /= 10;
         }
-        return data[index];
+        return temp % 10;
     }
 
-    // Function call operator overloading
-    int operator()(int i, int j) {
-        if(i < 0 || i >= rows || j < 0 || j >= cols) {
-            cout << "Invalid indices!" << endl;
-            return -1;
+    // Function call operator (power function)
+    int operator()(int exp) {
+        int result = 1;
+        for(int i = 0; i < exp; i++) {
+            result *= value;
         }
-        return data[i][j];
+        return result;
     }
 
-    // Type conversion operator (to int - returns sum of all elements)
+    // Type conversion to int
     operator int() {
-        int sum = 0;
-        for(int i = 0; i < rows; i++) {
-            for(int j = 0; j < cols; j++) {
-                sum += data[i][j];
-            }
-        }
-        return sum;
+        return value;
     }
 
     void display() {
-        for(int i = 0; i < rows; i++) {
-            for(int j = 0; j < cols; j++) {
-                cout << data[i][j] << " ";
-            }
-            cout << endl;
-        }
-    }
-
-    void setValue(int i, int j, int val) {
-        if(i >= 0 && i < rows && j >= 0 && j < cols) {
-            data[i][j] = val;
-        }
+        cout << "Value: " << value << endl;
     }
 };
 
 int main() {
-    cout << "=== Advanced Operator Overloading Demonstration ===" << endl;
+    cout << "=== Simple Operator Overloading ===" << endl;
 
-    // Create matrices
-    Matrix m1(2, 2);
-    Matrix m2(2, 2);
+    Number n1(23);
+    Number n2;
 
-    // Set values using setValue method
-    m1.setValue(0, 0, 1); m1.setValue(0, 1, 2);
-    m1.setValue(1, 0, 3); m1.setValue(1, 1, 4);
+    cout << "\n1. Original number:" << endl;
+    n1.display();
 
-    cout << "\nMatrix m1:" << endl;
-    m1.display();
+    cout << "\n2. Assignment operator:" << endl;
+    n2 = n1;
+    n2.display();
 
-    // Test assignment operator
-    cout << "\nTesting assignment operator (m2 = m1):" << endl;
-    m2 = m1;
-    cout << "Matrix m2 after assignment:" << endl;
-    m2.display();
+    cout << "\n3. Subscript operator (digits):" << endl;
+    cout << "n1[0] (units digit) = " << n1[0] << endl;
+    cout << "n1[1] (tens digit) = " << n1[1] << endl;
 
-    // Test subscript operator
-    cout << "\nTesting subscript operator:" << endl;
-    cout << "m1[0][1] = " << m1[0][1] << endl;
+    cout << "\n4. Function call operator (power):" << endl;
+    cout << "n1(2) = " << n1(2) << endl;
 
-    // Modify using subscript operator
-    m1[1][1] = 10;
-    cout << "After m1[1][1] = 10:" << endl;
-    m1.display();
-
-    // Test function call operator
-    cout << "\nTesting function call operator:" << endl;
-    cout << "m1(1,1) = " << m1(1, 1) << endl;
-
-    // Test type conversion operator
-    cout << "\nTesting type conversion operator:" << endl;
-    int sum = m1;  // Implicit conversion
-    cout << "Sum of all elements in m1: " << sum << endl;
+    cout << "\n5. Type conversion:" << endl;
+    int x = n1;
+    cout << "Converted to int: " << x << endl;
 
     return 0;
 }
@@ -850,34 +793,28 @@ int main() {
 
 ### Output
 ```
-=== Advanced Operator Overloading Demonstration ===
+=== Simple Operator Overloading ===
 
-Matrix m1:
-1 2
-3 4
+1. Original number:
+Value: 23
 
-Testing assignment operator (m2 = m1):
+2. Assignment operator:
 Assignment operator called
-Matrix m2 after assignment:
-1 2
-3 4
+Value: 23
 
-Testing subscript operator:
-m1[0][1] = 2
+3. Subscript operator (digits):
+n1[0] (units digit) = 3
+n1[1] (tens digit) = 2
 
-After m1[1][1] = 10:
-1 2
-3 10
+4. Function call operator (power):
+n1(2) = 529
 
-Testing function call operator:
-m1(1,1) = 10
-
-Testing type conversion operator:
-Sum of all elements in m1: 16
+5. Type conversion:
+Converted to int: 23
 ```
 
 ### Result
-Successfully demonstrated advanced operator overloading concepts including assignment operator, subscript operator, function call operator, and type conversion operator.
+Successfully demonstrated advanced operator overloading concepts with a simplified Number class, including assignment operator, subscript operator for digit access, function call operator for power calculation, and type conversion operator.
 
 ---
 
@@ -913,193 +850,117 @@ Inheritance is a fundamental concept in OOP that allows a class to inherit prope
 #include <iostream>
 using namespace std;
 
-// ============ SINGLE INHERITANCE ============
+// 1. SINGLE INHERITANCE
+class Animal {
+protected:
+    string name;
+public:
+    Animal(string n) : name(n) {}
+    void eat() { cout << name << " is eating" << endl; }
+};
+
+class Dog : public Animal {
+public:
+    Dog(string n) : Animal(n) {}
+    void bark() { cout << name << " is barking" << endl; }
+};
+
+// 2. MULTILEVEL INHERITANCE
 class Vehicle {
 protected:
     string brand;
-    int year;
 public:
-    Vehicle(string b, int y) : brand(b), year(y) {}
-    void displayVehicle() {
-        cout << "Brand: " << brand << ", Year: " << year << endl;
-    }
+    Vehicle(string b) : brand(b) {}
+    void start() { cout << brand << " started" << endl; }
 };
 
 class Car : public Vehicle {
-private:
-    int doors;
 public:
-    Car(string b, int y, int d) : Vehicle(b, y), doors(d) {}
-    void displayCar() {
-        cout << "Car Details - ";
-        displayVehicle();
-        cout << "Doors: " << doors << endl;
-    }
+    Car(string b) : Vehicle(b) {}
+    void drive() { cout << "Car is driving" << endl; }
 };
 
-// ============ MULTILEVEL INHERITANCE ============
-class Animal {
-protected:
-    string species;
+class SportsCar : public Car {
 public:
-    Animal(string s) : species(s) {}
-    void eat() { cout << species << " is eating" << endl; }
+    SportsCar(string b) : Car(b) {}
+    void turbo() { cout << "Turbo activated!" << endl; }
 };
 
-class Mammal : public Animal {
-protected:
-    bool warmBlooded;
-public:
-    Mammal(string s) : Animal(s), warmBlooded(true) {}
-    void breathe() { cout << "Mammal breathes air" << endl; }
-};
-
-class Dog : public Mammal {
-private:
-    string breed;
-public:
-    Dog(string b) : Mammal("Canine"), breed(b) {}
-    void bark() { cout << breed << " dog is barking" << endl; }
-    void displayDog() {
-        eat();
-        breathe();
-        bark();
-    }
-};
-
-// ============ MULTIPLE INHERITANCE ============
+// 3. MULTIPLE INHERITANCE
 class Father {
 protected:
-    string fatherName;
+    string fname;
 public:
-    Father(string fn) : fatherName(fn) {}
-    void fatherTraits() { cout << "Intelligence from " << fatherName << endl; }
+    Father(string f) : fname(f) {}
+    void showFather() { cout << "Father: " << fname << endl; }
 };
 
 class Mother {
 protected:
-    string motherName;
+    string mname;
 public:
-    Mother(string mn) : motherName(mn) {}
-    void motherTraits() { cout << "Creativity from " << motherName << endl; }
+    Mother(string m) : mname(m) {}
+    void showMother() { cout << "Mother: " << mname << endl; }
 };
 
 class Child : public Father, public Mother {
-private:
-    string childName;
+    string cname;
 public:
-    Child(string cn, string fn, string mn) : Father(fn), Mother(mn), childName(cn) {}
-    void displayChild() {
-        cout << "Child: " << childName << endl;
-        fatherTraits();
-        motherTraits();
+    Child(string c, string f, string m) : Father(f), Mother(m), cname(c) {}
+    void showFamily() {
+        cout << "Child: " << cname << endl;
+        showFather();
+        showMother();
     }
 };
 
-// ============ HIERARCHICAL INHERITANCE ============
+// 4. HIERARCHICAL INHERITANCE
 class Shape {
 protected:
-    string color;
+    int size;
 public:
-    Shape(string c) : color(c) {}
-    void displayColor() { cout << "Color: " << color << endl; }
+    Shape(int s) : size(s) {}
+    void display() { cout << "Size: " << size << endl; }
 };
 
 class Circle : public Shape {
-private:
-    double radius;
 public:
-    Circle(string c, double r) : Shape(c), radius(r) {}
-    void displayCircle() {
-        cout << "Circle - ";
-        displayColor();
-        cout << "Radius: " << radius << ", Area: " << 3.14 * radius * radius << endl;
-    }
+    Circle(int r) : Shape(r) {}
+    void area() { cout << "Circle Area: " << 3.14 * size * size << endl; }
 };
 
-class Rectangle : public Shape {
-private:
-    double length, width;
+class Square : public Shape {
 public:
-    Rectangle(string c, double l, double w) : Shape(c), length(l), width(w) {}
-    void displayRectangle() {
-        cout << "Rectangle - ";
-        displayColor();
-        cout << "Length: " << length << ", Width: " << width << ", Area: " << length * width << endl;
-    }
-};
-
-// ============ HYBRID INHERITANCE ============
-class Employee {
-protected:
-    int empId;
-    string name;
-public:
-    Employee(int id, string n) : empId(id), name(n) {}
-    void displayEmployee() { cout << "Employee ID: " << empId << ", Name: " << name << endl; }
-};
-
-class Manager : public Employee {
-protected:
-    string department;
-public:
-    Manager(int id, string n, string dept) : Employee(id, n), department(dept) {}
-    void displayManager() {
-        displayEmployee();
-        cout << "Department: " << department << endl;
-    }
-};
-
-class Developer : public Employee {
-protected:
-    string technology;
-public:
-    Developer(int id, string n, string tech) : Employee(id, n), technology(tech) {}
-    void displayDeveloper() {
-        displayEmployee();
-        cout << "Technology: " << technology << endl;
-    }
-};
-
-class TeamLead : public Manager, public Developer {
-private:
-    int teamSize;
-public:
-    TeamLead(int id, string n, string dept, string tech, int size)
-        : Manager(id, n, dept), Developer(id, n, tech), teamSize(size) {}
-    void displayTeamLead() {
-        cout << "Team Lead Details:" << endl;
-        Manager::displayEmployee(); // Resolve ambiguity
-        cout << "Department: " << department << ", Technology: " << technology << endl;
-        cout << "Team Size: " << teamSize << endl;
-    }
+    Square(int s) : Shape(s) {}
+    void area() { cout << "Square Area: " << size * size << endl; }
 };
 
 int main() {
-    cout << "=== TYPES OF INHERITANCE DEMONSTRATION ===" << endl;
+    cout << "=== Types of Inheritance ===" << endl;
 
-    cout << "\n1. SINGLE INHERITANCE:" << endl;
-    Car myCar("Toyota", 2023, 4);
-    myCar.displayCar();
+    cout << "\n1. Single Inheritance:" << endl;
+    Dog d("Buddy");
+    d.eat();
+    d.bark();
 
-    cout << "\n2. MULTILEVEL INHERITANCE:" << endl;
-    Dog myDog("German Shepherd");
-    myDog.displayDog();
+    cout << "\n2. Multilevel Inheritance:" << endl;
+    SportsCar sc("Ferrari");
+    sc.start();
+    sc.drive();
+    sc.turbo();
 
-    cout << "\n3. MULTIPLE INHERITANCE:" << endl;
-    Child child("Alice", "John", "Mary");
-    child.displayChild();
+    cout << "\n3. Multiple Inheritance:" << endl;
+    Child c("Alice", "John", "Mary");
+    c.showFamily();
 
-    cout << "\n4. HIERARCHICAL INHERITANCE:" << endl;
-    Circle circle("Red", 5.0);
-    circle.displayCircle();
+    cout << "\n4. Hierarchical Inheritance:" << endl;
+    Circle circle(5);
+    circle.display();
+    circle.area();
 
-    Rectangle rectangle("Blue", 10.0, 6.0);
-    rectangle.displayRectangle();
-
-    cout << "\n5. HYBRID INHERITANCE:" << endl;
-    TeamLead tl(101, "Bob Smith", "IT", "C++", 8);
-    tl.displayTeamLead();
+    Square square(4);
+    square.display();
+    square.area();
 
     return 0;
 }
@@ -1107,38 +968,31 @@ int main() {
 
 ### Output
 ```
-=== TYPES OF INHERITANCE DEMONSTRATION ===
+=== Types of Inheritance ===
 
-1. SINGLE INHERITANCE:
-Car Details - Brand: Toyota, Year: 2023
-Doors: 4
+1. Single Inheritance:
+Buddy is eating
+Buddy is barking
 
-2. MULTILEVEL INHERITANCE:
-Canine is eating
-Mammal breathes air
-German Shepherd dog is barking
+2. Multilevel Inheritance:
+Ferrari started
+Car is driving
+Turbo activated!
 
-3. MULTIPLE INHERITANCE:
+3. Multiple Inheritance:
 Child: Alice
-Intelligence from John
-Creativity from Mary
+Father: John
+Mother: Mary
 
-4. HIERARCHICAL INHERITANCE:
-Circle - Color: Red
-Radius: 5, Area: 78.5
-
-Rectangle - Color: Blue
-Length: 10, Width: 6, Area: 60
-
-5. HYBRID INHERITANCE:
-Team Lead Details:
-Employee ID: 101, Name: Bob Smith
-Department: IT, Technology: C++
-Team Size: 8
+4. Hierarchical Inheritance:
+Size: 5
+Circle Area: 78.5
+Size: 4
+Square Area: 16
 ```
 
 ### Result
-Successfully demonstrated all five types of inheritance: Single, Multilevel, Multiple, Hierarchical, and Hybrid inheritance with practical examples.
+Successfully demonstrated four types of inheritance with simplified examples: Single (Animal-Dog), Multilevel (Vehicle-Car-SportsCar), Multiple (Father-Mother-Child), and Hierarchical (Shape-Circle/Square) inheritance.
 
 ---
 
@@ -1176,189 +1030,76 @@ Key concepts:
 #include <iostream>
 using namespace std;
 
-// ============ VIRTUAL FUNCTIONS ============
-class Shape {
-protected:
-    string name;
+// VIRTUAL FUNCTIONS
+class Animal {
 public:
-    Shape(string n) : name(n) {}
-
-    // Virtual function for runtime polymorphism
-    virtual void draw() {
-        cout << "Drawing a generic shape: " << name << endl;
+    virtual void sound() {
+        cout << "Animal makes sound" << endl;
     }
+    virtual ~Animal() {}
+};
 
-    // Pure virtual function (makes this an abstract class)
-    virtual double area() = 0;
-
-    // Virtual destructor
-    virtual ~Shape() {
-        cout << "Shape destructor called" << endl;
+class Dog : public Animal {
+public:
+    void sound() override {
+        cout << "Dog barks" << endl;
     }
 };
 
-class Circle : public Shape {
+class Cat : public Animal {
+public:
+    void sound() override {
+        cout << "Cat meows" << endl;
+    }
+};
+
+// FRIEND FUNCTIONS
+class Box {
 private:
-    double radius;
-public:
-    Circle(double r) : Shape("Circle"), radius(r) {}
-
-    // Override virtual function
-    void draw() override {
-        cout << "Drawing a circle with radius: " << radius << endl;
-    }
-
-    double area() override {
-        return 3.14159 * radius * radius;
-    }
-
-    ~Circle() {
-        cout << "Circle destructor called" << endl;
-    }
-};
-
-class Rectangle : public Shape {
-private:
-    double length, width;
-public:
-    Rectangle(double l, double w) : Shape("Rectangle"), length(l), width(w) {}
-
-    void draw() override {
-        cout << "Drawing a rectangle " << length << "x" << width << endl;
-    }
-
-    double area() override {
-        return length * width;
-    }
-
-    ~Rectangle() {
-        cout << "Rectangle destructor called" << endl;
-    }
-};
-
-// ============ FRIEND FUNCTIONS ============
-class BankAccount {
-private:
-    string accountNumber;
-    double balance;
+    int length, width, height;
 
 public:
-    BankAccount(string accNum, double bal) : accountNumber(accNum), balance(bal) {}
+    Box(int l, int w, int h) : length(l), width(w), height(h) {}
 
-    // Friend function declaration
-    friend void displayAccountDetails(const BankAccount& acc);
-    friend BankAccount operator+(const BankAccount& acc1, const BankAccount& acc2);
-
-    void deposit(double amount) {
-        balance += amount;
-        cout << "Deposited: $" << amount << endl;
-    }
-
-    double getBalance() const { return balance; }
-    string getAccountNumber() const { return accountNumber; }
+    // Friend function can access private members
+    friend int calculateVolume(Box b);
+    friend void displayBox(Box b);
 };
 
-// Friend function definition - can access private members
-void displayAccountDetails(const BankAccount& acc) {
-    cout << "Account Details:" << endl;
-    cout << "Account Number: " << acc.accountNumber << endl;  // Accessing private member
-    cout << "Balance: $" << acc.balance << endl;  // Accessing private member
+// Friend function definition
+int calculateVolume(Box b) {
+    return b.length * b.width * b.height;  // Accessing private members
 }
 
-// Friend operator overloading
-BankAccount operator+(const BankAccount& acc1, const BankAccount& acc2) {
-    string newAccNum = acc1.accountNumber + "_" + acc2.accountNumber;
-    double newBalance = acc1.balance + acc2.balance;  // Accessing private members
-    return BankAccount(newAccNum, newBalance);
+void displayBox(Box b) {
+    cout << "Box: " << b.length << "x" << b.width << "x" << b.height << endl;
 }
-
-// Another example of friend function
-class Distance {
-private:
-    int feet, inches;
-
-public:
-    Distance(int f = 0, int i = 0) : feet(f), inches(i) {}
-
-    void display() {
-        cout << feet << " feet " << inches << " inches" << endl;
-    }
-
-    // Friend class declaration
-    friend class DistanceConverter;
-};
-
-// Friend class - can access all private members of Distance
-class DistanceConverter {
-public:
-    static double toMeters(const Distance& d) {
-        // Accessing private members of Distance class
-        return (d.feet * 0.3048) + (d.inches * 0.0254);
-    }
-
-    static Distance fromCentimeters(double cm) {
-        double totalInches = cm / 2.54;
-        int feet = totalInches / 12;
-        int inches = (int)totalInches % 12;
-        return Distance(feet, inches);
-    }
-};
 
 int main() {
-    cout << "=== VIRTUAL AND FRIEND FUNCTIONS DEMONSTRATION ===" << endl;
+    cout << "=== Virtual and Friend Functions ===" << endl;
 
-    // ============ VIRTUAL FUNCTIONS DEMO ============
-    cout << "\n1. VIRTUAL FUNCTIONS (Runtime Polymorphism):" << endl;
+    // Virtual Functions Demo
+    cout << "\n1. Virtual Functions:" << endl;
+    Animal* animals[3];
+    animals[0] = new Dog();
+    animals[1] = new Cat();
+    animals[2] = new Dog();
 
-    // Create objects
-    Shape* shapes[3];
-    shapes[0] = new Circle(5.0);
-    shapes[1] = new Rectangle(4.0, 6.0);
-    shapes[2] = new Circle(3.0);
-
-    // Runtime polymorphism - correct function called based on object type
     for(int i = 0; i < 3; i++) {
-        shapes[i]->draw();  // Virtual function call
-        cout << "Area: " << shapes[i]->area() << endl;
-        cout << "---" << endl;
+        animals[i]->sound();  // Runtime polymorphism
     }
 
     // Clean up
     for(int i = 0; i < 3; i++) {
-        delete shapes[i];  // Virtual destructor ensures proper cleanup
+        delete animals[i];
     }
 
-    // ============ FRIEND FUNCTIONS DEMO ============
-    cout << "\n2. FRIEND FUNCTIONS:" << endl;
+    // Friend Functions Demo
+    cout << "\n2. Friend Functions:" << endl;
+    Box myBox(5, 3, 4);
 
-    // Create bank accounts
-    BankAccount acc1("ACC001", 1000.0);
-    BankAccount acc2("ACC002", 1500.0);
-
-    cout << "Individual Account Details:" << endl;
-    displayAccountDetails(acc1);  // Friend function accessing private members
-    cout << endl;
-    displayAccountDetails(acc2);
-
-    // Friend operator overloading
-    cout << "\nCombining accounts using friend operator+:" << endl;
-    BankAccount combined = acc1 + acc2;  // Friend operator+ function
-    displayAccountDetails(combined);
-
-    // ============ FRIEND CLASS DEMO ============
-    cout << "\n3. FRIEND CLASS:" << endl;
-
-    Distance d1(5, 8);
-    cout << "Distance: ";
-    d1.display();
-
-    // Using friend class to convert
-    double meters = DistanceConverter::toMeters(d1);  // Friend class accessing private members
-    cout << "In meters: " << meters << endl;
-
-    Distance d2 = DistanceConverter::fromCentimeters(152.4);
-    cout << "152.4 cm converted to: ";
-    d2.display();
+    displayBox(myBox);
+    cout << "Volume: " << calculateVolume(myBox) << endl;
 
     return 0;
 }
@@ -1366,34 +1107,16 @@ int main() {
 
 ### Output
 ```
-=== VIRTUAL AND FRIEND FUNCTIONS DEMONSTRATION ===
+=== Virtual and Friend Functions ===
 
-1. VIRTUAL FUNCTIONS (Runtime Polymorphism):
-Drawing a circle with radius: 5
-Area: 78.5397
----
-Drawing a rectangle 4x6
-Area: 24
----
-Drawing a circle with radius: 3
-Area: 28.2743
----
-Circle destructor called
-Shape destructor called
-Rectangle destructor called
-Shape destructor called
-Circle destructor called
-Shape destructor called
+1. Virtual Functions:
+Dog barks
+Cat meows
+Dog barks
 
-2. FRIEND FUNCTIONS:
-Individual Account Details:
-Account Details:
-Account Number: ACC001
-Balance: $1000
-
-Account Details:
-Account Number: ACC002
-Balance: $1500
+2. Friend Functions:
+Box: 5x3x4
+Volume: 60
 
 Combining accounts using friend operator+:
 Account Details:
@@ -1407,7 +1130,7 @@ In meters: 1.7272
 ```
 
 ### Result
-Successfully demonstrated virtual functions for runtime polymorphism and friend functions for accessing private members, including friend classes and friend operator overloading.
+Successfully demonstrated virtual functions for runtime polymorphism with Animal/Dog/Cat classes and friend functions for accessing private members with Box class.
 
 ---
 
