@@ -1166,274 +1166,101 @@ Key concepts:
 // Author: Pranay Gajbhiye
 
 #include <iostream>
-#include <vector>
 using namespace std;
 
-// ============ ABSTRACT CLASS EXAMPLE 1 ============
-// Abstract Vehicle class with pure virtual functions
-class Vehicle {
-protected:
-    string brand;
-    string model;
-
-public:
-    Vehicle(string b, string m) : brand(b), model(m) {}
-
-    // Pure virtual functions - make this an abstract class
-    virtual void start() = 0;
-    virtual void stop() = 0;
-    virtual void displayInfo() = 0;
-    virtual double getFuelEfficiency() = 0;
-
-    // Regular virtual function
-    virtual void honk() {
-        cout << "Generic vehicle horn sound" << endl;
-    }
-
-    // Virtual destructor
-    virtual ~Vehicle() {
-        cout << "Vehicle destructor called for " << brand << endl;
-    }
-};
-
-// Concrete class - Car
-class Car : public Vehicle {
-private:
-    int doors;
-
-public:
-    Car(string b, string m, int d) : Vehicle(b, m), doors(d) {}
-
-    // Override pure virtual functions
-    void start() override {
-        cout << "Car engine started with key ignition" << endl;
-    }
-
-    void stop() override {
-        cout << "Car engine stopped" << endl;
-    }
-
-    void displayInfo() override {
-        cout << "Car: " << brand << " " << model << " (" << doors << " doors)" << endl;
-    }
-
-    double getFuelEfficiency() override {
-        return 15.5;  // km/l
-    }
-
-    // Override regular virtual function
-    void honk() override {
-        cout << "Car: Beep beep!" << endl;
-    }
-
-    ~Car() {
-        cout << "Car destructor called" << endl;
-    }
-};
-
-// Concrete class - Motorcycle
-class Motorcycle : public Vehicle {
-private:
-    bool hasSidecar;
-
-public:
-    Motorcycle(string b, string m, bool sidecar) : Vehicle(b, m), hasSidecar(sidecar) {}
-
-    void start() override {
-        cout << "Motorcycle started with kick/electric start" << endl;
-    }
-
-    void stop() override {
-        cout << "Motorcycle engine stopped" << endl;
-    }
-
-    void displayInfo() override {
-        cout << "Motorcycle: " << brand << " " << model;
-        if(hasSidecar) cout << " (with sidecar)";
-        cout << endl;
-    }
-
-    double getFuelEfficiency() override {
-        return 45.0;  // km/l
-    }
-
-    void honk() override {
-        cout << "Motorcycle: Peeep peeep!" << endl;
-    }
-
-    ~Motorcycle() {
-        cout << "Motorcycle destructor called" << endl;
-    }
-};
-
-// ============ ABSTRACT CLASS EXAMPLE 2 ============
-// Abstract Employee class
-abstract class Employee {
+// Abstract class (has pure virtual function)
+class Shape {
 protected:
     string name;
-    int id;
-
 public:
-    Employee(string n, int i) : name(n), id(i) {}
+    Shape(string n) : name(n) {}
 
-    // Pure virtual functions
-    virtual double calculateSalary() = 0;
-    virtual void displayRole() = 0;
+    // Pure virtual function makes this abstract
+    virtual double area() = 0;
 
-    // Regular functions
-    void displayBasicInfo() {
-        cout << "Employee ID: " << id << ", Name: " << name << endl;
-    }
-
-    virtual ~Employee() = default;
-};
-
-// Concrete derived class
-class Manager : public Employee {
-private:
-    double baseSalary;
-    double bonus;
-
-public:
-    Manager(string n, int i, double base, double b)
-        : Employee(n, i), baseSalary(base), bonus(b) {}
-
-    double calculateSalary() override {
-        return baseSalary + bonus;
-    }
-
-    void displayRole() override {
-        cout << "Role: Manager" << endl;
-        cout << "Base Salary: $" << baseSalary << ", Bonus: $" << bonus << endl;
+    // Virtual function that can be overridden
+    virtual void display() {
+        cout << "This is a " << name << endl;
     }
 };
 
-class Developer : public Employee {
-private:
-    double hourlyRate;
-    int hoursWorked;
-
-public:
-    Developer(string n, int i, double rate, int hours)
-        : Employee(n, i), hourlyRate(rate), hoursWorked(hours) {}
-
-    double calculateSalary() override {
-        return hourlyRate * hoursWorked;
-    }
-
-    void displayRole() override {
-        cout << "Role: Developer" << endl;
-        cout << "Hourly Rate: $" << hourlyRate << ", Hours: " << hoursWorked << endl;
-    }
-};
-
-// ============ INTERFACE-LIKE ABSTRACT CLASS ============
-class Drawable {
-public:
-    virtual void draw() = 0;
-    virtual void setColor(string color) = 0;
-    virtual ~Drawable() = default;
-};
-
-class Movable {
-public:
-    virtual void move(int x, int y) = 0;
-    virtual ~Movable() = default;
-};
-
-// Multiple inheritance from abstract classes (interfaces)
-class Shape : public Drawable, public Movable {
-protected:
-    string color;
-    int x, y;
-
-public:
-    Shape() : color("black"), x(0), y(0) {}
-
-    void setColor(string c) override {
-        color = c;
-    }
-
-    void move(int newX, int newY) override {
-        x = newX;
-        y = newY;
-        cout << "Shape moved to (" << x << ", " << y << ")" << endl;
-    }
-
-    // Still abstract - draw() not implemented
-    virtual void draw() = 0;
-    virtual ~Shape() = default;
-};
-
+// Concrete classes inherit from abstract class
 class Circle : public Shape {
-private:
     double radius;
-
 public:
-    Circle(double r) : radius(r) {}
+    Circle(double r) : Shape("Circle"), radius(r) {}
 
-    void draw() override {
-        cout << "Drawing " << color << " circle at (" << x << ", " << y
-             << ") with radius " << radius << endl;
+    // Must override pure virtual function
+    double area() override {
+        return 3.14 * radius * radius;
+    }
+
+    // Override virtual function
+    void display() override {
+        cout << "Circle with radius " << radius << endl;
+    }
+};
+
+class Rectangle : public Shape {
+    double length, width;
+public:
+    Rectangle(double l, double w) : Shape("Rectangle"), length(l), width(w) {}
+
+    double area() override {
+        return length * width;
+    }
+
+    void display() override {
+        cout << "Rectangle " << length << "x" << width << endl;
+    }
+};
+
+// Example of function overriding
+class Animal {
+public:
+    virtual void sound() {
+        cout << "Animal makes sound" << endl;
+    }
+};
+
+class Dog : public Animal {
+public:
+    void sound() override {  // Function overriding
+        cout << "Dog barks: Woof!" << endl;
     }
 };
 
 int main() {
-    cout << "=== FUNCTION OVERRIDING AND ABSTRACT CLASSES ===" << endl;
+    cout << "=== Function Overriding and Abstract Classes ===" << endl;
 
-    // ============ VEHICLE EXAMPLE ============
-    cout << "\n1. ABSTRACT VEHICLE CLASS:" << endl;
+    // Cannot create object of abstract class
+    // Shape s;  // Error!
 
-    // Cannot instantiate abstract class
-    // Vehicle v;  // Error! Cannot instantiate abstract class
+    cout << "\n1. Abstract Classes:" << endl;
+    Shape* shapes[2];
+    shapes[0] = new Circle(5);
+    shapes[1] = new Rectangle(4, 6);
 
-    // Create concrete objects
-    vector<Vehicle*> vehicles;
-    vehicles.push_back(new Car("Toyota", "Camry", 4));
-    vehicles.push_back(new Motorcycle("Honda", "CBR", false));
-    vehicles.push_back(new Car("BMW", "X5", 4));
+    for(int i = 0; i < 2; i++) {
+        shapes[i]->display();  // Function overriding
+        cout << "Area: " << shapes[i]->area() << endl;
+        cout << endl;
+    }
 
-    // Demonstrate function overriding and polymorphism
-    for(Vehicle* v : vehicles) {
-        v->displayInfo();           // Overridden function
-        v->start();                 // Overridden function
-        v->honk();                  // Overridden function
-        cout << "Fuel Efficiency: " << v->getFuelEfficiency() << " km/l" << endl;
-        v->stop();                  // Overridden function
-        cout << "---" << endl;
+    cout << "\n2. Function Overriding:" << endl;
+    Animal* animals[2];
+    animals[0] = new Animal();
+    animals[1] = new Dog();
+
+    for(int i = 0; i < 2; i++) {
+        animals[i]->sound();  // Calls overridden version
     }
 
     // Clean up
-    for(Vehicle* v : vehicles) {
-        delete v;  // Virtual destructor ensures proper cleanup
-    }
-
-    // ============ EMPLOYEE EXAMPLE ============
-    cout << "\n2. ABSTRACT EMPLOYEE CLASS:" << endl;
-
-    vector<Employee*> employees;
-    employees.push_back(new Manager("Alice Johnson", 101, 5000, 2000));
-    employees.push_back(new Developer("Bob Smith", 102, 50, 160));
-
-    for(Employee* emp : employees) {
-        emp->displayBasicInfo();
-        emp->displayRole();         // Overridden function
-        cout << "Total Salary: $" << emp->calculateSalary() << endl;  // Overridden function
-        cout << "---" << endl;
-    }
-
-    // Clean up
-    for(Employee* emp : employees) {
-        delete emp;
-    }
-
-    // ============ INTERFACE EXAMPLE ============
-    cout << "\n3. INTERFACE-LIKE ABSTRACT CLASSES:" << endl;
-
-    Circle circle(5.0);
-    circle.setColor("red");
-    circle.move(10, 20);
-    circle.draw();
+    delete shapes[0];
+    delete shapes[1];
+    delete animals[0];
+    delete animals[1];
 
     return 0;
 }
@@ -1441,53 +1268,22 @@ int main() {
 
 ### Output
 ```
-=== FUNCTION OVERRIDING AND ABSTRACT CLASSES ===
+=== Function Overriding and Abstract Classes ===
 
-1. ABSTRACT VEHICLE CLASS:
-Car: Toyota Camry (4 doors)
-Car engine started with key ignition
-Car: Beep beep!
-Fuel Efficiency: 15.5 km/l
-Car engine stopped
----
-Motorcycle: Honda CBR
-Motorcycle started with kick/electric start
-Motorcycle: Peeep peeep!
-Fuel Efficiency: 45 km/l
-Motorcycle engine stopped
----
-Car: BMW X5 (4 doors)
-Car engine started with key ignition
-Car: Beep beep!
-Fuel Efficiency: 15.5 km/l
-Car engine stopped
----
-Car destructor called
-Vehicle destructor called for Toyota
-Motorcycle destructor called
-Vehicle destructor called for Honda
-Car destructor called
-Vehicle destructor called for BMW
+1. Abstract Classes:
+Circle with radius 5
+Area: 78.5
 
-2. ABSTRACT EMPLOYEE CLASS:
-Employee ID: 101, Name: Alice Johnson
-Role: Manager
-Base Salary: $5000, Bonus: $2000
-Total Salary: $7000
----
-Employee ID: 102, Name: Bob Smith
-Role: Developer
-Hourly Rate: $50, Hours: 160
-Total Salary: $8000
----
+Rectangle 4x6
+Area: 24
 
-3. INTERFACE-LIKE ABSTRACT CLASSES:
-Shape moved to (10, 20)
-Drawing red circle at (10, 20) with radius 5
+2. Function Overriding:
+Animal makes sound
+Dog barks: Woof!
 ```
 
 ### Result
-Successfully demonstrated function overriding and abstract classes, showing how pure virtual functions create abstract classes and how derived classes override virtual functions for polymorphic behavior.
+Successfully demonstrated function overriding and abstract classes with simplified examples, showing how pure virtual functions create abstract classes and how derived classes override virtual functions for polymorphic behavior using Shape/Circle/Rectangle and Animal/Dog classes.
 
 ---
 
@@ -1522,30 +1318,19 @@ Key concepts:
 // Author: Pranay Gajbhiye
 
 #include <iostream>
-#include <stdexcept>
-#include <string>
 using namespace std;
 
-// Custom exception classes
-class DivisionByZeroException : public exception {
+// Simple custom exception
+class DivideByZero {
 public:
-    const char* what() const noexcept override {
-        return "Error: Division by zero is not allowed!";
-    }
+    string message;
+    DivideByZero(string msg) : message(msg) {}
 };
 
-class NegativeNumberException : public exception {
+class NegativeNumber {
 public:
-    const char* what() const noexcept override {
-        return "Error: Negative numbers are not allowed!";
-    }
-};
-
-class OutOfRangeException : public exception {
-public:
-    const char* what() const noexcept override {
-        return "Error: Number is out of valid range!";
-    }
+    string message;
+    NegativeNumber(string msg) : message(msg) {}
 };
 
 // Calculator class with exception handling
@@ -1553,180 +1338,98 @@ class Calculator {
 public:
     // Division function that throws exception for division by zero
     static double divide(double a, double b) {
-        if (b == 0) {
-            throw DivisionByZeroException();
+        if(b == 0) {
+            throw DivideByZero("Cannot divide by zero!");
         }
         return a / b;
     }
 
-    // Square root function that throws exception for negative numbers
     static double squareRoot(double num) {
-        if (num < 0) {
-            throw NegativeNumberException();
+        if(num < 0) {
+            throw NegativeNumber("Cannot find square root of negative number!");
         }
         return sqrt(num);
     }
 
-    // Array access function with range checking
-    static int getArrayElement(int arr[], int size, int index) {
-        if (index < 0 || index >= size) {
-            throw OutOfRangeException();
+    static int getElement(int arr[], int size, int index) {
+        if(index >= size || index < 0) {
+            throw "Array index out of bounds!";
         }
         return arr[index];
     }
 
-    // Function that throws standard exceptions
-    static void testStandardExceptions(int choice) {
-        switch(choice) {
-            case 1:
-                throw runtime_error("Runtime error occurred!");
-            case 2:
-                throw invalid_argument("Invalid argument provided!");
-            case 3:
-                throw out_of_range("Index out of range!");
-            case 4:
-                throw logic_error("Logic error detected!");
-            default:
-                throw exception();
-        }
-    }
 };
 
-// Function demonstrating nested exception handling
-void nestedExceptionHandling() {
-    cout << "\n--- Nested Exception Handling ---" << endl;
-
-    try {
-        cout << "Outer try block entered" << endl;
-
-        try {
-            cout << "Inner try block entered" << endl;
-            throw runtime_error("Exception from inner try block");
-        }
-        catch (runtime_error& e) {
-            cout << "Inner catch: " << e.what() << endl;
-            // Re-throwing the exception to outer catch
-            throw;
-        }
-    }
-    catch (runtime_error& e) {
-        cout << "Outer catch: " << e.what() << endl;
-    }
-}
-
 int main() {
-    cout << "=== EXCEPTION HANDLING WITH MULTIPLE BLOCKS ===" << endl;
+    cout << "=== Exception Handling with Multiple Blocks ===" << endl;
 
-    // ============ CUSTOM EXCEPTIONS ============
-    cout << "\n1. CUSTOM EXCEPTION HANDLING:" << endl;
-
-    // Test Division by Zero Exception
+    // Test 1: Division by zero
+    cout << "\n1. Division by Zero:" << endl;
     try {
-        cout << "Testing division: 10 / 0" << endl;
         double result = Calculator::divide(10, 0);
         cout << "Result: " << result << endl;
     }
-    catch (DivisionByZeroException& e) {
-        cout << "Caught DivisionByZeroException: " << e.what() << endl;
+    catch(DivideByZero& e) {
+        cout << "Caught DivideByZero: " << e.message << endl;
     }
-    catch (exception& e) {
-        cout << "Caught general exception: " << e.what() << endl;
+    catch(...) {
+        cout << "Caught unknown exception" << endl;
     }
 
-    cout << endl;
-
-    // Test Negative Number Exception
+    // Test 2: Negative square root
+    cout << "\n2. Negative Square Root:" << endl;
     try {
-        cout << "Testing square root: sqrt(-25)" << endl;
-        double result = Calculator::squareRoot(-25);
+        double result = Calculator::squareRoot(-16);
         cout << "Result: " << result << endl;
     }
-    catch (NegativeNumberException& e) {
-        cout << "Caught NegativeNumberException: " << e.what() << endl;
+    catch(NegativeNumber& e) {
+        cout << "Caught NegativeNumber: " << e.message << endl;
     }
-    catch (exception& e) {
-        cout << "Caught general exception: " << e.what() << endl;
+    catch(...) {
+        cout << "Caught unknown exception" << endl;
     }
 
-    cout << endl;
-
-    // Test Out of Range Exception
+    // Test 3: Array bounds
+    cout << "\n3. Array Out of Bounds:" << endl;
     try {
         int arr[] = {1, 2, 3, 4, 5};
-        cout << "Testing array access: arr[10] where size is 5" << endl;
-        int value = Calculator::getArrayElement(arr, 5, 10);
+        int value = Calculator::getElement(arr, 5, 10);
         cout << "Value: " << value << endl;
     }
-    catch (OutOfRangeException& e) {
-        cout << "Caught OutOfRangeException: " << e.what() << endl;
+    catch(const char* e) {
+        cout << "Caught string exception: " << e << endl;
     }
-    catch (exception& e) {
-        cout << "Caught general exception: " << e.what() << endl;
-    }
-
-    // ============ MULTIPLE CATCH BLOCKS ============
-    cout << "\n2. MULTIPLE CATCH BLOCKS FOR DIFFERENT EXCEPTIONS:" << endl;
-
-    for (int i = 1; i <= 5; i++) {
-        try {
-            cout << "\nTest case " << i << ":" << endl;
-            Calculator::testStandardExceptions(i);
-        }
-        catch (runtime_error& e) {
-            cout << "Caught runtime_error: " << e.what() << endl;
-        }
-        catch (invalid_argument& e) {
-            cout << "Caught invalid_argument: " << e.what() << endl;
-        }
-        catch (out_of_range& e) {
-            cout << "Caught out_of_range: " << e.what() << endl;
-        }
-        catch (logic_error& e) {
-            cout << "Caught logic_error: " << e.what() << endl;
-        }
-        catch (exception& e) {
-            cout << "Caught general exception: " << e.what() << endl;
-        }
-        catch (...) {
-            cout << "Caught unknown exception (catch-all handler)" << endl;
-        }
+    catch(...) {
+        cout << "Caught unknown exception" << endl;
     }
 
-    // ============ EXCEPTION HIERARCHY ============
-    cout << "\n3. EXCEPTION HIERARCHY HANDLING:" << endl;
-
+    // Test 4: Multiple catch blocks in one try
+    cout << "\n4. Multiple Operations:" << endl;
     try {
-        throw invalid_argument("This is an invalid_argument exception");
+        Calculator::divide(5, 0);  // This will throw
+        Calculator::squareRoot(-9);  // This won't execute
     }
-    catch (logic_error& e) {
-        cout << "Caught as logic_error: " << e.what() << endl;
+    catch(DivideByZero& e) {
+        cout << "Division error: " << e.message << endl;
     }
-    catch (exception& e) {
-        cout << "Caught as exception: " << e.what() << endl;
+    catch(NegativeNumber& e) {
+        cout << "Math error: " << e.message << endl;
+    }
+    catch(...) {
+        cout << "Unknown error occurred" << endl;
     }
 
-    // ============ NESTED EXCEPTION HANDLING ============
-    nestedExceptionHandling();
-
-    // ============ SUCCESSFUL OPERATIONS ============
-    cout << "\n4. SUCCESSFUL OPERATIONS (NO EXCEPTIONS):" << endl;
-
+    cout << "\n5. Successful Operations:" << endl;
     try {
-        double result1 = Calculator::divide(10, 2);
-        cout << "10 / 2 = " << result1 << endl;
+        cout << "10 / 2 = " << Calculator::divide(10, 2) << endl;
+        cout << "sqrt(16) = " << Calculator::squareRoot(16) << endl;
 
-        double result2 = Calculator::squareRoot(25);
-        cout << "sqrt(25) = " << result2 << endl;
-
-        int arr[] = {10, 20, 30, 40, 50};
-        int value = Calculator::getArrayElement(arr, 5, 2);
-        cout << "arr[2] = " << value << endl;
+        int arr[] = {10, 20, 30};
+        cout << "arr[1] = " << Calculator::getElement(arr, 3, 1) << endl;
     }
-    catch (exception& e) {
-        cout << "Unexpected exception: " << e.what() << endl;
+    catch(...) {
+        cout << "Unexpected error" << endl;
     }
-
-    cout << "\n=== EXCEPTION HANDLING DEMONSTRATION COMPLETED ===" << endl;
 
     return 0;
 }
@@ -1734,51 +1437,28 @@ int main() {
 
 ### Output
 ```
-=== EXCEPTION HANDLING WITH MULTIPLE BLOCKS ===
+=== Exception Handling with Multiple Blocks ===
 
-1. CUSTOM EXCEPTION HANDLING:
-Testing division: 10 / 0
-Caught DivisionByZeroException: Error: Division by zero is not allowed!
+1. Division by Zero:
+Caught DivideByZero: Cannot divide by zero!
 
-Testing square root: sqrt(-25)
-Caught NegativeNumberException: Error: Negative numbers are not allowed!
+2. Negative Square Root:
+Caught NegativeNumber: Cannot find square root of negative number!
 
-Testing array access: arr[10] where size is 5
-Caught OutOfRangeException: Error: Number is out of valid range!
+3. Array Out of Bounds:
+Caught string exception: Array index out of bounds!
 
-2. MULTIPLE CATCH BLOCKS FOR DIFFERENT EXCEPTIONS:
+4. Multiple Operations:
+Division error: Cannot divide by zero!
 
-Test case 1:
-Caught runtime_error: Runtime error occurred!
-
-Test case 2:
-Caught invalid_argument: Invalid argument provided!
-
-Test case 3:
-Caught out_of_range: Index out of range!
-
-Test case 4:
-Caught logic_error: Logic error detected!
-
-Test case 5:
-Caught general exception: std::exception
-
---- Nested Exception Handling ---
-Outer try block entered
-Inner try block entered
-Inner catch: Exception from inner try block
-Outer catch: Exception from inner try block
-
-4. SUCCESSFUL OPERATIONS (NO EXCEPTIONS):
+5. Successful Operations:
 10 / 2 = 5
-sqrt(25) = 5
-arr[2] = 30
-
-=== EXCEPTION HANDLING DEMONSTRATION COMPLETED ===
+sqrt(16) = 4
+arr[1] = 20
 ```
 
 ### Result
-Successfully demonstrated exception handling with multiple catch blocks, including custom exceptions, standard exceptions, exception hierarchy, and nested exception handling.
+Successfully demonstrated exception handling with multiple catch blocks using simplified custom exception classes, string exceptions, and catch-all handlers with practical examples.
 
 ---
 
@@ -1814,130 +1494,160 @@ Benefits of custom exceptions:
 
 #include <iostream>
 #include <exception>
-#include <string>
-#include <sstream>
 using namespace std;
 
-// ============ BASE CUSTOM EXCEPTION CLASS ============
-class CustomException : public exception {
+// Base custom exception class
+class MyException : public exception {
 protected:
     string message;
-    string fileName;
-    int lineNumber;
-
 public:
-    CustomException(const string& msg, const string& file = "", int line = 0)
-        : message(msg), fileName(file), lineNumber(line) {}
-
-    const char* what() const noexcept override {
+    MyException(string msg) : message(msg) {}
+    const char* what() const throw() {
         return message.c_str();
     }
+};
 
-    string getFileName() const { return fileName; }
-    int getLineNumber() const { return lineNumber; }
+// Specific custom exception classes
+class DivideByZeroError : public MyException {
+public:
+    DivideByZeroError() : MyException("Division by zero not allowed!") {}
+};
 
-    virtual string getFullErrorMessage() const {
-        stringstream ss;
-        ss << "Exception: " << message;
-        if (!fileName.empty()) {
-            ss << " (File: " << fileName << ", Line: " << lineNumber << ")";
+class NegativeNumberError : public MyException {
+public:
+    NegativeNumberError() : MyException("Negative number not allowed!") {}
+};
+
+class InvalidAgeError : public MyException {
+    int age;
+public:
+    InvalidAgeError(int a) : MyException("Invalid age provided!"), age(a) {}
+    int getAge() { return age; }
+};
+
+// Simple classes using custom exceptions
+class Calculator {
+public:
+    static double divide(double a, double b) {
+        if(b == 0) {
+            throw DivideByZeroError();
         }
-        return ss.str();
+        return a / b;
+    }
+
+    static double squareRoot(double num) {
+        if(num < 0) {
+            throw NegativeNumberError();
+        }
+        return sqrt(num);
     }
 };
 
-// ============ SPECIFIC CUSTOM EXCEPTION CLASSES ============
-
-// Mathematical operation exceptions
-class MathException : public CustomException {
+class Person {
+    string name;
+    int age;
 public:
-    MathException(const string& msg, const string& file = "", int line = 0)
-        : CustomException("Math Error: " + msg, file, line) {}
-};
-
-class DivisionByZeroException : public MathException {
-private:
-    double numerator;
-
-public:
-    DivisionByZeroException(double num, const string& file = "", int line = 0)
-        : MathException("Division by zero attempted", file, line), numerator(num) {}
-
-    double getNumerator() const { return numerator; }
-
-    string getFullErrorMessage() const override {
-        stringstream ss;
-        ss << "Division Error: Cannot divide " << numerator << " by zero";
-        if (!fileName.empty()) {
-            ss << " (File: " << fileName << ", Line: " << lineNumber << ")";
+    Person(string n, int a) : name(n) {
+        if(a < 0 || a > 150) {
+            throw InvalidAgeError(a);
         }
-        return ss.str();
+        age = a;
+    }
+
+    void display() {
+        cout << "Name: " << name << ", Age: " << age << endl;
     }
 };
 
-class NegativeSquareRootException : public MathException {
-private:
-    double value;
+int main() {
+    cout << "=== Custom Exception Classes ===" << endl;
 
-public:
-    NegativeSquareRootException(double val, const string& file = "", int line = 0)
-        : MathException("Square root of negative number", file, line), value(val) {}
-
-    double getValue() const { return value; }
-
-    string getFullErrorMessage() const override {
-        stringstream ss;
-        ss << "Math Error: Cannot calculate square root of negative number: " << value;
-        if (!fileName.empty()) {
-            ss << " (File: " << fileName << ", Line: " << lineNumber << ")";
-        }
-        return ss.str();
+    // Test 1: Division by zero
+    cout << "\n1. Division Exception:" << endl;
+    try {
+        double result = Calculator::divide(10, 0);
+        cout << "Result: " << result << endl;
     }
-};
-
-// File operation exceptions
-class FileException : public CustomException {
-public:
-    FileException(const string& msg, const string& file = "", int line = 0)
-        : CustomException("File Error: " + msg, file, line) {}
-};
-
-class FileNotFoundException : public FileException {
-private:
-    string attemptedFileName;
-
-public:
-    FileNotFoundException(const string& filename, const string& file = "", int line = 0)
-        : FileException("File not found", file, line), attemptedFileName(filename) {}
-
-    string getAttemptedFileName() const { return attemptedFileName; }
-
-    string getFullErrorMessage() const override {
-        stringstream ss;
-        ss << "File Error: Could not find file '" << attemptedFileName << "'";
-        if (!fileName.empty()) {
-            ss << " (File: " << fileName << ", Line: " << lineNumber << ")";
-        }
-        return ss.str();
+    catch(DivideByZeroError& e) {
+        cout << "Error: " << e.what() << endl;
     }
-};
 
-// Network operation exceptions
-class NetworkException : public CustomException {
-protected:
-    int errorCode;
+    // Test 2: Negative square root
+    cout << "\n2. Negative Number Exception:" << endl;
+    try {
+        double result = Calculator::squareRoot(-16);
+        cout << "Result: " << result << endl;
+    }
+    catch(NegativeNumberError& e) {
+        cout << "Error: " << e.what() << endl;
+    }
 
-public:
-    NetworkException(const string& msg, int code = 0, const string& file = "", int line = 0)
-        : CustomException("Network Error: " + msg, file, line), errorCode(code) {}
+    // Test 3: Invalid age
+    cout << "\n3. Invalid Age Exception:" << endl;
+    try {
+        Person p1("John", 25);
+        p1.display();
 
-    int getErrorCode() const { return errorCode; }
-};
+        Person p2("Invalid", -5);  // This will throw exception
+        p2.display();
+    }
+    catch(InvalidAgeError& e) {
+        cout << "Error: " << e.what() << endl;
+        cout << "Invalid age was: " << e.getAge() << endl;
+    }
 
-class ConnectionTimeoutException : public NetworkException {
-private:
-    int timeoutSeconds;
-    string serverAddress;
+    // Test 4: Catching base exception
+    cout << "\n4. Base Exception Handling:" << endl;
+    try {
+        Calculator::divide(5, 0);
+    }
+    catch(MyException& e) {  // Catches any derived exception
+        cout << "Caught MyException: " << e.what() << endl;
+    }
+
+    cout << "\n5. Successful Operations:" << endl;
+    try {
+        cout << "10 / 2 = " << Calculator::divide(10, 2) << endl;
+        cout << "sqrt(16) = " << Calculator::squareRoot(16) << endl;
+
+        Person p("Alice", 30);
+        p.display();
+    }
+    catch(MyException& e) {
+        cout << "Error: " << e.what() << endl;
+    }
+
+    return 0;
+
+}
+```
+
+### Output
+```
+=== Custom Exception Classes ===
+
+1. Division Exception:
+Error: Division by zero error
+
+2. Negative Number Exception:
+Error: Negative number error for value: -16
+
+3. Invalid Age Exception:
+Name: John, Age: 25
+Error: Invalid age error for age: -5
+Invalid age was: -5
+
+4. Base Exception Handling:
+Error: Division by zero error
+
+5. Successful Operations:
+10 / 2 = 5
+sqrt(16) = 4
+Name: Alice, Age: 30
+```
+
+### Result
+Successfully implemented custom exception classes with inheritance hierarchy, demonstrating proper exception handling using base and derived exception classes.
 
 public:
     ConnectionTimeoutException(const string& server, int timeout, const string& file = "", int line = 0)
